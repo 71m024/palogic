@@ -17,3 +17,7 @@ composer.phar
 
 # Netbeans
 /nbproject
+
+# Assetic
+/httpdocs/images/*
+/httpdocs/generated/*
