@@ -1,0 +1,20 @@
+<div id="comments">
+    <h3>{{ comments|length }} Kommentare</h3>
+    <ol id="singlecomments" class="commentlist">
+        {% for comment in comments %}
+            <li class= "clearfix" id="comment-{{ comment.id }}">
+                <!--<div class="user"><img alt="" src="style/images/art/a1.jpg" class="avatar" /></div>-->
+                <div class="message"><!--<a class="reply-link" href="#">Reply</a>-->
+                    <div class="info">
+                        <h2><a href="#">{{ comment.user }}</a></h2>
+                        <div class="meta">{{ comment.created|date("F d, Y") }}</div>
+                    </div>
+                    <p>{{ comment.comment }}</p>
+                </div>
+            </li>
+         {% else %}
+            <p>Keine Kommentare</p>
+         {% endfor %}
+
+    </ol>
+</div>

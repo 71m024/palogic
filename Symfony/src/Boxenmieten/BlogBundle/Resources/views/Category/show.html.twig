@@ -1,0 +1,46 @@
+{% extends 'BoxenmietenBlogBundle::layout.html.twig' %}
+
+{% block title %}{{ category.name }}{% endblock title %}
+
+{% block body %}
+    <section class="content">
+    <h1>Kategorie: {{ category.name }}</h1>
+    <hr />
+    {% for post in posts %}
+        <div class="post">
+            <div class="info">
+                <div class="date">
+                    <div class="day">{{ post.created|date('d') }}</div>
+                    <div class="month">{{ post.created|date('M') }}</div>
+                </div>
+                <div class="details">
+                    <h2 class="post-title"><a href="{{ path("boxenmieten_blog_show", {"id" : post.id, "slug" : post.slug}) }}">{{ post.title }}</a></h2>
+                    <div class="meta"> <span class="categories">Unter 
+                        {% for category in post.categories %}
+                            <a href="#">{{ category.name }}</a>
+                            {% if not loop.last %}, {% endif %}
+                        {% else %}
+                            keiner Kagetorie
+                        {% endfor %}
+                        <span class="sep"> | </span><span>Posted by <a href="#">{{ post.author }}</a></span>
+                        <span class="sep"> | </span><span><a href="#">{{ post.comments|length }} Comments</a></span>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            {% if post.image is not empty %}
+                <div class="overlay">
+                    <a href="{{ path("boxenmieten_blog_show", {"id" : post.id, "slug" : post.slug}) }}">
+                        <img src="{{ post.image.webPath  }}" alt="Post Image"/>
+                    </a>
+                </div>
+            {% endif %}
+            {{ post.headline }}
+            <a href="{{ path("boxenmieten_blog_show", {"id" : post.id, "slug" : post.slug}) }}" class="more">weiterlesen →</a>
+        </div>
+    {% else %}
+      <p>keine Posts vorhanden</p>
+    {% endfor %}
+{{ include('BoxenmietenBlogBundle:Pagination:paginator.html.twig', { 'paginator': paginator, 'pageRoute' : 'boxenmieten_blog_category_page', 'parameters' : {'categoryId' : category.id, 'categoryName' : category.name } } ) }}
+</section>
+{% endblock body %}

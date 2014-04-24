@@ -1,0 +1,26 @@
+{% extends 'BoxenmietenAppBundle::layout.html.twig' %}
+
+{% block title %}Angebote{% endblock%}
+
+{% block body %}
+<h1 class="aligncenter">Angebote</h1>
+<p class="description aligncenter">Wähle ob du ein komplettes Set oder einzelne Komponenten mieten willst.</p>
+<div class="one-half">
+    <a href="{{ path('boxenmieten_app_rent_sets') }}">
+        {% image '@BoxenmietenAppBundle/Resources/public/images/offers/sets.jpg' output='images/sets.jpg'%}
+            <img src="{{ asset_url }}" class="margin" alt="" />
+        {% endimage %}
+        <p class="description aligncenter">Die Preiswerte Variante um direkt loszulegen.</p>
+        <h2 class="aligncenter">Komplettes Set</h2>
+    </a>
+</div>
+<div class="one-half last">
+    <a href="{{ path('boxenmieten_app_rent_components') }}">
+        {% image '@BoxenmietenAppBundle/Resources/public/images/offers/komponenten.jpg' output='images/komponenten.jpg'%}
+            <img src="{{ asset_url }}" class="margin" alt="" />
+        {% endimage %}
+            <p class="description aligncenter">Miete nur das, was du brauchst.</p>
+        <h2 class="aligncenter">Einzelne Komponenten</h2>
+    </a>
+</div>
+{% endblock body %}

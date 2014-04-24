@@ -1,0 +1,32 @@
+{% extends 'BoxenmietenAppBundle::layout.html.twig' %}
+
+{% block title %}{{ component.model }}{% endblock%}
+
+{% block body %}
+<div class="portfolio-content">
+    <div class="portfolio-bannercontainer">
+        <div class="portfolio-banner">
+            <ul>
+                {% for image in component.images %}
+                <li data-transition="slidehorizontal"><img src="{{ image.webPath }}" alt="{{ image.title }}" /></li>
+                {% endfor %}
+            </ul>
+            <div class="tp-bannertimer tp-bottom"></div>
+        </div>
+    </div>
+    <section class="content">
+        <h2>{{ component.make }}, {{ component.model }}</h2>
+        <h3>{{ component.weekPrice }} CHF/Woche</h3>
+        {{ component.description|raw }}
+    </section>
+    <div class="item-details">
+        <ul class="item-info">
+            {% block details %}
+            <li><span class="lite1">Hersteller </span>{{ component.manufacturer }}</li>
+            <li><span class="lite1">Neupreis </span>{{ component.price }} CHF</li>
+            {% endblock %}
+            <a target="_blank" href="{{ component.website }}">Herstellerseite</a>
+        </ul>
+    <div class="clear"></div>
+</div>
+{% endblock body %}

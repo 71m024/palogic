@@ -1,0 +1,7 @@
+login:
+    path:     /login
+    defaults: { _controller: BoxenmietenSecurityBundle:Security:login }
+login_check:
+    path: /login_check
+logout:
+    path: /logout

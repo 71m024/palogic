@@ -1,0 +1,33 @@
+{% extends "BoxenmietenAppBundle::layout.html.twig" %}
+
+{% block title %}Sets{% endblock%}
+
+{% block body %}
+<h1 class="aligncenter">Sets</h1>
+<p class="description aligncenter">Alle Sets sind alleinständig und einsatzbereit.</a>
+<br />
+<br />
+{% for set in sets %}
+<h2>
+    <a href="{{ path("boxenmieten_app_set_show", {"id" : set.id, "slug" : set.slug}) }}" >
+        {{ set.name }}
+    </a> ({{ set.weekprice }} CHF/Woche)
+</h2>
+<div class="three-fourth">
+    <p>{{ set.summary }}</p>
+    <ul>
+        {% for setComponent in set.components %}
+        <li>{{ setComponent.num }} x <a href="{{ path("boxenmieten_app_component_show", {"id" : setComponent.component.id, "slug" : setComponent.component.slug}) }}" >{{ setComponent.component.model }}</a></li>
+        {% endfor %}
+    </ul>
+    <a href="{{ path("boxenmieten_app_set_show", {"id" : set.id, "slug" : set.slug}) }}" >Details</a>
+</div>
+<a href="{{ path('boxenmieten_app_set_show', { id : set.id, slug : set.slug }) }}">
+    <div class="one-fourth last">
+        <img src="{{ set.previewImage.webPath }}" alt="{{ set.previewImage.title }}" />
+    </div>
+</a>
+<div class="clear"></div>
+<hr />
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'BoxenmietenAppBundle::layout.html.twig' %}
+
+{% block title %}Komponenten{% endblock%}
+
+{% block body %}
+    <h1 class="aligncenter">Komponenten</h1>
+    <p class="description aligncenter">Miete einzelne Komponenten!</p>
+<br />
+
+<!-- Begin Portfolio -->
+<div class="portfolio-wrapper">
+    <ul class="filter">
+        <li><a class="active" href="#" data-filter="*">Alle</a></li>
+        <li><a href="#" data-filter=".boxe">Boxen</a></li>
+        <li><a href="#" data-filter=".stand">Boxenständer</a></li>
+        <li><a href="#" data-filter=".cable">Kabel</a></li>
+        <li><a href="#" data-filter=".mixer">Mixer</a></li>
+        {% for set in sets %}
+        <li><a href="#" data-filter=".{{ set.slug }}">{{ set.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <ul class="items col4">
+        {% for component in components %}
+        <li class="item {{ component.discr }} {% for componentSet in component.sets %}{{ componentSet.set.slug }} {% endfor %}">
+            <a href="{{ path("boxenmieten_app_component_show", {"id" : component.id, "slug" : component.slug}) }}">
+                <div class="overlay">
+                    <h3>{{ component.model }}</h3>
+                    <span class="meta">{{ component.make }}</span>
+                </div>
+                <img src="{{ component.previewImage.webPath }}" alt="" />
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="clear"></div>
+{% endblock body %}

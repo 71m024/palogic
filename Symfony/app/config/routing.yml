@@ -1,0 +1,24 @@
+boxenmieten_security:
+    resource: "@BoxenmietenSecurityBundle/Resources/config/routing.yml"
+    prefix:   /
+
+boxenmieten_app:
+    resource: "@BoxenmietenAppBundle/Resources/config/routing.yml"
+    prefix:   /
+
+boxenmieten_admin:
+    resource: "@BoxenmietenAdminBundle/Resources/config/routing.yml"
+    prefix:   /admin
+    
+boxenmieten_blog:
+    resource: "@BoxenmietenBlogBundle/Resources/config/routing.yml"
+    prefix:   /blog
+    
+boxenmieten_admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /admin
+
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /admin

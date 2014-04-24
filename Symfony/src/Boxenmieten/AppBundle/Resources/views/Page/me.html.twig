@@ -1,0 +1,59 @@
+{% extends 'BoxenmietenAppBundle::layout.html.twig' %}
+
+{% block title %}Timo Bühlmann{% endblock%}
+
+{#{% block top %}
+    <div class="dark-wrapper"> 
+        <div class="inner">
+            <div id="testimonials" class="tab-container">
+                <div class="panel-container">
+                    <div id="tst2">Wer Ordnung hält - ist nur zu faul zum suchen!</div>
+                    <div id="tst1">Wer andern eine Bratwurst brät, hat ein Bratwurstbratgerät.</div>
+                </div>
+                <ul class="etabs">
+                    <li class="tab"><a href="#tst1">1</a></li>
+                    <li class="tab"><a href="#tst2">2</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock top %}#}
+
+{% block body %}
+    <div class="two-third">
+        <h1 >Timo Bühlmann</h1>
+        <p>Ich absolviere momentan die Informatiker-Ausbildung bei der Post in Bern, wo ich auch die Berufsmaturität besuche.</p>
+        <p>Die Beschallung von Events fasziniert mich schon seit meiner frühen Kindheit.
+        Zusätzlich bin ich sehr motiviert, mich beim Aufbau von grösseren Musikanlagen zu betätigen und genieße es, diese anderen zur Verfügung zu stellen.</p>
+        <p>Ich freue mich, wenn du dich für Boxenmieten.ch entscheidest!</p>
+    </div>
+    <div class="one-third last">
+        {% image '@BoxenmietenAppBundle/Resources/public/images/me/Portrait_modified_small.jpg' output='images/me.jpg' %}
+            <img src="{{ asset_url }}" width="250" class="margin" alt="" />
+        {% endimage %}
+    </div>
+    <div class="clear"></div>
+{% endblock body %}
+    
+{% block bottom %}
+    <div class="dark-wrapper">
+        <div class="inner">
+            <div class="one-half">
+                <h3>Weitere Projekte</h3>
+                <ul>
+                    <li><a target="_blank" href="http://www.gvbwiki.ch">GVBWiki.ch</a></li>
+                    <li><a target="_blank" href="http://www.pilatesmoossee.ch">Pilatesmoossee.ch</a></li>
+                </ul>
+            </div>
+            <div class="one-half last">
+                <h3>Soziale Netzwerke</h3>
+                <ul>
+                    <li><a target="_blank" href="https://www.facebook.com/timo.buhlmann.5">Facebook</a></li>
+                    <li><a target="_blank" href="https://twitter.com/71m024">Twitter</a></li>
+                    <li><a target="_blank" href="https://plus.google.com/u/0/105145419186570094381/about">Google+</a></li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+{% endblock %}

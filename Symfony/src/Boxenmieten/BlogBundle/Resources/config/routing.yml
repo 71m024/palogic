@@ -1,0 +1,41 @@
+boxenmieten_blog:
+    pattern:  /
+    defaults: { _controller: BoxenmietenBlogBundle:Blog:index}
+    requirements:
+        _method:  GET
+        
+boxenmieten_blog_page:
+    pattern:  /{currentPage}
+    defaults: { _controller: BoxenmietenBlogBundle:Blog:index}
+    requirements:
+        _method:  GET
+        currentPage: \d+
+        
+boxenmieten_blog_show:
+    pattern:  /{id}/{slug}
+    defaults: { _controller: BoxenmietenBlogBundle:Blog:show}
+    requirements:
+        _method:  GET
+        id: \d+
+        
+boxenmieten_blog_comment:
+    pattern:  /kommentar/{post_id}
+    defaults: { _controller: BoxenmietenBlogBundle:Comment:create }
+    requirements:
+        _method:  POST
+        blog_id: \d+
+        
+boxenmieten_blog_category:
+    pattern:  /kategorie/{categoryId}/{categoryName}
+    defaults: { _controller: BoxenmietenBlogBundle:Category:show}
+    requirements:
+        _method:  GET
+        categoryId: \d+
+
+boxenmieten_blog_category_page:
+    pattern:  /kategorie/{categoryId}/{categoryName}/{currentPage}
+    defaults: { _controller: BoxenmietenBlogBundle:Category:show}
+    requirements:
+        _method:  GET
+        currentPage: \d+
+        categoryId: \d+

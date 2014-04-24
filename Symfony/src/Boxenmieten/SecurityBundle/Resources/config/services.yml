@@ -1,0 +1,7 @@
+parameters:
+#    boxenmieten_security.example.class: Boxenmieten\SecurityBundle\Example
+
+services:
+#    boxenmieten_security.example:
+#        class: %boxenmieten_security.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

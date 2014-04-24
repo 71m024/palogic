@@ -1,0 +1,7 @@
+{% extends 'BoxenmietenAppBundle::layout.html.twig' %}
+
+{% block body %}
+    <h1 class="aligncenter">Bild: {{ image.title }}</h1>
+    <p class="description aligncenter">{{ image.description }}</p>
+    <img class="aligncenter" src="{{ image.webPath }}" alt="{{ image.title }}" title="{{ image.title }}" />
+{% endblock body %}

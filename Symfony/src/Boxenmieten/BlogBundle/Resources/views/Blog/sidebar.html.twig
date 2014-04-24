@@ -1,0 +1,49 @@
+<aside class="sidebar">
+    <div class="sidebox">
+        <!--<h3>Popular Posts</h3>
+        <ul class="post-list">
+          <li>
+            <div class="overlay"> <a href="blog-post.html"><img src="style/images/art/a1.jpg" alt="" />
+              <div></div>
+              </a> </div>
+            <div class="meta">
+              <h6><a href="blog-post.html">Magna Mollis Ultricies</a></h6>
+              <em>3th Oct 2012</em> </div>
+          </li>
+          <li>
+            <div class="overlay"> <a href="blog-post.html"><img src="style/images/art/a2.jpg" alt="" />
+              <div></div>
+              </a> </div>
+            <div class="meta">
+              <h6><a href="blog-post.html">Ornare Nullam Risus</a></h6>
+              <em>28th Sep 2012</em> </div>
+          </li>
+          <li>
+            <div class="overlay"> <a href="blog-post.html"><img src="style/images/art/a3.jpg" alt="" />
+              <div></div>
+              </a> </div>
+            <div class="meta">
+              <h6><a href="blog-post.html">Euismod Nullam</a></h6>
+              <em>15th Aug 2012</em> </div>
+          </li>
+        </ul>
+        </div>
+        <div class="sidebox">
+        <h3>Search</h3>
+        <form class="searchform" method="get">
+          <input type="text" id="s2" name="s" value="type and hit enter" onfocus="this.value=''" onblur="this.value='type and hit enter'"/>
+        </form>
+        </div>-->
+        <div class="sidebox">
+            <h3>Aktuelle Themen</h3>
+            <p>Hier werden jeweils aktuelle Aktionen, News oder andere interessante Dinge bekannt gegeben.</p>
+        </div>
+        <div class="sidebox">
+            <h3>Kategorien</h3>
+            <ul class="list">
+                {% for category in categories %}
+                    <li><a href="{{ path("boxenmieten_blog_category", {"categoryId" : category.id, 'categoryName' : category.name|lower}) }}">{{ category.name }}</a> ({{ category.posts|length }})</li>
+                {% endfor %}
+            </ul>
+        </div>
+</aside>

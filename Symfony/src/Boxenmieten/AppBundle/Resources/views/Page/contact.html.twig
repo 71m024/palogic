@@ -1,0 +1,61 @@
+{% extends 'BoxenmietenAppBundle::layout.html.twig' %}
+
+{% block title %}Kontakt{% endblock%}
+
+{% block body %}
+    <h2 class="aligncenter">Kontakt</h2>
+    <p class="description aligncenter">Gerne geben wir dir Auskunft bezüglich unserer Musikanlagen.</p>
+    <br />
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10876.672718435018!2d7.456237251081002!3d47.03693058711507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478e3adaf8ce9a2b%3A0xc5add463a6993ac!2sDeisswil+bei+M%C3%BCnchenbuchsee!5e0!3m2!1sde!2sch!4v1393955087331" width="100%" height="400" frameborder="0" style="border:0"></iframe>
+    </div>
+    <br />
+    <!-- Begin Content -->
+    <section class="content">
+      <h2 id="frageGestellt">Bei Fragen schreib uns doch..</h2>
+      <!-- Begin Form -->
+      <div class="form-container">
+          {% for flashMessage in app.session.flashbag.get('question-notice') %}
+              <div class="response">
+                  {{ flashMessage }}
+              </div>
+          {% endfor %}
+          <form class="forms" action="{{ path('boxenmieten_app_contact') }}" method="post" {{ form_enctype(form) }}>
+              {{ form_errors(form) }}
+              {{ form_errors(form.name) }}
+              {{ form_errors(form.email) }}
+              {{ form_errors(form.tel) }}
+              {{ form_errors(form.body) }}
+              <fieldset>
+                  <ol>
+                      <li class="form-row text-input-row name-field">
+                          {{ form_widget(form.name, {'attr' : {'class' : 'text-input', 'placeholder' : 'Name (Benötigt)'}}) }}
+                      </li>
+                      <li class="form-row text-input-row email-field">
+                          {{ form_widget(form.email, {'attr' : {'class' : 'text-input email', 'placeholder' : 'E-Mail (Benötigt)'}}) }}
+                      </li>
+                      <li class="form-row text-input-row tel-field">
+                          {{ form_widget(form.tel, {'attr' : {'class' : 'text-input', 'placeholder' : 'Telefon'}}) }}
+                      </li>
+                      <li class="form-row text-area-row">
+                          {{ form_widget(form.body, {'attr' : {'class' : 'text-area'}}) }}
+                      </li>
+                      <li class="button-row">
+                          {{ form_widget(form.send, {'label' : 'senden', 'attr' : {'class' : 'btn-submit'}}) }}
+                      </li>
+                      {{ form_rest(form) }}
+                  </ol>
+              </fieldset>
+          </form>
+      </div>
+      <!-- End Form --> 
+    </section>
+    <aside class="sidebar">
+      <div class="sidebox">
+        <h3>Addresse</h3>
+        <i class="icon-location contact"></i>3053 Deisswil b.M.<br />
+        <i class="icon-phone contact"></i>+41 79 266 07 74 <br />
+        <i class="icon-mail contact"></i> <a href="mailto:info@boxenmieten.ch">info@boxenmieten.ch</a> </div>
+    </aside>
+    <div class="clear"></div>
+{% endblock %}

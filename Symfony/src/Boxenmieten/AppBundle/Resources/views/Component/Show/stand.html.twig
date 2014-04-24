@@ -1,0 +1,8 @@
+{% extends 'BoxenmietenAppBundle:Component:show.html.twig' %}
+
+{% block details %}
+{{ parent() }}
+<li><span class="lite1">Max-Höhe </span>{{ component.maxHeight }}</li>
+<li><span class="lite1">Min-Höhe </span>{{ component.minHeight }}</li>
+<li><span class="lite1">Max-Last </span>{{ component.maxLoad }}</li>
+{% endblock %}
