@@ -20,4 +20,6 @@ composer.phar
 
 # Assetic
 /httpdocs/images/*
+!/httpdocs/images/managed
+/httpdocs/images/managed/*
 /httpdocs/generated/*
