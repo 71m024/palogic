@@ -61,10 +61,13 @@ class BlogController extends Controller {
                    ->getManager();
 
         $categories = $em->getRepository('BoxenmietenBlogBundle:Category')
-                         ->findAll();
+                        ->findAll();
+        $tags = $em->getRepository('BoxenmietenBlogBundle:Tag')
+                        ->findAll(); 
 
         return array(
-            'categories'  => $categories
+            'categories'  => $categories,
+            'tags' => $tags
         );
     }
 }

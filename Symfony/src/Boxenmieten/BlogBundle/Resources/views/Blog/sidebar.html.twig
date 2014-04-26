@@ -46,4 +46,12 @@
                 {% endfor %}
             </ul>
         </div>
+        <div class="sidebox">
+            <h3>Tags</h3>
+            <ul id="tagcloud">
+                {% for tag in tags %}
+                    <li data-weight="{{ tag.posts|length }}"><a href="{{ path("boxenmieten_blog_tag", {"tagId" : tag.id, 'tag' : tag.tag|lower}) }}">{{ tag.tag }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
 </aside>

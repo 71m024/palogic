@@ -1,10 +1,10 @@
 {% extends 'BoxenmietenBlogBundle::layout.html.twig' %}
 
-{% block title %}{{ category.name }}{% endblock title %}
+{% block title %}{{ tag.tag }}{% endblock title %}
 
 {% block body %}
     <section class="content">
-    <h1>Kategorie: {{ category.name }}</h1>
+    <h1>Tag: {{ tag.tag }}</h1>
     <hr />
     {% for post in posts %}
         <div class="post">
@@ -16,8 +16,8 @@
                 <div class="details">
                     <h2 class="post-title"><a href="{{ path("boxenmieten_blog_show", {"id" : post.id, "slug" : post.slug}) }}">{{ post.title }}</a></h2>
                     <div class="meta"> <span class="categories">Unter 
-                        {% for category in post.categories %}
-                            <a href="{{ path("boxenmieten_blog_category", {"categoryId" : category.id, 'categoryName' : category.name|lower}) }}">{{ category.name }}</a>
+                        {% for tag in post.tags %}
+                            <a href="{{ path("boxenmieten_blog_category", {"categoryId" : category.id, 'categoryName' : category.name|lower}) }}">{{ tag.tag }}</a>
                             {% if not loop.last %}, {% endif %}
                         {% else %}
                             keiner Kagetorie
@@ -41,6 +41,6 @@
     {% else %}
       <p>keine Posts vorhanden</p>
     {% endfor %}
-{{ include('BoxenmietenBlogBundle:Pagination:paginator.html.twig', { 'paginator': paginator, 'pageRoute' : 'boxenmieten_blog_category_page', 'parameters' : {'categoryId' : category.id, 'categoryName' : category.name } } ) }}
+{{ include('BoxenmietenBlogBundle:Pagination:paginator.html.twig', { 'paginator': paginator, 'pageRoute' : 'boxenmieten_blog_tag_page', 'parameters' : {'tagId' : tag.id, 'tag' : tag.tag } } ) }}
 </section>
 {% endblock body %}

@@ -39,7 +39,7 @@ assetic:
     read_from: "%kernel.root_dir%/../../httpdocs"
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [BoxenmietenAppBundle]
+    bundles:        [BoxenmietenAppBundle, BoxenmietenBlogBundle]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

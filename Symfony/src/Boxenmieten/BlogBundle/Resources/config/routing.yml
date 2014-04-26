@@ -39,3 +39,18 @@ boxenmieten_blog_category_page:
         _method:  GET
         currentPage: \d+
         categoryId: \d+
+        
+boxenmieten_blog_tag:
+    pattern:  /tag/{tagId}/{tag}
+    defaults: { _controller: BoxenmietenBlogBundle:Tag:show}
+    requirements:
+        _method:  GET
+        tagId: \d+
+
+boxenmieten_blog_tag_page:
+    pattern:  /tag/{tagId}/{tag}/{currentPage}
+    defaults: { _controller: BoxenmietenBlogBundle:Tag:show}
+    requirements:
+        _method:  GET
+        currentPage: \d+
+        tagId: \d+

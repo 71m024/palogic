@@ -26,6 +26,22 @@ class PostRepository extends EntityRepository
         return $query->getResult();
     }
     
+    public function getPostsForTag($id, $limit = 10, $offset = 1)
+    {
+        $qb = $this->createQueryBuilder('p')
+                   ->select('p')
+                   ->join('p.tags', 't')->addSelect('t')
+                   ->where('t.id = :tagId')
+                   ->setParameter("tagId", $id)
+                   ->addOrderBy('p.created', 'DESC')
+                   ->setFirstResult($offset)
+                   ->setMaxResults($limit);
+
+        $query = $qb->getQuery();
+
+        return $query->getResult();
+    }
+    
     public function getPostsForCategory($id, $limit = 10, $offset = 1)
     {
         $qb = $this->createQueryBuilder('p')
@@ -40,6 +56,18 @@ class PostRepository extends EntityRepository
         $query = $qb->getQuery();
 
         return $query->getResult();
+    }
+    
+    public function getNumPostsForTag($id) {
+         $qb = $this->createQueryBuilder('p')
+                   ->join('p.tags', 't')->addSelect('t')
+                   ->where('t.id = :tagId')
+                   ->setParameter("tagId", $id)
+                   ->select('count(p)');
+
+        $query = $qb->getQuery();
+
+        return $query->getSingleScalarResult();
     }
     
     public function getNumPostsForCategory($id) {

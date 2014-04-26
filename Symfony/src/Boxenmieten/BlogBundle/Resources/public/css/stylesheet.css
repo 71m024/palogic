@@ -1,0 +1,9 @@
+ul.tx3-tag-cloud li::before
+{
+    content: none;
+}
+
+ul.tx3-tag-cloud li a
+{
+    color: #00ec11;
+}
