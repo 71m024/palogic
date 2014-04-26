@@ -12,13 +12,15 @@
             </div>
             <div class="details">
                 <h2 class="post-title"><a href="{{ path("boxenmieten_blog_show", {"id" : post.id, "slug" : post.slug}) }}">{{ post.title }}</a></h2>
-                <div class="meta"> <span class="categories">Unter 
-                    {% for category in post.categories %}
-                        <a href="#">{{ category.name }}</a>
+                <div class="meta"> 
+                    <span class="categories">Unter 
+                        {% for category in post.categories %}
+                        <a href="{{ path("boxenmieten_blog_category", {"categoryId" : category.id, 'categoryName' : category.name|lower}) }}">{{ category.name }}</a>
                         {% if not loop.last %}, {% endif %}
-                    {% else %}
+                        {% else %}
                         keiner Kagetorie
-                    {% endfor %}
+                        {% endfor %}
+                    </span>
                     <span class="sep"> | </span><span>Posted by <a href="#">{{ post.author }}</a></span>
                     <span class="sep"> | </span><span><a href="#">{{ post.comments|length }} Comments</a></span>
                 </div>

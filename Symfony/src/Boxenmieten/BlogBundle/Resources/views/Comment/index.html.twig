@@ -1,5 +1,6 @@
 <div id="comments">
     <h3>{{ comments|length }} Kommentare</h3>
+    {% if comments is not empty %}
     <ol id="singlecomments" class="commentlist">
         {% for comment in comments %}
             <li class= "clearfix" id="comment-{{ comment.id }}">
@@ -12,9 +13,9 @@
                     <p>{{ comment.comment }}</p>
                 </div>
             </li>
-         {% else %}
-            <p>Keine Kommentare</p>
-         {% endfor %}
-
+        {% endfor %}
     </ol>
+    {% else %}
+    <p>Keine Kommentare</p>
+    {% endif %}
 </div>
