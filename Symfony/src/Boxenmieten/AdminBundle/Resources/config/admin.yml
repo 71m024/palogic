@@ -86,4 +86,4 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [BoxenmietenAdminBundle]]
-            - [ setSubClasses, [{Boxe : "Boxenmieten\AppBundle\Entity\Boxe", Stand : "Boxenmieten\AppBundle\Entity\Stand", Cable : "Boxenmieten\AppBundle\Entity\Cable", Mixer : "Boxenmieten\AppBundle\Entity\Mixer"}]]
+            - [ setSubClasses, [{Boxe : "Boxenmieten\AppBundle\Entity\Boxe",Stand : "Boxenmieten\AppBundle\Entity\Stand", Cable : "Boxenmieten\AppBundle\Entity\Cable", Mixer : "Boxenmieten\AppBundle\Entity\Mixer", Mic : "Boxenmieten\AppBundle\Entity\Mic"}]]

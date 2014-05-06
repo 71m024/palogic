@@ -1,0 +1,47 @@
+<?php
+
+namespace Boxenmieten\AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Stand
+ *
+ * @ORM\Table(name="mic")
+ * @ORM\Entity(repositoryClass="Boxenmieten\AppBundle\Entity\Repository\MicRepository")
+ */
+class Mic extends Component
+{
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sensitivity", type="string", length=30)
+     */
+    private $sensitivity;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="directivity", type="string", length=30)
+     */
+    private $directivity;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="transmissionrange", type="string", length=30)
+     */
+    private $transmissionRange;
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="weight", type="string", length=30)
+     */
+    private $weight;
+    
+    public function getDiscr() {
+        return "mic";
+    }
+}

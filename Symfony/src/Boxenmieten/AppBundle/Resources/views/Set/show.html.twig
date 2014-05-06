@@ -23,7 +23,7 @@
         <p>Sieh dir die Komponenten hier an:</p>
         <ul>
             {% for setComponent in set.components %}
-            <li>{{ setComponent.num }} x <a href="{{ path("boxenmieten_app_component_show", {"id" : setComponent.component.id, "slug" : setComponent.component.slug}) }}" >{{ setComponent.component.model }}</a></li>
+            <li>{{ setComponent.num }} x <a href="{{ path("boxenmieten_app_component_show", {"id" : setComponent.component.id, "slug" : setComponent.component.slug}) }}" >{{ setComponent.component.make }}, {{ setComponent.component.model }}</a></li>
             {% endfor %}
         </ul>
         <div class="clear"></div>

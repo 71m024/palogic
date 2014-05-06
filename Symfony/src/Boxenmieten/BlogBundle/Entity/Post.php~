@@ -1,0 +1,432 @@
+<?php
+
+namespace Boxenmieten\BlogBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Boxenmieten\AppBundle\Util\SlugUtil;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * @ORM\Entity(repositoryClass="Boxenmieten\BlogBundle\Entity\Repository\PostRepository")
+ * @ORM\Table(name="post")
+ * @ORM\HasLifecycleCallbacks
+ */
+class Post
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $slug;
+
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $title;
+
+    /**
+     * @ORM\Column(type="string", length=100)
+     */
+    protected $author;
+    
+    /**
+     * @ORM\Column(type="string", length=100)
+     * @Assert\Length(
+     *      min = "10",
+     *      max = "100",
+     *      minMessage = "Your headline must be at least {{ limit }} characters long.",
+     *      maxMessage = "Your headline cannot be longer than {{ limit }} characters."
+     * )
+     */
+    protected $headline;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $text;
+    
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $textFormatter;
+    
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $rawText;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Boxenmieten\AppBundle\Entity\Image")
+     */
+    protected $image;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Comment", mappedBy="post", cascade={"persist", "remove"})
+     */
+    protected $comments;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $created;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    protected $updated;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="Boxenmieten\BlogBundle\Entity\Tag", inversedBy="posts", cascade={"persist"})
+     */
+    protected $tags;
+    
+    /**
+     *  @ORM\ManyToMany(targetEntity="Category", inversedBy="posts", cascade={"persist"})
+     */
+    private $categories;
+    
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+        
+        $this->setCreated(new \DateTime());
+        $this->setUpdated(new \DateTime());
+    }
+    
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
+    
+    /*
+     * @ORM\PreUpdate
+     */
+    public function setUpdatedValue() {
+        $this->setUpdated(new \DateTime());
+    }
+    
+    public function getRawText() {
+        return $this->rawText;
+    }
+    
+    public function getTextFormatter() {
+        return $this->textFormatter;
+    }
+    
+    public function setRawText($text) {
+        $this->rawText = $text;
+    }
+    
+    public function setTextFormatter($text) {
+        $this->textFormatter = $text;
+    }
+        
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     * @return Post
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+        
+        $this->setSlug(SlugUtil::slugify($this->title));
+
+        return $this;
+    }
+
+
+    /**
+     * Get blog
+     *
+     * @return string 
+     */
+    public function getText($length = null)
+    {
+        if (false === is_null($length) && $length > 0) {
+            return substr($this->text, 0, $length);
+        }
+        else {
+            return $this->text;
+        }
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Post
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string 
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set author
+     *
+     * @param string $author
+     * @return Post
+     */
+    public function setAuthor($author)
+    {
+        $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return string 
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * Set text
+     *
+     * @param string $text
+     * @return Post
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+
+        return $this;
+    }
+
+    /**
+     * Set image
+     *
+     * @param string $image
+     * @return Post
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string 
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Post
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return Post
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime 
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Add comments
+     *
+     * @param \Boxenmieten\BlogBundle\Entity\Comment $comments
+     * @return Post
+     */
+    public function addComment(\Boxenmieten\BlogBundle\Entity\Comment $comments)
+    {
+        $this->comments[] = $comments;
+
+        return $this;
+    }
+
+    /**
+     * Remove comments
+     *
+     * @param \Boxenmieten\BlogBundle\Entity\Comment $comments
+     */
+    public function removeComment(\Boxenmieten\BlogBundle\Entity\Comment $comments)
+    {
+        $this->comments->removeElement($comments);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
+
+    /**
+     * Add tags
+     *
+     * @param \Boxenmieten\BlogBundle\Entity\Tag $tags
+     * @return Post
+     */
+    public function addTag(\Boxenmieten\BlogBundle\Entity\Tag $tags)
+    {
+        $this->tags[] = $tags;
+
+        return $this;
+    }
+
+    /**
+     * Remove tags
+     *
+     * @param \Boxenmieten\BlogBundle\Entity\Tag $tags
+     */
+    public function removeTag(\Boxenmieten\BlogBundle\Entity\Tag $tags)
+    {
+        $this->tags->removeElement($tags);
+    }
+
+    /**
+     * Get tags
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTags()
+    {
+        return $this->tags;
+    }
+
+    /**
+     * Add categories
+     *
+     * @param \Boxenmieten\BlogBundle\Entity\Category $categories
+     * @return Post
+     */
+    public function addCategory(\Boxenmieten\BlogBundle\Entity\Category $categories)
+    {
+        $this->categories[] = $categories;
+
+        return $this;
+    }
+
+    /**
+     * Remove categories
+     *
+     * @param \Boxenmieten\BlogBundle\Entity\Category $categories
+     */
+    public function removeCategory(\Boxenmieten\BlogBundle\Entity\Category $categories)
+    {
+        $this->categories->removeElement($categories);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+    /**
+     * Set headline
+     *
+     * @param string $headline
+     * @return Post
+     */
+    public function setHeadline($headline)
+    {
+        $this->headline = $headline;
+
+        return $this;
+    }
+
+    /**
+     * Get headline
+     *
+     * @return string 
+     */
+    public function getHeadline()
+    {
+        return $this->headline;
+    }
+}

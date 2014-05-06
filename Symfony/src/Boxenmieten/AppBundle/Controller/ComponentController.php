@@ -8,6 +8,7 @@ use Boxenmieten\AppBundle\Entity\Boxe;
 use Boxenmieten\AppBundle\Entity\Mixer;
 use Boxenmieten\AppBundle\Entity\Cable;
 use Boxenmieten\AppBundle\Entity\Stand;
+use Boxenmieten\AppBundle\Entity\Mic;
 
 class ComponentController extends Controller
 {
@@ -49,6 +50,11 @@ class ComponentController extends Controller
         
         if ($component instanceof Cable) {
             return $this->render('BoxenmietenAppBundle:Component/Show:cable.html.twig',
+                    array('component' => $component));
+        }
+        
+        if ($component instanceof Mic) {
+            return $this->render('BoxenmietenAppBundle:Component/Show:mic.html.twig',
                     array('component' => $component));
         }
     }

@@ -10,6 +10,7 @@ use Boxenmieten\AppBundle\Entity\Boxe;
 use Boxenmieten\AppBundle\Entity\Stand;
 use Boxenmieten\AppBundle\Entity\Cable;
 use Boxenmieten\AppBundle\Entity\Mixer;
+use Boxenmieten\AppBundle\Entity\Mic;
 
 class ComponentAdmin extends Admin
 {
@@ -76,6 +77,15 @@ class ComponentAdmin extends Admin
                 ->add('inputs', 'text', array('label' => 'Eingänge'))
                 ->add('outputs', 'text', array('label' => 'Ausgänge'))
                 ->add('preamps', 'text', array('label' => 'Vorverstärker'));
+        }
+        
+        if ($component instanceof Mic) {
+            $formMapper
+                ->with('Detail')
+                ->add('sensitivity', 'text', array('label' => 'Empfindlichkeit'))
+                ->add('directivity', 'text', array('label' => 'Richtcharakteristik'))
+                ->add('transmissionRange', 'text', array('label' => 'Übertragungsbereich'))
+                ->add('weight', 'text', array('label' => 'Gewicht'));
         }
     }
 
