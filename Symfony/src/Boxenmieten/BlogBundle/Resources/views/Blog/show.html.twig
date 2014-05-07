@@ -1,5 +1,7 @@
 {% extends 'BoxenmietenBlogBundle::layout.html.twig' %}
 
+{% block description %}{{ post.title }}: {{ post.headline }}{% endblock %}
+
 {% block title %}Blog{% endblock%}
 
 {% block body %}
