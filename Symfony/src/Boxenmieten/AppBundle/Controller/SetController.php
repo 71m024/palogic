@@ -14,7 +14,7 @@ class SetController extends Controller
         
         $em = $this->getDoctrine()->getManager();
         
-        $sets = $em->getRepository('BoxenmietenAppBundle:Set')->findAll();
+        $sets = $em->getRepository('BoxenmietenAppBundle:Set')->findBy(array(), array("weekPrice" => "ASC"));
         
         return array('sets' => $sets);
     }
