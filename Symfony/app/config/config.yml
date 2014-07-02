@@ -36,7 +36,7 @@ twig:
 
 # Assetic Configuration
 assetic:
-    read_from: "%kernel.root_dir%/../../httpdocs"
+    read_from: "%kernel.root_dir%/../web"
     debug:          "%kernel.debug%"
     use_controller: false
     bundles:        [BoxenmietenAppBundle, BoxenmietenBlogBundle]
