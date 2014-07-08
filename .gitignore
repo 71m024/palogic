@@ -7,6 +7,7 @@
 /Symfony/app/logs/*
 /Symfony/web/bundles/*
 /Symfony/web/uploads/*
+/Symfony/bin/*
 
 # Configuration files
 /Symfony/app/config/security.yml

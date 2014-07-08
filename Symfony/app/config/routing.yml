@@ -23,9 +23,8 @@ boxenmieten_blog:
     host:     boxenmieten.dev
     prefix:   /blog
     
-boxenmieten_admin:
+admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
-    host:     boxenmieten.dev
     prefix: /admin
 
 _sonata_admin:

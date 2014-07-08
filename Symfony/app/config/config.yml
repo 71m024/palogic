@@ -94,7 +94,6 @@ sonata_block:
             
 sonata_admin:
     title:      BM Admin
-    title_logo: bundles/boxenmietenadmin/img/boxenmietenLogo_klein_transp.png
     
     templates:
         # default global templates
