@@ -5,7 +5,8 @@
 /Symfony/vendor/*
 /Symfony/app/cache/*
 /Symfony/app/logs/*
-/web/bundles/*
+/Symfony/web/bundles/*
+/Symfony/web/uploads/*
 
 # Configuration files
 /Symfony/app/config/security.yml
@@ -18,7 +19,6 @@ composer.phar
 /nbproject
 
 # Assetic
-/Symfony/web/images/*
 /Symfony/web/generated/*
 
 # Capifony
