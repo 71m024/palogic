@@ -32,6 +32,7 @@ class AppKernel extends Kernel
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Sonata\FormatterBundle\SonataFormatterBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new DJCrowd\Bundle\AppBundle\DJCrowdAppBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

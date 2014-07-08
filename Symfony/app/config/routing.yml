@@ -1,21 +1,31 @@
+djcrowd_app:
+    resource: "@DJCrowdAppBundle/Resources/config/routing.yml"
+    host:     djcrowd.dev
+    prefix:   /
+
 boxenmieten_security:
     resource: "@BoxenmietenSecurityBundle/Resources/config/routing.yml"
+    host:     boxenmieten.dev
     prefix:   /
 
 boxenmieten_app:
     resource: "@BoxenmietenAppBundle/Resources/config/routing.yml"
+    host:     boxenmieten.dev
     prefix:   /
 
 boxenmieten_admin:
     resource: "@BoxenmietenAdminBundle/Resources/config/routing.yml"
+    host:     boxenmieten.dev
     prefix:   /admin
     
 boxenmieten_blog:
     resource: "@BoxenmietenBlogBundle/Resources/config/routing.yml"
+    host:     boxenmieten.dev
     prefix:   /blog
     
 boxenmieten_admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    host:     boxenmieten.dev
     prefix: /admin
 
 _sonata_admin:

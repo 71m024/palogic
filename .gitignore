@@ -5,8 +5,7 @@
 /Symfony/vendor/*
 /Symfony/app/cache/*
 /Symfony/app/logs/*
-/httpdocs/uploads/*
-/httpdocs/bundles/*
+/web/bundles/*
 
 # Configuration files
 /Symfony/app/config/security.yml
@@ -21,3 +20,6 @@ composer.phar
 # Assetic
 /Symfony/web/images/*
 /Symfony/web/generated/*
+
+# Capifony
+deploy.rb
