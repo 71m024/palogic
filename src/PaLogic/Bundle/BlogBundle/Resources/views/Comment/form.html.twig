@@ -1,0 +1,15 @@
+<div class="comment-form-wrapper">
+    <form action="{{ path('PaLogic\Bundle_blog_comment', { 'post_id' : comment.post.id } ) }}" class="comment-form" method="post" {{ form_enctype(form) }}>
+        {{ form_errors(form) }}
+        {{ form_errors(form.user) }}
+        {{ form_errors(form.comment) }}
+        <div class="name-field">
+            {{ form_widget(form.user, {'attr' : {'class' : 'text-input', 'placeholder' : 'Name (Benötigt)'}}) }}
+        </div>
+        <div class="message-field">
+            {{ form_widget(form.comment, {'attr' : {'class' : 'text-area'}}) }}
+        </div>
+        {{ form_widget(form.send, {'label' : 'senden', 'attr' : {'class' : 'btn-submit'}}) }}
+        {{ form_rest(form) }}
+    </form>
+</div>

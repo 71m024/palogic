@@ -1,0 +1,8 @@
+{% extends 'PaLogic\BundleAppBundle:Component:show.html.twig' %}
+
+{% block details %}
+{{ parent() }}
+<li><span class="lite1">Eingänge </span>{{ component.inputs }}</li>
+<li><span class="lite1">Ausgänge </span>{{ component.outputs }}</li>
+<li><span class="lite1">Vorverstärker </span>{{ component.preamps }}</li>
+{% endblock %}

@@ -1,0 +1,7 @@
+parameters:
+#    dj_crowd_app.example.class: DjCrowd\Bundle\AppBundle\Example
+
+services:
+#    dj_crowd_app.example:
+#        class: %dj_crowd_app.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

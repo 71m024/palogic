@@ -1,0 +1,56 @@
+PaLogic\Bundle_blog:
+    pattern:  /
+    defaults: { _controller: PaLogic\BundleBlogBundle:Blog:index}
+    requirements:
+        _method:  GET
+        
+PaLogic\Bundle_blog_page:
+    pattern:  /{currentPage}
+    defaults: { _controller: PaLogic\BundleBlogBundle:Blog:index}
+    requirements:
+        _method:  GET
+        currentPage: \d+
+        
+PaLogic\Bundle_blog_show:
+    pattern:  /{id}/{slug}
+    defaults: { _controller: PaLogic\BundleBlogBundle:Blog:show}
+    requirements:
+        _method:  GET
+        id: \d+
+        
+PaLogic\Bundle_blog_comment:
+    pattern:  /kommentar/{post_id}
+    defaults: { _controller: PaLogic\BundleBlogBundle:Comment:create }
+    requirements:
+        _method:  POST
+        blog_id: \d+
+        
+PaLogic\Bundle_blog_category:
+    pattern:  /kategorie/{categoryId}/{categoryName}
+    defaults: { _controller: PaLogic\BundleBlogBundle:Category:show}
+    requirements:
+        _method:  GET
+        categoryId: \d+
+
+PaLogic\Bundle_blog_category_page:
+    pattern:  /kategorie/{categoryId}/{categoryName}/{currentPage}
+    defaults: { _controller: PaLogic\BundleBlogBundle:Category:show}
+    requirements:
+        _method:  GET
+        currentPage: \d+
+        categoryId: \d+
+        
+PaLogic\Bundle_blog_tag:
+    pattern:  /tag/{tagId}/{tag}
+    defaults: { _controller: PaLogic\BundleBlogBundle:Tag:show}
+    requirements:
+        _method:  GET
+        tagId: \d+
+
+PaLogic\Bundle_blog_tag_page:
+    pattern:  /tag/{tagId}/{tag}/{currentPage}
+    defaults: { _controller: PaLogic\BundleBlogBundle:Tag:show}
+    requirements:
+        _method:  GET
+        currentPage: \d+
+        tagId: \d+

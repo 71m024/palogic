@@ -1,5 +1,0 @@
-djcrowd_app_homepage:
-    pattern:  /
-    defaults: { _controller: DJCrowdAppBundle:Default:index }
-    requirements:
-        _method:  GET

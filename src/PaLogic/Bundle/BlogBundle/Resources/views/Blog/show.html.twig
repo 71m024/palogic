@@ -1,0 +1,93 @@
+{% extends 'PaLogic\BundleBlogBundle::layout.html.twig' %}
+
+{% block description %}{{ post.title }}: {{ post.headline }}{% endblock %}
+
+{% block title %}Blog{% endblock%}
+
+{% block body %}
+<section class="content">
+    <div class="post">
+        <div class="info">
+            <div class="date">
+                <div class="day">{{ post.created|date('d') }}</div>
+                <div class="month">{{ post.created|date('M') }}</div>
+            </div>
+            <div class="details">
+                <h2 class="post-title"><a href="{{ path("PaLogic\Bundle_blog_show", {"id" : post.id, "slug" : post.slug}) }}">{{ post.title }}</a></h2>
+                <div class="meta"> 
+                    <span class="categories">Unter 
+                        {% for category in post.categories %}
+                        <a href="{{ path("PaLogic\Bundle_blog_category", {"categoryId" : category.id, 'categoryName' : category.name|lower}) }}">{{ category.name }}</a>
+                        {% if not loop.last %}, {% endif %}
+                        {% else %}
+                        keiner Kagetorie
+                        {% endfor %}
+                    </span>
+                    <span class="sep"> | </span><span>Posted by <a href="#">{{ post.author }}</a></span>
+                    <span class="sep"> | </span><span><a href="#">{{ post.comments|length }} Comments</a></span>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        {% if post.image is not empty %}
+            <div class="overlay">
+                <a href="{{ path("PaLogic\Bundle_app_image_show", {"id" : post.image.id, "slug" : post.image.slug}) }}">
+                    <img src="{{ post.image.webPath }}" alt="Post Image"/>
+                </a>
+            </div>
+        {% endif %}
+        <p>{{ post.headline }}</p>
+        {{ post.text|raw }}
+        <div>Tags: 
+            {% for tag in post.tags %}
+                <a href="{{ path("PaLogic\Bundle_blog_tag", {"tagId" : tag.id, 'tag' : tag.tag|lower}) }}">{{ tag.tag }}</a>
+                {% if not loop.last %}, {% endif %}
+            {% else %}
+                No Tags
+            {% endfor %}
+        </div>
+    </div>
+    <!--<div class="grid-wrapper">
+        <div class="related-wrapper">
+            <div class="related">
+                <div class="overlay"> <a href="blog-post.html"><img src="style/images/art/blog-th1.jpg" alt="" />
+                        <div></div>
+                    </a> </div>
+                <div class="post-content">
+                    <h2><a href="blog-post.html">Adipiscing Inceptos</a></h2>
+                    <div class="meta"> <span class="date">13 Nov, 2012</span> <span class="sep">|</span> <span class="comments"><a href="#">3 Comments</a></span> </div>
+                </div>
+            </div>
+            <div class="related">
+                <div class="overlay"> <a href="blog-post.html"><img src="style/images/art/blog-th2.jpg" alt="" />
+                        <div></div>
+                    </a> </div>
+                <div class="post-content">
+                    <h2><a href="blog-post.html">Elit Justo Sem Ornare</a></h2>
+                    <div class="meta"> <span class="date">12 Nov, 2012</span> <span class="sep">|</span> <span class="comments"><a href="#">No Comments</a></span> </div>
+                </div>
+            </div>
+            <div class="related">
+                <div class="overlay"> <a href="blog-post.html"><img src="style/images/art/blog-th3.jpg" alt="" />
+                        <div></div>
+                    </a> </div>
+                <div class="post-content">
+                    <h2><a href="blog-post.html">Tellus Dolor Cras Risus</a></h2>
+                    <div class="meta"> <span class="date">10 Nov, 2012</span> <span class="sep">|</span> <span class="comments"><a href="#">5 Comments</a></span> </div>
+                </div>
+            </div>
+        </div>
+    </div>-->
+
+    {% include 'PaLogic\BundleBlogBundle:Comment:index.html.twig' with {'comments' : post.comments} %}
+
+    <hr />
+
+    <!-- Begin Form -->
+    <div class="comment-form-wrapper">
+        <h3>Willst du deine Gedanken teilen?</h3>
+        {% render(controller('PaLogic\BundleBlogBundle:Comment:new',{ 'post_id': post.id })) %}
+    </div>
+    <!-- End Form --> 
+</section>
+{% endblock %}

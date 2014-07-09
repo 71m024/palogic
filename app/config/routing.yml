@@ -1,3 +1,11 @@
+dj_crowd_app:
+    resource: "@DjCrowdAppBundle/Resources/config/routing.yml"
+    prefix:   /
+
+pa_logic_app:
+    resource: "@PaLogicAppBundle/Resources/config/routing.yml"
+    prefix:   /
+
 djcrowd_app:
     resource: "@DJCrowdAppBundle/Resources/config/routing.yml"
     host:     djcrowd.dev

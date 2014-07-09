@@ -1,0 +1,9 @@
+{% extends 'PaLogic\BundleAppBundle:Component:show.html.twig' %}
+
+{% block details %}
+{{ parent() }}
+<li><span class="lite1">Bestückung </span>{{ component.assembly }}</li>
+<li><span class="lite1">Gewicht </span>{{ component.kgWeight }} kg</li>
+<li><span class="lite1">Frequenzbereich </span>{{ component.frequency }}</li>
+<li><span class="lite1">Masse </span>{{ component.dimensions }}</li>
+{% endblock %}

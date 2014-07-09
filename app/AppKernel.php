@@ -1,9 +1,9 @@
 <?php
 
-use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
+use Megogo\Bundle\MultipleInheritanceBundle\HttpKernel\BundleInheritanceKernel as BaseKernel;
 
-class AppKernel extends Kernel
+class AppKernel extends BaseKernel
 {
     public function registerBundles()
     {
@@ -16,12 +16,12 @@ class AppKernel extends Kernel
             new Symfony\Bundle\AsseticBundle\AsseticBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            new Boxenmieten\AppBundle\BoxenmietenAppBundle(),
+            new PaLogic\Bundle\AppBundle\PaLogicAppBundle(),
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
-            new Boxenmieten\BlogBundle\BoxenmietenBlogBundle(),
-            new Boxenmieten\AdminBundle\BoxenmietenAdminBundle(),
-            new Boxenmieten\SecurityBundle\BoxenmietenSecurityBundle(),
+            new PaLogic\Bundle\BlogBundle\PaLogicBlogBundle(),
+            new PaLogic\Bundle\AdminBundle\PaLogicAdminBundle(),
+            new PaLogic\Bundle\SecurityBundle\PaLogicSecurityBundle(),
             new Sonata\CoreBundle\SonataCoreBundle(),
             new Sonata\BlockBundle\SonataBlockBundle(),
             new Sonata\jQueryBundle\SonatajQueryBundle(),
@@ -32,7 +32,9 @@ class AppKernel extends Kernel
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Sonata\FormatterBundle\SonataFormatterBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-            new DJCrowd\Bundle\AppBundle\DJCrowdAppBundle(),
+            new DjCrowd\Bundle\AppBundle\DjCrowdAppBundle(),
+            new Boxenmieten\Bundle\AppBundle\BoxenmietenAppBundle(),
+            new Megogo\Bundle\MultipleInheritanceBundle\MultipleInheritanceBundle($this),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

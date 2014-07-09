@@ -1,0 +1,27 @@
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets filter='cssrewrite'
+        '@PaLogic\BundleBlogBundle/Resources/public/css/tx3-tag-cloud.css'
+        '@PaLogic\BundleBlogBundle/Resources/public/css/stylesheet.css'
+        output='generated/style/blogStylesheet.css'
+    %}
+        <link rel="stylesheet" media="screen" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block sidebar %}
+      {% render(controller("PaLogic\BundleBlogBundle:Blog:sidebar")) %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts
+        '@PaLogic\BundleBlogBundle/Resources/public/js/tx3-tag-cloud.js'
+        '@PaLogic\BundleBlogBundle/Resources/public/js/scripts.js'
+        output='generated/scripts/blogScript.js'
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock javascripts %}

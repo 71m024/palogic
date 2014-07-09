@@ -2,8 +2,8 @@
 
 require_once __DIR__.'/AppKernel.php';
 
-use Symfony\Bundle\FrameworkBundle\HttpCache\HttpCache;
+use Megogo\Bundle\MultipleInheritanceBundle\HttpKernel\HttpCache\HttpCache as BaseCache;
 
-class AppCache extends HttpCache
+class AppCache extends BaseCache
 {
 }
