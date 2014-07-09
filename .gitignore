@@ -1,17 +1,17 @@
 # Bootstrap
-/Symfony/app/bootstrap*
+/app/bootstrap*
 
 # Symfony directories
-/Symfony/vendor/*
-/Symfony/app/cache/*
-/Symfony/app/logs/*
-/Symfony/web/bundles/*
-/Symfony/web/uploads/*
-/Symfony/bin/*
+/vendor/*
+/app/cache/*
+/app/logs/*
+/web/bundles/*
+/web/uploads/*
+/bin/*
 
 # Configuration files
-/Symfony/app/config/security.yml
-/Symfony/app/config/parameters.yml
+/app/config/security.yml
+/app/config/parameters.yml
 
 # Composer
 composer.phar
@@ -20,7 +20,7 @@ composer.phar
 /nbproject
 
 # Assetic
-/Symfony/web/generated/*
+/web/generated/*
 
 # Capifony
 deploy.rb
