@@ -32,7 +32,6 @@ class AppKernel extends BaseKernel
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Sonata\FormatterBundle\SonataFormatterBundle(),
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-            new DjCrowd\Bundle\AppBundle\DjCrowdAppBundle(),
             new Boxenmieten\Bundle\AppBundle\BoxenmietenAppBundle(),
             new Megogo\Bundle\MultipleInheritanceBundle\MultipleInheritanceBundle($this),
         );
