@@ -34,6 +34,6 @@ class CommentType extends AbstractType
      */
     public function getName()
     {
-        return 'PaLogic\Bundle_appbundle_comment';
+        return 'palogic_appbundle_comment';
     }
 }
