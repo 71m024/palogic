@@ -1,4 +1,4 @@
-{% extends 'PaLogic\BundleAppBundle::layout.html.twig' %}
+{% extends 'BoxenmietenAppBundle::layout.html.twig' %}
 
 {% block title %}Kontakt{% endblock%}
 
@@ -20,7 +20,7 @@
                   {{ flashMessage }}
               </div>
           {% endfor %}
-          <form class="forms" action="{{ path('PaLogic\Bundle_app_contact') }}" method="post" {{ form_enctype(form) }}>
+          <form class="forms" action="{{ path('boxenmieten_app_contact') }}" method="post" {{ form_enctype(form) }}>
               {{ form_errors(form) }}
               {{ form_errors(form.name) }}
               {{ form_errors(form.email) }}
@@ -55,7 +55,7 @@
         <h3>Addresse</h3>
         <i class="icon-location contact"></i>3053 Deisswil b.M.<br />
         <i class="icon-phone contact"></i>+41 79 266 07 74 <br />
-        <i class="icon-mail contact"></i> <a href="mailto:info@PaLogic\Bundle.ch">info@PaLogic\Bundle.ch</a> </div>
+        <i class="icon-mail contact"></i> <a href="mailto:info@boxenmieten.ch">info@boxenmieten.ch</a> </div>
     </aside>
     <div class="clear"></div>
 {% endblock %}

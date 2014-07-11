@@ -1,55 +1,55 @@
-PaLogic\Bundle_blog:
+palogic_blog:
     pattern:  /
-    defaults: { _controller: PaLogic\BundleBlogBundle:Blog:index}
+    defaults: { _controller: PaLogicBlogBundle:Blog:index}
     requirements:
         _method:  GET
         
-PaLogic\Bundle_blog_page:
+palogic_blog_page:
     pattern:  /{currentPage}
-    defaults: { _controller: PaLogic\BundleBlogBundle:Blog:index}
+    defaults: { _controller: PaLogicBlogBundle:Blog:index}
     requirements:
         _method:  GET
         currentPage: \d+
         
-PaLogic\Bundle_blog_show:
+palogic_blog_show:
     pattern:  /{id}/{slug}
-    defaults: { _controller: PaLogic\BundleBlogBundle:Blog:show}
+    defaults: { _controller: PaLogicBlogBundle:Blog:show}
     requirements:
         _method:  GET
         id: \d+
         
-PaLogic\Bundle_blog_comment:
+palogic_blog_comment:
     pattern:  /kommentar/{post_id}
-    defaults: { _controller: PaLogic\BundleBlogBundle:Comment:create }
+    defaults: { _controller: PaLogicBlogBundle:Comment:create }
     requirements:
         _method:  POST
         blog_id: \d+
         
-PaLogic\Bundle_blog_category:
+palogic_blog_category:
     pattern:  /kategorie/{categoryId}/{categoryName}
-    defaults: { _controller: PaLogic\BundleBlogBundle:Category:show}
+    defaults: { _controller: PaLogicBlogBundle:Category:show}
     requirements:
         _method:  GET
         categoryId: \d+
 
-PaLogic\Bundle_blog_category_page:
+palogic_blog_category_page:
     pattern:  /kategorie/{categoryId}/{categoryName}/{currentPage}
-    defaults: { _controller: PaLogic\BundleBlogBundle:Category:show}
+    defaults: { _controller: PaLogicBlogBundle:Category:show}
     requirements:
         _method:  GET
         currentPage: \d+
         categoryId: \d+
         
-PaLogic\Bundle_blog_tag:
+palogic_blog_tag:
     pattern:  /tag/{tagId}/{tag}
-    defaults: { _controller: PaLogic\BundleBlogBundle:Tag:show}
+    defaults: { _controller: PaLogicBlogBundle:Tag:show}
     requirements:
         _method:  GET
         tagId: \d+
 
-PaLogic\Bundle_blog_tag_page:
+palogic_blog_tag_page:
     pattern:  /tag/{tagId}/{tag}/{currentPage}
-    defaults: { _controller: PaLogic\BundleBlogBundle:Tag:show}
+    defaults: { _controller: PaLogicBlogBundle:Tag:show}
     requirements:
         _method:  GET
         currentPage: \d+

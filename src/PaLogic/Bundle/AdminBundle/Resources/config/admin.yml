@@ -8,7 +8,7 @@ services:
             - PaLogic\Bundle\BlogBundle\Entity\Post
             - ~
         calls:
-            - [ setTranslationDomain, [PaLogic\BundleAdminBundle]]
+            - [ setTranslationDomain, [PaLogicAdminBundle]]
             
     sonata.admin.tag:
         class: PaLogic\Bundle\AdminBundle\Admin\TagAdmin
@@ -19,7 +19,7 @@ services:
             - PaLogic\Bundle\BlogBundle\Entity\Tag
             - ~
         calls:
-            - [ setTranslationDomain, [PaLogic\BundleAdminBundle]]
+            - [ setTranslationDomain, [PaLogicAdminBundle]]
             
     sonata.admin.category:
         class: PaLogic\Bundle\AdminBundle\Admin\CategoryAdmin
@@ -30,7 +30,7 @@ services:
             - PaLogic\Bundle\BlogBundle\Entity\Category
             - ~
         calls:
-            - [ setTranslationDomain, [PaLogic\BundleAdminBundle]]
+            - [ setTranslationDomain, [PaLogicAdminBundle]]
             
     sonata.admin.comment:
         class: PaLogic\Bundle\AdminBundle\Admin\CommentAdmin
@@ -41,7 +41,7 @@ services:
             - PaLogic\Bundle\BlogBundle\Entity\Comment
             - ~
         calls:
-            - [ setTranslationDomain, [PaLogic\BundleAdminBundle]]
+            - [ setTranslationDomain, [PaLogicAdminBundle]]
             
     sonata.admin.image:
         class: PaLogic\Bundle\AdminBundle\Admin\ImageAdmin
@@ -52,7 +52,7 @@ services:
             - PaLogic\Bundle\AppBundle\Entity\Image
             - ~
         calls:
-            - [ setTranslationDomain, [PaLogic\BundleAdminBundle]]
+            - [ setTranslationDomain, [PaLogicAdminBundle]]
             
     sonata.admin.set:
         class: PaLogic\Bundle\AdminBundle\Admin\SetAdmin
@@ -63,7 +63,7 @@ services:
             - PaLogic\Bundle\AppBundle\Entity\Set
             - ~
         calls:
-            - [ setTranslationDomain, [PaLogic\BundleAdminBundle]]
+            - [ setTranslationDomain, [PaLogicAdminBundle]]
             
     sonata.admin.setcomponent:
         class: PaLogic\Bundle\AdminBundle\Admin\SetComponentAdmin
@@ -74,7 +74,7 @@ services:
             - PaLogic\Bundle\AppBundle\Entity\SetComponent
             - ~
         calls:
-            - [ setTranslationDomain, [PaLogic\BundleAdminBundle]]
+            - [ setTranslationDomain, [PaLogicAdminBundle]]
             
     sonata.admin.component:
         class: PaLogic\Bundle\AdminBundle\Admin\ComponentAdmin
@@ -85,5 +85,5 @@ services:
             - PaLogic\Bundle\AppBundle\Entity\Component
             - ~
         calls:
-            - [ setTranslationDomain, [PaLogic\BundleAdminBundle]]
+            - [ setTranslationDomain, [PaLogicAdminBundle]]
             - [ setSubClasses, [{Boxe : "PaLogic\Bundle\AppBundle\Entity\Boxe",Stand : "PaLogic\Bundle\AppBundle\Entity\Stand", Cable : "PaLogic\Bundle\AppBundle\Entity\Cable", Mixer : "PaLogic\Bundle\AppBundle\Entity\Mixer", Mic : "PaLogic\Bundle\AppBundle\Entity\Mic"}]]

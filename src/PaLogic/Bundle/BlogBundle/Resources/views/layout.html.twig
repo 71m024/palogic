@@ -3,8 +3,8 @@
 {% block stylesheets %}
     {{ parent() }}
     {% stylesheets filter='cssrewrite'
-        '@PaLogic\BundleBlogBundle/Resources/public/css/tx3-tag-cloud.css'
-        '@PaLogic\BundleBlogBundle/Resources/public/css/stylesheet.css'
+        '@PaLogicBlogBundle/Resources/public/css/tx3-tag-cloud.css'
+        '@PaLogicBlogBundle/Resources/public/css/stylesheet.css'
         output='generated/style/blogStylesheet.css'
     %}
         <link rel="stylesheet" media="screen" href="{{ asset_url }}" />
@@ -12,14 +12,14 @@
 {% endblock %}
 
 {% block sidebar %}
-      {% render(controller("PaLogic\BundleBlogBundle:Blog:sidebar")) %}
+      {% render(controller("PaLogicBlogBundle:Blog:sidebar")) %}
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
     {% javascripts
-        '@PaLogic\BundleBlogBundle/Resources/public/js/tx3-tag-cloud.js'
-        '@PaLogic\BundleBlogBundle/Resources/public/js/scripts.js'
+        '@PaLogicBlogBundle/Resources/public/js/tx3-tag-cloud.js'
+        '@PaLogicBlogBundle/Resources/public/js/scripts.js'
         output='generated/scripts/blogScript.js'
     %}
         <script type="text/javascript" src="{{ asset_url }}"></script>

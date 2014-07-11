@@ -1,4 +1,4 @@
-{% extends 'PaLogic\BundleAppBundle::layout.html.twig' %}
+{% extends 'BoxenmietenAppBundle::layout.html.twig' %}
 
 {% block title %}Musikanlagen günstig mieten in Bern{% endblock%}
 
@@ -8,7 +8,7 @@
              <ul>
                 <li data-transition="fade"> <img src="{{ asset('webpaint/style/images/art/slider-transparent.png')}}" alt="" style="background-color:#2a2a2a" />
                     <div class="caption lfb" data-x="593" data-y="10" data-speed="900" data-start="100" data-easing="easeOutSine">
-                        {% image '@PaLogic\BundleAppBundle/Resources/public/images/banner/boxe.png' output='generated/images/banner/boxe.png'%}
+                        {% image '@BoxenmietenAppBundle/Resources/public/images/banner/boxe.png' output='generated/images/banner/boxe.png'%}
                             <img src="{{ asset_url }}" alt="" />
                         {% endimage %}
                     </div>
@@ -20,23 +20,23 @@
                 </li>
                 <li data-transition="fade"> <img src="{{ asset('webpaint/style/images/art/slider-transparent.png')}}" alt="" style="background-color:#2a2a2a" />
                     <div class="caption lfb" data-x="493" data-y="10" data-speed="900" data-start="100" data-easing="easeOutSine">
-                        {% image '@PaLogic\BundleAppBundle/Resources/public/images/banner/stands.png' output='generated/images/banner/stands.png'%}
+                        {% image '@BoxenmietenAppBundle/Resources/public/images/banner/stands.png' output='generated/images/banner/stands.png'%}
                             <img src="{{ asset_url }}" alt="" />
                         {% endimage %}
                     </div>
                     <div class="caption lft" data-x="298" data-y="240" data-speed="900" data-start="900" data-easing="easeOutSine">
-                        {% image '@PaLogic\BundleAppBundle/Resources/public/images/banner/pult.png' output='generated/images/banner/mixer.png'%}
+                        {% image '@BoxenmietenAppBundle/Resources/public/images/banner/pult.png' output='generated/images/banner/mixer.png'%}
                             <img src="{{ asset_url }}" alt="" />
                         {% endimage %}
                     </div>
                     <div class="caption lfr" data-x="843" data-y="0" data-speed="900" data-start="1200" data-easing="easeOutSine">
-                        {% image '@PaLogic\BundleAppBundle/Resources/public/images/banner/boxen.png' output='generated/images/banner/boxen.png'%}
+                        {% image '@BoxenmietenAppBundle/Resources/public/images/banner/boxen.png' output='generated/images/banner/boxen.png'%}
                             <img src="{{ asset_url }}" alt="" />
                         {% endimage %}
                     </div>
                     <div class="caption sfl big" data-x="82" data-y="100" data-speed="900" data-start="1500" data-easing="easeOutExpo"><strong>komplete <span class="colored">Sets</span></strong></div>
                     <div class="caption sfr big" data-x="82" data-y="150" data-speed="900" data-start="1800" data-easing="easeOutExpo"><strong>...oder einzelne <span class="colored">Komponenten</span></strong></div>
-                    <div class="caption sfb" data-x="82" data-y="230" data-speed="900" data-start="2100" data-easing="easeOutExpo"><a href="{{ path('PaLogic\Bundle_app_sets') }}" class="button">zu den Angeboten</a></div>
+                    <div class="caption sfb" data-x="82" data-y="230" data-speed="900" data-start="2100" data-easing="easeOutExpo"><a href="{{ path('boxenmieten_app_sets') }}" class="button">zu den Angeboten</a></div>
                 </li>
             </ul>
             <div class="tp-bannertimer tp-bottom"></div>
@@ -76,8 +76,8 @@
 {% block body %}
     {{ parent() }}
     <h1 class="aligncenter">Eine Übersicht</h1>
-    <p class="description aligncenter">Weitere Details findest du <a href="{{ path('PaLogic\Bundle_app_sets') }}">hier</a>.</p>
-    <p class="description aligncenter">Bei Fragen beraten wir dich gerne: <a href="{{ path('PaLogic\Bundle_app_contact') }}">Kontakt</a></p>
+    <p class="description aligncenter">Weitere Details findest du <a href="{{ path('boxenmieten_app_sets') }}">hier</a>.</p>
+    <p class="description aligncenter">Bei Fragen beraten wir dich gerne: <a href="{{ path('boxenmieten_app_contact') }}">Kontakt</a></p>
     <br />
 
     <!-- Begin Pricing Table -->
@@ -96,7 +96,7 @@
                 </ul>
             </div>
             <div class="select">
-                <div> <a href="{{ path('PaLogic\Bundle_app_sets') }}" class="button black"><span>Infos</span></a> </div>
+                <div> <a href="{{ path('boxenmieten_app_sets') }}" class="button black"><span>Infos</span></a> </div>
             </div>
         </div>
         <div class="plan p2">
@@ -113,7 +113,7 @@
                 </ul>
             </div>
             <div class="select">
-                <div> <a href="{{ path('PaLogic\Bundle_app_sets') }}" class="button black"><span>Infos</span></a> </div>
+                <div> <a href="{{ path('boxenmieten_app_sets') }}" class="button black"><span>Infos</span></a> </div>
             </div>
         </div>
         <div class="plan p3">
@@ -130,7 +130,7 @@
                 </ul>
             </div>
             <div class="select">
-                <div> <a href="{{ path('PaLogic\Bundle_app_sets') }}" class="button black"><span>Infos</span></a> </div>
+                <div> <a href="{{ path('boxenmieten_app_sets') }}" class="button black"><span>Infos</span></a> </div>
             </div>
         </div>
         <div class="plan p4">
@@ -147,7 +147,7 @@
                 </ul>
             </div>
             <div class="select">
-                <div> <a href="{{ path('PaLogic\Bundle_app_sets') }}" class="button black"><span>Infos</span></a> </div>
+                <div> <a href="{{ path('boxenmieten_app_sets') }}" class="button black"><span>Infos</span></a> </div>
             </div>
         </div>
     </div>

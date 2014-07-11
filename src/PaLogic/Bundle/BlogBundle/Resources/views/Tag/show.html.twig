@@ -1,4 +1,4 @@
-{% extends 'PaLogic\BundleBlogBundle::layout.html.twig' %}
+{% extends 'PaLogicBlogBundle::layout.html.twig' %}
 
 {% block title %}{{ tag.tag }}{% endblock title %}
 
@@ -14,35 +14,35 @@
                     <div class="month">{{ post.created|date('M') }}</div>
                 </div>
                 <div class="details">
-                    <h2 class="post-title"><a href="{{ path("PaLogic\Bundle_blog_show", {"id" : post.id, "slug" : post.slug}) }}">{{ post.title }}</a></h2>
+                    <h2 class="post-title"><a href="{{ path("palogic_blog_show", {"id" : post.id, "slug" : post.slug}) }}">{{ post.title }}</a></h2>
                     <div class="meta">
                         <span class="categories">Unter 
                             {% for category in post.categories %}
-                            <a href="{{ path("PaLogic\Bundle_blog_category", {"categoryId" : category.id, 'categoryName' : category.name|lower}) }}">{{ category.name }}</a>
+                            <a href="{{ path("palogic_blog_category", {"categoryId" : category.id, 'categoryName' : category.name|lower}) }}">{{ category.name }}</a>
                             {% if not loop.last %}, {% endif %}
                             {% else %}
                             keiner Kagetorie
                             {% endfor %}
                         </span>
-                        <span class="sep"> | </span><span>Gepostet von <a href="{{ path('PaLogic\Bundle_app_me') }}">{{ post.author }}</a></span>
-                        <span class="sep"> | </span><span><a href="{{ path("PaLogic\Bundle_blog_show", {"id" : post.id, "slug" : post.slug}) }}">{{ post.comments|length }} Kommentare</a></span>
+                        <span class="sep"> | </span><span>Gepostet von <a href="{{ path('boxenmieten_app_me') }}">{{ post.author }}</a></span>
+                        <span class="sep"> | </span><span><a href="{{ path("palogic_blog_show", {"id" : post.id, "slug" : post.slug}) }}">{{ post.comments|length }} Kommentare</a></span>
                     </div>
                 </div>
                 <div class="clear"></div>
             </div>
             {% if post.image is not empty %}
                 <div class="overlay">
-                    <a href="{{ path("PaLogic\Bundle_blog_show", {"id" : post.id, "slug" : post.slug}) }}">
+                    <a href="{{ path("palogic_blog_show", {"id" : post.id, "slug" : post.slug}) }}">
                         <img src="{{ post.image.webPath  }}" alt="Post Image"/>
                     </a>
                 </div>
             {% endif %}
             {{ post.headline }}
-            <a href="{{ path("PaLogic\Bundle_blog_show", {"id" : post.id, "slug" : post.slug}) }}" class="more">weiterlesen →</a>
+            <a href="{{ path("palogic_blog_show", {"id" : post.id, "slug" : post.slug}) }}" class="more">weiterlesen →</a>
         </div>
     {% else %}
       <p>keine Posts vorhanden</p>
     {% endfor %}
-{{ include('PaLogic\BundleBlogBundle:Pagination:paginator.html.twig', { 'paginator': paginator, 'pageRoute' : 'PaLogic\Bundle_blog_tag_page', 'parameters' : {'tagId' : tag.id, 'tag' : tag.tag } } ) }}
+{{ include('PaLogicBlogBundle:Pagination:paginator.html.twig', { 'paginator': paginator, 'pageRoute' : 'palogic_blog_tag_page', 'parameters' : {'tagId' : tag.id, 'tag' : tag.tag } } ) }}
 </section>
 {% endblock body %}

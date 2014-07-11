@@ -1,4 +1,4 @@
-{% extends 'PaLogic\BundleBlogBundle::layout.html.twig' %}
+{% extends 'PaLogicBlogBundle::layout.html.twig' %}
 
 {% block description %}{{ post.title }}: {{ post.headline }}{% endblock %}
 
@@ -13,11 +13,11 @@
                 <div class="month">{{ post.created|date('M') }}</div>
             </div>
             <div class="details">
-                <h2 class="post-title"><a href="{{ path("PaLogic\Bundle_blog_show", {"id" : post.id, "slug" : post.slug}) }}">{{ post.title }}</a></h2>
+                <h2 class="post-title"><a href="{{ path("palogic_blog_show", {"id" : post.id, "slug" : post.slug}) }}">{{ post.title }}</a></h2>
                 <div class="meta"> 
                     <span class="categories">Unter 
                         {% for category in post.categories %}
-                        <a href="{{ path("PaLogic\Bundle_blog_category", {"categoryId" : category.id, 'categoryName' : category.name|lower}) }}">{{ category.name }}</a>
+                        <a href="{{ path("palogic_blog_category", {"categoryId" : category.id, 'categoryName' : category.name|lower}) }}">{{ category.name }}</a>
                         {% if not loop.last %}, {% endif %}
                         {% else %}
                         keiner Kagetorie
@@ -31,7 +31,7 @@
         </div>
         {% if post.image is not empty %}
             <div class="overlay">
-                <a href="{{ path("PaLogic\Bundle_app_image_show", {"id" : post.image.id, "slug" : post.image.slug}) }}">
+                <a href="{{ path("palogic_app_image_show", {"id" : post.image.id, "slug" : post.image.slug}) }}">
                     <img src="{{ post.image.webPath }}" alt="Post Image"/>
                 </a>
             </div>
@@ -40,7 +40,7 @@
         {{ post.text|raw }}
         <div>Tags: 
             {% for tag in post.tags %}
-                <a href="{{ path("PaLogic\Bundle_blog_tag", {"tagId" : tag.id, 'tag' : tag.tag|lower}) }}">{{ tag.tag }}</a>
+                <a href="{{ path("palogic_blog_tag", {"tagId" : tag.id, 'tag' : tag.tag|lower}) }}">{{ tag.tag }}</a>
                 {% if not loop.last %}, {% endif %}
             {% else %}
                 No Tags
@@ -79,14 +79,14 @@
         </div>
     </div>-->
 
-    {% include 'PaLogic\BundleBlogBundle:Comment:index.html.twig' with {'comments' : post.comments} %}
+    {% include 'PaLogicBlogBundle:Comment:index.html.twig' with {'comments' : post.comments} %}
 
     <hr />
 
     <!-- Begin Form -->
     <div class="comment-form-wrapper">
         <h3>Willst du deine Gedanken teilen?</h3>
-        {% render(controller('PaLogic\BundleBlogBundle:Comment:new',{ 'post_id': post.id })) %}
+        {% render(controller('PaLogicBlogBundle:Comment:new',{ 'post_id': post.id })) %}
     </div>
     <!-- End Form --> 
 </section>

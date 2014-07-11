@@ -1,4 +1,4 @@
-{% extends 'PaLogic\BundleAppBundle::layout.html.twig' %}
+{% extends 'BoxenmietenAppBundle::layout.html.twig' %}
 
 {% block title %}Timo Bühlmann{% endblock%}
 
@@ -28,7 +28,7 @@
         <p>Ich freue mich, wenn du dich für PaLogic\Bundle.ch entscheidest!</p>
     </div>
     <div class="one-third last">
-        {% image '@PaLogic\BundleAppBundle/Resources/public/images/me/Portrait_modified_small.jpg' output='generated/images/me.jpg' %}
+        {% image '@BoxenmietenAppBundle/Resources/public/images/me/Portrait_modified_small.jpg' output='generated/images/me.jpg' %}
             <img src="{{ asset_url }}" width="250" class="margin" alt="" />
         {% endimage %}
     </div>

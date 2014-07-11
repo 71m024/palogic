@@ -4,7 +4,6 @@ namespace PaLogic\Bundle\BlogBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use PaLogic\Bundle\BlogBundle\Entity\Post;
 use PaLogic\Bundle\BlogBundle\Util\Paginator;
 
 class BlogController extends Controller {
@@ -18,7 +17,7 @@ class BlogController extends Controller {
     public function indexAction($currentPage = null) {
         $em = $this->getDoctrine()->getManager();
         
-        $repository = $em->getRepository("PaLogic\BundleBlogBundle:Post");
+        $repository = $em->getRepository("PaLogicBlogBundle:Post");
 
         $limit = 3;
         $midrange = 5;
@@ -39,13 +38,13 @@ class BlogController extends Controller {
     {
         $em = $this->getDoctrine()->getManager();
 
-        $post = $em->getRepository('PaLogic\BundleBlogBundle:Post')->find($id);
+        $post = $em->getRepository('PaLogicBlogBundle:Post')->find($id);
 
         if (!$post) {
             throw $this->createNotFoundException('Unable to find Blog post.');
         }
 
-        $comments = $em->getRepository('PaLogic\BundleBlogBundle:Comment')
+        $comments = $em->getRepository('PaLogicBlogBundle:Comment')
                        ->getCommentsForPost($post->getId());
 
         return array(   'post'      => $post,
@@ -60,9 +59,9 @@ class BlogController extends Controller {
         $em = $this->getDoctrine()
                    ->getManager();
 
-        $categories = $em->getRepository('PaLogic\BundleBlogBundle:Category')
+        $categories = $em->getRepository('PaLogicBlogBundle:Category')
                         ->findAll();
-        $tags = $em->getRepository('PaLogic\BundleBlogBundle:Tag')
+        $tags = $em->getRepository('PaLogicBlogBundle:Tag')
                         ->findAll(); 
 
         return array(

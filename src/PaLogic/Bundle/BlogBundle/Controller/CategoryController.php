@@ -16,7 +16,7 @@ class CategoryController extends Controller{
     {
         $em = $this->getDoctrine()->getManager();
         
-        $postRepository = $em->getRepository("PaLogic\BundleBlogBundle:Post");
+        $postRepository = $em->getRepository("PaLogicBlogBundle:Post");
 
         $limit = 3;
         $midrange = 5;
@@ -24,7 +24,7 @@ class CategoryController extends Controller{
         $paginator = new Paginator($postRepository->getNumPostsForCategory($categoryId), $currentPage , $limit, $midrange);
         
         $posts = $postRepository->getPostsForCategory($categoryId, $limit, $paginator->getOffset());
-        $category = $postRepository = $em->getRepository("PaLogic\BundleBlogBundle:Category")->find($categoryId);
+        $category = $postRepository = $em->getRepository("PaLogicBlogBundle:Category")->find($categoryId);
         
         return array('category' => $category,  'posts' => $posts, 'paginator' => $paginator);
     }

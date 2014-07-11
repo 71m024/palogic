@@ -16,7 +16,7 @@ class TagController extends Controller{
     {
         $em = $this->getDoctrine()->getManager();
         
-        $postRepository = $em->getRepository("PaLogic\BundleBlogBundle:Post");
+        $postRepository = $em->getRepository("PaLogicBlogBundle:Post");
 
         $limit = 3;
         $midrange = 5;
@@ -24,7 +24,7 @@ class TagController extends Controller{
         $paginator = new Paginator($postRepository->getNumPostsForTag($tagId), $currentPage , $limit, $midrange);
         
         $posts = $postRepository->getPostsForTag($tagId, $limit, $paginator->getOffset());
-        $tag = $postRepository = $em->getRepository("PaLogic\BundleBlogBundle:Tag")->find($tagId);
+        $tag = $postRepository = $em->getRepository("PaLogicBlogBundle:Tag")->find($tagId);
         
         return array('tag' => $tag,  'posts' => $posts, 'paginator' => $paginator);
     }

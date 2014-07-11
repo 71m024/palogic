@@ -9,7 +9,7 @@ use Sonata\AdminBundle\Form\FormMapper;
 
 class ImageAdmin extends Admin
 {
-        // Fields to be shown on create/edit forms
+    // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
     {
         if($this->hasParentFieldDescription()) { // this Admin is embedded

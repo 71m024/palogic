@@ -1,7 +1,7 @@
 <?php
 // src/Blogger/BlogBundle/Form/EnquiryType.php
 
-namespace PaLogic\Bundle\AppBundle\Form;
+namespace Boxenmieten\Bundle\AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;

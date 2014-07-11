@@ -1,4 +1,4 @@
-PaLogic\Bundle_admin_dashboard:
+palogic_admin_dashboard:
     path: /
     defaults:
         _controller: FrameworkBundle:Redirect:redirect

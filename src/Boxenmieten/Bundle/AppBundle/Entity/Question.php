@@ -1,6 +1,6 @@
 <?php
 
-namespace PaLogic\Bundle\AppBundle\Entity;
+namespace Boxenmieten\Bundle\AppBundle\Entity;
 
 use Symfony\Component\Validator\Constraints\NotBlank;
 use Symfony\Component\Validator\Constraints\Email;

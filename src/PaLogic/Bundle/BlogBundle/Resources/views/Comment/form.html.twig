@@ -1,5 +1,5 @@
 <div class="comment-form-wrapper">
-    <form action="{{ path('PaLogic\Bundle_blog_comment', { 'post_id' : comment.post.id } ) }}" class="comment-form" method="post" {{ form_enctype(form) }}>
+    <form action="{{ path('palogic_blog_comment', { 'post_id' : comment.post.id } ) }}" class="comment-form" method="post" {{ form_enctype(form) }}>
         {{ form_errors(form) }}
         {{ form_errors(form.user) }}
         {{ form_errors(form.comment) }}

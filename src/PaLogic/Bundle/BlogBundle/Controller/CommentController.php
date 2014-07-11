@@ -20,7 +20,7 @@ class CommentController extends Controller {
         
         $em = $this->getDoctrine()->getManager();
         
-        $posts = $em->getRepository("PaLogic\BundleBlogBundle:Post")
+        $posts = $em->getRepository("PaLogicBlogBundle:Post")
                     ->getLatestPosts();
         
         return array('posts' => $posts);
@@ -34,7 +34,7 @@ class CommentController extends Controller {
         $comment->setPost($post);
         $form   = $this->createForm(new CommentType(), $comment);
 
-        return $this->render('PaLogic\BundleBlogBundle:Comment:form.html.twig', array(
+        return $this->render('PaLogicBlogBundle:Comment:form.html.twig', array(
             'comment' => $comment,
             'form'   => $form->createView()
         ));
@@ -56,14 +56,14 @@ class CommentController extends Controller {
             $em->persist($comment);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('PaLogic\Bundle_blog_show', array(
+            return $this->redirect($this->generateUrl('palogic_blog_show', array(
                 'id' => $comment->getPost()->getId(),
                 'slug'  => $comment->getPost()->getSlug())) .
                 '#comment-' . $comment->getId()
             );
         }
 
-        return $this->render('PaLogic\BundleBlogBundle:Comment:create.html.twig', array(
+        return $this->render('PaLogicBlogBundle:Comment:create.html.twig', array(
             'comment' => $comment,
             'form'    => $form->createView()
         ));
@@ -74,7 +74,7 @@ class CommentController extends Controller {
         $em = $this->getDoctrine()
                     ->getManager();
 
-        $post = $em->getRepository('PaLogic\BundleBlogBundle:Post')->find($post_id);
+        $post = $em->getRepository('PaLogicBlogBundle:Post')->find($post_id);
 
         if (!$post) {
             throw $this->createNotFoundException('Unable to find Blog post.');

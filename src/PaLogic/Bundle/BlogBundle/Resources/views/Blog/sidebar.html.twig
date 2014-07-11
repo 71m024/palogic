@@ -42,7 +42,7 @@
             <h3>Kategorien</h3>
             <ul class="list">
                 {% for category in categories %}
-                    <li><a href="{{ path("PaLogic\Bundle_blog_category", {"categoryId" : category.id, 'categoryName' : category.name|lower}) }}">{{ category.name }}</a> ({{ category.posts|length }})</li>
+                    <li><a href="{{ path("palogic_blog_category", {"categoryId" : category.id, 'categoryName' : category.name|lower}) }}">{{ category.name }}</a> ({{ category.posts|length }})</li>
                 {% endfor %}
             </ul>
         </div>
@@ -50,7 +50,7 @@
             <h3>Tags</h3>
             <ul id="tagcloud">
                 {% for tag in tags %}
-                    <li data-weight="{{ tag.posts|length }}"><a href="{{ path("PaLogic\Bundle_blog_tag", {"tagId" : tag.id, 'tag' : tag.tag|lower}) }}">{{ tag.tag }}</a></li>
+                    <li data-weight="{{ tag.posts|length }}"><a href="{{ path("palogic_blog_tag", {"tagId" : tag.id, 'tag' : tag.tag|lower}) }}">{{ tag.tag }}</a></li>
                 {% endfor %}
             </ul>
         </div>

@@ -39,7 +39,7 @@ assetic:
     read_from: "%kernel.root_dir%/../web"
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [PaLogicAppBundle, PaLogicBlogBundle]
+    bundles:        [BoxenmietenAppBundle, PaLogicBlogBundle]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

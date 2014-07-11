@@ -1,6 +1,6 @@
 <?php
 
-namespace PaLogic\Bundle\AppBundle\Controller;
+namespace Boxenmieten\Bundle\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -18,8 +18,8 @@ class ComponentController extends Controller
     public function indexAction() {
         $em = $this->getDoctrine()->getManager();
         
-        $components = $em->getRepository('PaLogic\BundleAppBundle:Component')->findAll();
-        $sets = $em->getRepository('PaLogic\BundleAppBundle:Set')->findAll();
+        $components = $em->getRepository('PaLogicAppBundle:Component')->findAll();
+        $sets = $em->getRepository('PaLogicAppBundle:Set')->findAll();
         
         return array('components' => $components, 'sets' => $sets);
     }
@@ -27,34 +27,34 @@ class ComponentController extends Controller
     public function showAction($id, $slug) {
         $em = $this->getDoctrine()->getManager();
         
-        $component = $em->getRepository('PaLogic\BundleAppBundle:Component')->find($id);
+        $component = $em->getRepository('PaLogicAppBundle:Component')->find($id);
         
         if (!$component) {
             throw $this->createNotFoundException('Unable to find Component.');
         }
         
         if ($component instanceof Boxe) {
-            return $this->render('PaLogic\BundleAppBundle:Component/Show:boxe.html.twig',
+            return $this->render('BoxenmietenAppBundle:Component/Show:boxe.html.twig',
                     array('component' => $component));
         }
         
         if ($component instanceof Mixer) {
-            return $this->render('PaLogic\BundleAppBundle:Component/Show:mixer.html.twig',
+            return $this->render('BoxenmietenAppBundle:Component/Show:mixer.html.twig',
                     array('component' => $component));
         }
         
         if ($component instanceof Stand) {
-            return $this->render('PaLogic\BundleAppBundle:Component/Show:stand.html.twig',
+            return $this->render('BoxenmietenAppBundle:Component/Show:stand.html.twig',
                     array('component' => $component));
         }
         
         if ($component instanceof Cable) {
-            return $this->render('PaLogic\BundleAppBundle:Component/Show:cable.html.twig',
+            return $this->render('BoxenmietenAppBundle:Component/Show:cable.html.twig',
                     array('component' => $component));
         }
         
         if ($component instanceof Mic) {
-            return $this->render('PaLogic\BundleAppBundle:Component/Show:mic.html.twig',
+            return $this->render('BoxenmietenAppBundle:Component/Show:mic.html.twig',
                     array('component' => $component));
         }
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace PaLogic\Bundle\AppBundle\Menu;
+namespace Boxenmieten\Bundle\AppBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,29 +25,29 @@ class Builder
     {
         $menu = $this->factory->createItem('root');
 
-        $menu->addChild('Home', array('route' => 'PaLogic\Bundle_app_homepage'));
-            $rentMenu = $this->factory->createItem('Angebote', array('route' => 'PaLogic\Bundle_app_sets'));
-            $rentMenu->addChild('Komponenten', array('route' => 'PaLogic\Bundle_app_components'));
+        $menu->addChild('Home', array('route' => 'boxenmieten_app_homepage'));
+            $rentMenu = $this->factory->createItem('Angebote', array('route' => 'boxenmieten_app_sets'));
+            $rentMenu->addChild('Komponenten', array('route' => 'boxenmieten_app_components'));
         $menu->addChild($rentMenu);
-            $categoryRepository = $this->em->getRepository('PaLogic\BundleBlogBundle:Category');
+            $categoryRepository = $this->em->getRepository('PaLogicBlogBundle:Category');
             $categories = $categoryRepository->findAll();
-            /*$blogMenu = $this->factory->createItem('Blog', array('route' => 'PaLogic\Bundle_blog',
+            /*$blogMenu = $this->factory->createItem('Blog', array('route' => 'boxenmieten_blog',
                 'extras' => array(
-                    'routes' => array('pattern' => '/^PaLogic\Bundle_blog_/'),
+                    'routes' => array('pattern' => '/^boxenmieten_blog_/'),
             )));*/
-            $blogMenu = $this->factory->createItem('Blog', array('route' => 'PaLogic\Bundle_blog',
+            $blogMenu = $this->factory->createItem('Blog', array('route' => 'palogic_blog',
                 'extras' => array(
-                    'routes' => array('PaLogic\Bundle_blog_category_page', 'PaLogic\Bundle_blog_category'),
+                    'routes' => array('palogic_blog_category_page', 'palogic_blog_category'),
                 )));
             foreach($categories as $category) {
-                $blogMenu->addChild($category->getName(), array('route' => 'PaLogic\Bundle_blog_category',
+                $blogMenu->addChild($category->getName(), array('route' => 'palogic_blog_category',
                     'routeParameters' => array('categoryId' => $category->getId(), 'categoryName' => strtolower($category->getName()))
                 ));
             }
         $menu->addChild($blogMenu);
-        $menu->addChild('Infos', array('route' => 'PaLogic\Bundle_app_info'));
-        $menu->addChild('Über mich', array('route' => 'PaLogic\Bundle_app_me'));
-        $menu->addChild('Kontakt', array('route' => 'PaLogic\Bundle_app_contact'));
+        $menu->addChild('Infos', array('route' => 'boxenmieten_app_info'));
+        $menu->addChild('Über mich', array('route' => 'boxenmieten_app_me'));
+        $menu->addChild('Kontakt', array('route' => 'boxenmieten_app_contact'));
 
         return $menu;
     }

@@ -1,4 +1,4 @@
-{% extends 'PaLogic\BundleAppBundle::layout.html.twig' %}
+{% extends 'BoxenmietenAppBundle::layout.html.twig' %}
 
 {% block title %}Komponenten{% endblock%}
 
@@ -23,7 +23,7 @@
     <ul class="items col4">
         {% for component in components %}
         <li class="item {{ component.discr }} {% for componentSet in component.sets %}{{ componentSet.set.slug }} {% endfor %}">
-            <a href="{{ path("PaLogic\Bundle_app_component_show", {"id" : component.id, "slug" : component.slug}) }}">
+            <a href="{{ path("boxenmieten_app_component_show", {"id" : component.id, "slug" : component.slug}) }}">
                 <div class="overlay">
                     <h3>{{ component.model }}</h3>
                     <span class="meta">{{ component.make }}</span>

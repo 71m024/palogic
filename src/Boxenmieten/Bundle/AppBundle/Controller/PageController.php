@@ -1,11 +1,11 @@
 <?php
 
-namespace PaLogic\Bundle\AppBundle\Controller;
+namespace Boxenmieten\Bundle\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use PaLogic\Bundle\AppBundle\Entity\Question;
-use PaLogic\Bundle\AppBundle\Form\QuestionType;
+use Boxenmieten\Bundle\AppBundle\Entity\Question;
+use Boxenmieten\Bundle\AppBundle\Form\QuestionType;
 
 class PageController extends Controller
 {
@@ -48,7 +48,7 @@ class PageController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         
-        $sets = $em->getRepository('PaLogic\BundleAppBundle:Set')->findAll();
+        $sets = $em->getRepository('PaLogicAppBundle:Set')->findAll();
         
         return array('sets' => $sets);
     }
@@ -69,16 +69,16 @@ class PageController extends Controller
 
                 $message = \Swift_Message::newInstance()
                     ->setSubject('Frage von: ' . $question->getName())
-                    ->setFrom('info@PaLogic\Bundle.ch')
-                    ->setTo($this->container->getParameter('PaLogic\Bundle_app.emails.contact_email'))
-                    ->setBody($this->renderView('PaLogic\BundleAppBundle:Page:contactEmail.txt.twig', array('question' => $question)));
+                    ->setFrom('info@boxenmieten.ch')
+                    ->setTo($this->container->getParameter('boxenmieten_app.emails.contact_email'))
+                    ->setBody($this->renderView('BoxenmietenAppBundle:Page:contactEmail.txt.twig', array('question' => $question)));
                 $this->get('mailer')->send($message);
 
                 $this->get('session')->getFlashBag()->set('question-notice', 'Deine Anfrage wurde entgegengenommen. Wir nehmen so schnell wie möglich mit dir Kontakt auf!');
 
                 // Redirect - This is important to prevent users re-posting
                 // the form if they refresh the page
-                return $this->redirect($this->generateUrl('PaLogic\Bundle_app_contact') . "#frageGestellt");
+                return $this->redirect($this->generateUrl('boxenmieten_app_contact') . "#frageGestellt");
             }
         }
 

@@ -6,11 +6,11 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use PaLogic\Bundle\AppBundle\Entity\Boxe;
-use PaLogic\Bundle\AppBundle\Entity\Stand;
-use PaLogic\Bundle\AppBundle\Entity\Cable;
-use PaLogic\Bundle\AppBundle\Entity\Mixer;
-use PaLogic\Bundle\AppBundle\Entity\Mic;
+use PaLogic\Bundle\AppBundle\PaLogicAppBundle\Entity\Boxe;
+use PaLogic\Bundle\AppBundle\PaLogicAppBundle\Entity\Stand;
+use PaLogic\Bundle\AppBundle\PaLogicAppBundle\Entity\Cable;
+use PaLogic\Bundle\AppBundle\PaLogicAppBundle\Entity\Mixer;
+use PaLogic\Bundle\AppBundle\PaLogicAppBundle\Entity\Mic;
 
 class ComponentAdmin extends Admin
 {
