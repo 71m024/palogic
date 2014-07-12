@@ -34,6 +34,8 @@ class AppKernel extends BaseKernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Boxenmieten\Bundle\AppBundle\BoxenmietenAppBundle(),
             new Megogo\Bundle\MultipleInheritanceBundle\MultipleInheritanceBundle($this),
+            new DjCrowd\Bundle\AppBundle\DjCrowdAppBundle(),
+            new Boxenmieten\Bundle\BlogBundle\BoxenmietenBlogBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

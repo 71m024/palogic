@@ -1,1 +1,12 @@
 {% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets
+        filter='cssrewrite'
+        output='generated/style/bmStylesheets.css'
+        'webpaint/style/css/color/bmgreen.css'
+        %}
+        <link rel="stylesheet" media="screen" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}

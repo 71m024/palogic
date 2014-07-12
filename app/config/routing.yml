@@ -1,3 +1,11 @@
+MultipleInheritanceBundle:
+    resource: .
+    type: inheritance
+
+dj_crowd_app:
+    resource: "@DjCrowdAppBundle/Resources/config/routing.yml"
+    prefix:   /
+
 pa_logic_app:
     resource: "@PaLogicAppBundle/Resources/config/routing.yml"
     prefix:   /
@@ -15,7 +23,7 @@ boxenmieten_admin:
     prefix:   /admin
     
 boxenmieten_blog:
-    resource: "@PaLogicBlogBundle/Resources/config/routing.yml"
+    resource: "@BoxenmietenBlogBundle/Resources/config/routing.yml"
     prefix:   /blog
     
 admin:

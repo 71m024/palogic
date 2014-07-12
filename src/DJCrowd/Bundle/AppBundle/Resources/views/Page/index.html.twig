@@ -1,0 +1,156 @@
+{% extends 'BoxenmietenAppBundle::layout.html.twig' %}
+
+{% block title %}Musikanlagen günstig mieten in Bern{% endblock%}
+
+{% block banner %}
+    <div class="bannercontainer">
+        <div class="banner">
+             <ul>
+                <li data-transition="fade"> <img src="{{ asset('webpaint/style/images/art/slider-transparent.png')}}" alt="" style="background-color:#2a2a2a" />
+                    <div class="caption lfb" data-x="593" data-y="10" data-speed="900" data-start="100" data-easing="easeOutSine">
+                        {% image '@BoxenmietenAppBundle/Resources/public/images/banner/boxe.png' output='generated/images/banner/boxe.png'%}
+                            <img src="{{ asset_url }}" alt="" />
+                        {% endimage %}
+                    </div>
+                    <div class="caption sfl huge" data-x="356" data-y="90" data-speed="300" data-start="100" data-easing="easeOutExpo"><strong><span class="colored">Boxen</span></strong></div>
+                    <div class="caption sft huge" data-x="537" data-y="90" data-speed="300" data-start="800" data-easing="easeOutExpo"><strong>mieten</strong></div>
+                    <div class="caption sfl big" data-x="center" data-y="176" data-speed="300" data-start="1600" data-easing="easeOutExpo">Hochwertige Musikanlagen</div>
+                    <div class="caption sfr big" data-x="center" data-y="245" data-speed="300" data-start="2800" data-easing="easeOutExpo">...zu günstigen Preisen</div>
+                    <div class="caption sfb big" data-x="center" data-y="329" data-speed="300" data-start="4000" data-easing="easeOutExpo">in <strong>Bern!</strong></div>
+                </li>
+                <li data-transition="fade"> <img src="{{ asset('webpaint/style/images/art/slider-transparent.png')}}" alt="" style="background-color:#2a2a2a" />
+                    <div class="caption lfb" data-x="493" data-y="10" data-speed="900" data-start="100" data-easing="easeOutSine">
+                        {% image '@BoxenmietenAppBundle/Resources/public/images/banner/stands.png' output='generated/images/banner/stands.png'%}
+                            <img src="{{ asset_url }}" alt="" />
+                        {% endimage %}
+                    </div>
+                    <div class="caption lft" data-x="298" data-y="240" data-speed="900" data-start="900" data-easing="easeOutSine">
+                        {% image '@BoxenmietenAppBundle/Resources/public/images/banner/pult.png' output='generated/images/banner/mixer.png'%}
+                            <img src="{{ asset_url }}" alt="" />
+                        {% endimage %}
+                    </div>
+                    <div class="caption lfr" data-x="843" data-y="0" data-speed="900" data-start="1200" data-easing="easeOutSine">
+                        {% image '@BoxenmietenAppBundle/Resources/public/images/banner/boxen.png' output='generated/images/banner/boxen.png'%}
+                            <img src="{{ asset_url }}" alt="" />
+                        {% endimage %}
+                    </div>
+                    <div class="caption sfl big" data-x="82" data-y="100" data-speed="900" data-start="1500" data-easing="easeOutExpo"><strong>komplete <span class="colored">Sets</span></strong></div>
+                    <div class="caption sfr big" data-x="82" data-y="150" data-speed="900" data-start="1800" data-easing="easeOutExpo"><strong>...oder einzelne <span class="colored">Komponenten</span></strong></div>
+                    <div class="caption sfb" data-x="82" data-y="230" data-speed="900" data-start="2100" data-easing="easeOutExpo"><a href="{{ path('boxenmieten_app_sets') }}" class="button">zu den Angeboten</a></div>
+                </li>
+            </ul>
+            <div class="tp-bannertimer tp-bottom"></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block top %}
+    <div class="dark-wrapper">
+        <div class="inner">
+            <div class="box-wrapper">
+                <div class="one-fourth box"> <i class="icon-thumbs-up special"></i>
+                    <h3>Hochwertig</h3>
+                    <p>Die Lautsprecher sind ausschliesslich von Mackie.<br />
+                        Sie zeichnen sich durch hohe Robustheit, Leistungsfähigkeit und Klangqualität aus.</p>
+                </div>
+                <div class="one-fourth box"> <i class="icon-money special"></i>
+                    <h3>Günstig</h3>
+                    <p>Unsere Sets kannst du vergleichsweise sehr günstig mieten.<br />
+                        Vermietet werden sie pro Woche. Individuelle Angebote können abgesprochen werden.</p>
+                </div>
+                <div class="one-fourth box"> <i class="icon-box special"></i>
+                    <h3>Komplett</h3>
+                    <p>Zu den Boxen vermieten wir auch die benötigten Kabel, sowie Boxenständer und ein Mischpult.<br />
+                        Damit kannst du deine Party direkt starten und brauchst dich nicht um weitere Komponenten zu kümmern.</p>
+                </div>
+                <div class="one-fourth box last"> <i class="icon-location special"></i>
+                    <h3>in Bern</h3>
+                    <p>Die Boxen können direkt in Bern abgeholt werden.<br />
+                        Auf Anfrage werden sie geliefert.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+    
+{% block body %}
+    {{ parent() }}
+    <h1 class="aligncenter">Eine Übersicht</h1>
+    <p class="description aligncenter">Weitere Details findest du <a href="{{ path('boxenmieten_app_sets') }}">hier</a>.</p>
+    <p class="description aligncenter">Bei Fragen beraten wir dich gerne: <a href="{{ path('boxenmieten_app_contact') }}">Kontakt</a></p>
+    <br />
+
+    <!-- Begin Pricing Table -->
+    <div class="pricing four">
+        <div class="plan p1">
+            <h3>PA Set 1</h3>
+            <h4><span class="amount"><span>CHF</span>173.-</span><span class="interval">7 Tage</span></h4>
+            <div class="features">
+                <ul>
+                    <li>2x Mackie SRM450 V2</li>
+                    <li>2x Boxenständer</li>
+                    <li>2x 10m XLR-Kabel</li>
+                    <li>2x 3m XLR/Jack</li>
+                    <li>Behringer Xenyx 1002 FX</li>
+                    <li>-</li>
+                </ul>
+            </div>
+            <div class="select">
+                <div> <a href="{{ path('boxenmieten_app_sets') }}" class="button black"><span>Infos</span></a> </div>
+            </div>
+        </div>
+        <div class="plan p2">
+            <h3>PA Set 2</h3>
+            <h4><span class="amount"><span>CHF</span>242.-</span><span class="interval">7 Tage</span></h4>
+            <div class="features">
+                <ul>
+                    <li>2x Mackie SRM450 V2</li>
+                    <li>Mackie SRM1801</li>
+                    <li>2x Boxenständer</li>
+                    <li>4x 10m XLR-Kabel</li>
+                    <li>2x 3m XLR/Jack</li>
+                    <li>Behringer Xenyx 1002 FX</li>
+                </ul>
+            </div>
+            <div class="select">
+                <div> <a href="{{ path('boxenmieten_app_sets') }}" class="button black"><span>Infos</span></a> </div>
+            </div>
+        </div>
+        <div class="plan p3">
+            <h3>PA Set 3</h3>
+            <h4><span class="amount"><span>CHF</span>378.-</span><span class="interval">7 Tage</span></h4>
+            <div class="features">
+                <ul>
+                    <li>2x Mackie SRM450 V2</li>
+                    <li>2x Mackie SRM1801</li>
+                    <li>2x Boxenständer</li>
+                    <li>4x 10m XLR-Kabel</li>
+                    <li>Mackie ProFX 8</li>
+                    <li>-</li>
+                </ul>
+            </div>
+            <div class="select">
+                <div> <a href="{{ path('boxenmieten_app_sets') }}" class="button black"><span>Infos</span></a> </div>
+            </div>
+        </div>
+        <div class="plan p4">
+            <h3>PA Set 4</h3>
+            <h4><span class="amount"><span>CHF</span>502.-</span><span class="interval">7 Tage</span></h4>
+            <div class="features">
+                <ul>
+                    <li>4x Mackie SRM450 V2</li>
+                    <li>2x Mackie SRM1801</li>
+                    <li>4x Boxenständer</li>
+                    <li>8x 10m XLR-Kabel</li>
+                    <li>Mackie ProFX 8</li>
+                    <li>-</li>
+                </ul>
+            </div>
+            <div class="select">
+                <div> <a href="{{ path('boxenmieten_app_sets') }}" class="button black"><span>Infos</span></a> </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <!-- End Pricing Table -->
+{% endblock %}
