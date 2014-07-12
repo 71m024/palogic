@@ -1,0 +1,6 @@
+palogic_app_image_show:
+    pattern:  /bild/{id}/{slug}
+    defaults: { _controller: PaLogicAppBundle:Image:show }
+    requirements:
+        _method:  GET
+        id: \d+

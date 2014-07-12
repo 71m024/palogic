@@ -1,6 +1,0 @@
-boxenmieten_admin_dashboard:
-    path: /
-    defaults:
-        _controller: FrameworkBundle:Redirect:redirect
-        route: sonata_admin_dashboard
-        permanent: true

@@ -1,26 +1,21 @@
-djcrowd_app:
-    resource: "@DJCrowdAppBundle/Resources/config/routing.yml"
-    host:     djcrowd.dev
+pa_logic_app:
+    resource: "@PaLogicAppBundle/Resources/config/routing.yml"
     prefix:   /
 
 boxenmieten_security:
-    resource: "@BoxenmietenSecurityBundle/Resources/config/routing.yml"
-    host:     boxenmieten.dev
+    resource: "@PaLogicSecurityBundle/Resources/config/routing.yml"
     prefix:   /
 
 boxenmieten_app:
     resource: "@BoxenmietenAppBundle/Resources/config/routing.yml"
-    host:     boxenmieten.dev
     prefix:   /
 
 boxenmieten_admin:
-    resource: "@BoxenmietenAdminBundle/Resources/config/routing.yml"
-    host:     boxenmieten.dev
+    resource: "@PaLogicAdminBundle/Resources/config/routing.yml"
     prefix:   /admin
     
 boxenmieten_blog:
-    resource: "@BoxenmietenBlogBundle/Resources/config/routing.yml"
-    host:     boxenmieten.dev
+    resource: "@PaLogicBlogBundle/Resources/config/routing.yml"
     prefix:   /blog
     
 admin:

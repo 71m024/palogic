@@ -1,0 +1,4 @@
+ul.tx3-tag-cloud li::before
+{
+    content: none;
+}

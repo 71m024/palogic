@@ -1,0 +1,7 @@
+parameters:
+#    PaLogic\Bundle_security.example.class: PaLogic\Bundle\SecurityBundle\Example
+
+services:
+#    PaLogic\Bundle_security.example:
+#        class: %PaLogic\Bundle_security.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

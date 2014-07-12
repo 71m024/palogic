@@ -1,0 +1,89 @@
+services:
+    sonata.admin.post:
+        class: PaLogic\Bundle\AdminBundle\Admin\PostAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Blog", label: "Post" }
+        arguments:
+            - ~
+            - PaLogic\Bundle\BlogBundle\Entity\Post
+            - ~
+        calls:
+            - [ setTranslationDomain, [PaLogicAdminBundle]]
+            
+    sonata.admin.tag:
+        class: PaLogic\Bundle\AdminBundle\Admin\TagAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Allgemein", label: "Tag" }
+        arguments:
+            - ~
+            - PaLogic\Bundle\BlogBundle\Entity\Tag
+            - ~
+        calls:
+            - [ setTranslationDomain, [PaLogicAdminBundle]]
+            
+    sonata.admin.category:
+        class: PaLogic\Bundle\AdminBundle\Admin\CategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Blog", label: "Category" }
+        arguments:
+            - ~
+            - PaLogic\Bundle\BlogBundle\Entity\Category
+            - ~
+        calls:
+            - [ setTranslationDomain, [PaLogicAdminBundle]]
+            
+    sonata.admin.comment:
+        class: PaLogic\Bundle\AdminBundle\Admin\CommentAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Blog", label: "Comment" }
+        arguments:
+            - ~
+            - PaLogic\Bundle\BlogBundle\Entity\Comment
+            - ~
+        calls:
+            - [ setTranslationDomain, [PaLogicAdminBundle]]
+            
+    sonata.admin.image:
+        class: PaLogic\Bundle\AdminBundle\Admin\ImageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Allgemein", label: "Image" }
+        arguments:
+            - ~
+            - PaLogic\Bundle\AppBundle\Entity\Image
+            - ~
+        calls:
+            - [ setTranslationDomain, [PaLogicAdminBundle]]
+            
+    sonata.admin.set:
+        class: PaLogic\Bundle\AdminBundle\Admin\SetAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Inventory", label: "Set" }
+        arguments:
+            - ~
+            - PaLogic\Bundle\AppBundle\Entity\Set
+            - ~
+        calls:
+            - [ setTranslationDomain, [PaLogicAdminBundle]]
+            
+    sonata.admin.setcomponent:
+        class: PaLogic\Bundle\AdminBundle\Admin\SetComponentAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Inventory", label: "SetComponent", show_in_dashboard: false }
+        arguments:
+            - ~
+            - PaLogic\Bundle\AppBundle\Entity\SetComponent
+            - ~
+        calls:
+            - [ setTranslationDomain, [PaLogicAdminBundle]]
+            
+    sonata.admin.component:
+        class: PaLogic\Bundle\AdminBundle\Admin\ComponentAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Inventory", label: "Component" }
+        arguments:
+            - ~
+            - PaLogic\Bundle\AppBundle\Entity\Component
+            - ~
+        calls:
+            - [ setTranslationDomain, [PaLogicAdminBundle]]
+            - [ setSubClasses, [{Boxe : "PaLogic\Bundle\AppBundle\Entity\Boxe",Stand : "PaLogic\Bundle\AppBundle\Entity\Stand", Cable : "PaLogic\Bundle\AppBundle\Entity\Cable", Mixer : "PaLogic\Bundle\AppBundle\Entity\Mixer", Mic : "PaLogic\Bundle\AppBundle\Entity\Mic"}]]

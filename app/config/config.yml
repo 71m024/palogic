@@ -39,7 +39,7 @@ assetic:
     read_from: "%kernel.root_dir%/../web"
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [BoxenmietenAppBundle, BoxenmietenBlogBundle]
+    bundles:        [BoxenmietenAppBundle, PaLogicBlogBundle]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -97,7 +97,7 @@ sonata_admin:
     
     templates:
         # default global templates
-        layout:  BoxenmietenAdminBundle::layout.html.twig
+        layout:  PaLogicAdminBundle::layout.html.twig
     
 sonata_formatter:
     formatters:
