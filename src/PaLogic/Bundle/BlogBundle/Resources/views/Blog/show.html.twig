@@ -1,6 +1,6 @@
 {% extends 'PaLogicBlogBundle::layout.html.twig' %}
 
-{% block description %}{{ post.title }}: {{ post.headline }}{% endblock %}
+{% block description %}{{ post.title }}: {{ post.headline }}{{parent()}}{% endblock %}
 
 {% block title %}Blog{% endblock%}
 

@@ -1,1 +1,26 @@
 {% extends '::base.html.twig' %}
+
+{% block title %} - DJCrowd{% endblock %}
+
+{% block description %}Engagiere deinen DJ!{% endblock %}
+
+{% block blog_title %}
+    <a href="{{ path('boxenmieten_app_homepage') }}">
+        <span style="font-size: 25px; font-weight: bold;"><span style="color:#5daed5">DJ</span><span style="color:#e0e0e0">Crowd.ch</span></span>
+    </a>
+{% endblock %}
+
+{% block navigation %}
+    {{ knp_menu_render('dcMain', {'depth': 2, 'currentAsLink': true, 'currentClass' : 'active'}) }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets
+        filter='cssrewrite'
+        output='generated/style/designCrowdStylesheets.css'
+        'webpaint/style/css/color/blue.css'
+        %}
+        <link rel="stylesheet" media="screen" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}

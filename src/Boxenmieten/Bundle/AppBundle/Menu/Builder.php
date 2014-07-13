@@ -35,12 +35,12 @@ class Builder
                 'extras' => array(
                     'routes' => array('pattern' => '/^boxenmieten_blog_/'),
             )));*/
-            $blogMenu = $this->factory->createItem('Blog', array('route' => 'palogic_blog',
+            $blogMenu = $this->factory->createItem('Blog', array('route' => 'boxenmieten_palogic_blog',
                 'extras' => array(
-                    'routes' => array('palogic_blog_category_page', 'palogic_blog_category'),
+                    'routes' => array('boxenmieten_palogic_blog_category_page', 'boxenmieten_palogic_blog_category'),
                 )));
             foreach($categories as $category) {
-                $blogMenu->addChild($category->getName(), array('route' => 'palogic_blog_category',
+                $blogMenu->addChild($category->getName(), array('route' => 'boxenmieten_palogic_blog_category',
                     'routeParameters' => array('categoryId' => $category->getId(), 'categoryName' => strtolower($category->getName()))
                 ));
             }

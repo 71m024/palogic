@@ -1,2 +1,5 @@
-## YAML Template.
----
+djcrowd_app_homepage:
+    pattern:  /
+    defaults: { _controller: DjCrowdAppBundle:Page:index }
+    requirements:
+        _method:  GET

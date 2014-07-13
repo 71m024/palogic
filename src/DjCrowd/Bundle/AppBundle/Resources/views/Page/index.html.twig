@@ -1,6 +1,6 @@
-{% extends 'BoxenmietenAppBundle::layout.html.twig' %}
+{% extends 'DjCrowdAppBundle::layout.html.twig' %}
 
-{% block title %}Musikanlagen günstig mieten in Bern{% endblock%}
+{% block title %}Engagiere einen DJ{{ parent() }}{% endblock%}
 
 {% block banner %}
     <div class="bannercontainer">
@@ -12,31 +12,10 @@
                             <img src="{{ asset_url }}" alt="" />
                         {% endimage %}
                     </div>
-                    <div class="caption sfl huge" data-x="356" data-y="90" data-speed="300" data-start="100" data-easing="easeOutExpo"><strong><span class="colored">Boxen</span></strong></div>
-                    <div class="caption sft huge" data-x="537" data-y="90" data-speed="300" data-start="800" data-easing="easeOutExpo"><strong>mieten</strong></div>
-                    <div class="caption sfl big" data-x="center" data-y="176" data-speed="300" data-start="1600" data-easing="easeOutExpo">Hochwertige Musikanlagen</div>
-                    <div class="caption sfr big" data-x="center" data-y="245" data-speed="300" data-start="2800" data-easing="easeOutExpo">...zu günstigen Preisen</div>
-                    <div class="caption sfb big" data-x="center" data-y="329" data-speed="300" data-start="4000" data-easing="easeOutExpo">in <strong>Bern!</strong></div>
-                </li>
-                <li data-transition="fade"> <img src="{{ asset('webpaint/style/images/art/slider-transparent.png')}}" alt="" style="background-color:#2a2a2a" />
-                    <div class="caption lfb" data-x="493" data-y="10" data-speed="900" data-start="100" data-easing="easeOutSine">
-                        {% image '@BoxenmietenAppBundle/Resources/public/images/banner/stands.png' output='generated/images/banner/stands.png'%}
-                            <img src="{{ asset_url }}" alt="" />
-                        {% endimage %}
-                    </div>
-                    <div class="caption lft" data-x="298" data-y="240" data-speed="900" data-start="900" data-easing="easeOutSine">
-                        {% image '@BoxenmietenAppBundle/Resources/public/images/banner/pult.png' output='generated/images/banner/mixer.png'%}
-                            <img src="{{ asset_url }}" alt="" />
-                        {% endimage %}
-                    </div>
-                    <div class="caption lfr" data-x="843" data-y="0" data-speed="900" data-start="1200" data-easing="easeOutSine">
-                        {% image '@BoxenmietenAppBundle/Resources/public/images/banner/boxen.png' output='generated/images/banner/boxen.png'%}
-                            <img src="{{ asset_url }}" alt="" />
-                        {% endimage %}
-                    </div>
-                    <div class="caption sfl big" data-x="82" data-y="100" data-speed="900" data-start="1500" data-easing="easeOutExpo"><strong>komplete <span class="colored">Sets</span></strong></div>
-                    <div class="caption sfr big" data-x="82" data-y="150" data-speed="900" data-start="1800" data-easing="easeOutExpo"><strong>...oder einzelne <span class="colored">Komponenten</span></strong></div>
-                    <div class="caption sfb" data-x="82" data-y="230" data-speed="900" data-start="2100" data-easing="easeOutExpo"><a href="{{ path('boxenmieten_app_sets') }}" class="button">zu den Angeboten</a></div>
+                    <div class="caption sfl huge" data-x="430" data-y="90" data-speed="300" data-start="100" data-easing="easeOutExpo"><strong><span class="colored">DJ</span></strong></div>
+                    <div class="caption sft huge" data-x="505" data-y="90" data-speed="300" data-start="800" data-easing="easeOutExpo"><strong>Crowd</strong></div>
+                    <div class="caption sfl big" data-x="center" data-y="176" data-speed="250" data-start="1600" data-easing="easeOutExpo">Finde den richtigen DJ</div>
+                    <div class="caption sfr big" data-x="center" data-y="245" data-speed="250" data-start="2800" data-easing="easeOutExpo">...für deine <strong>Party</strong></div>
                 </li>
             </ul>
             <div class="tp-bannertimer tp-bottom"></div>
