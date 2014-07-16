@@ -1,6 +1,6 @@
 login:
     path:     /login
-    defaults: { _controller: PaLogic\BundleSecurityBundle:Security:login }
+    defaults: { _controller: PaLogicSecurityBundle:Security:login }
 login_check:
     path: /login_check
 logout:
