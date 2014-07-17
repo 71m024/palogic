@@ -39,6 +39,7 @@ class BoxenmietenBlogBundle extends Bundle implements RoutingAdditionsInterface
 
     public function getHost()
     {
-        return 'boxenmieten.dev'; // Specifying domain restriction for routes. Leave it as empty string for disable host requirement
+        $tld = $this->container->getParameter('tld');
+        return 'boxenmieten.' . $tld; // Specifying domain restriction for routes. Leave it as empty string for disable host requirement
     }
 }

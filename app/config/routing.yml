@@ -4,12 +4,12 @@ MultipleInheritanceBundle:
 
 dj_crowd_app:
     resource: "@DjCrowdAppBundle/Resources/config/routing.yml"
-    host:     djcrowd.dev
+    host:     djcrowd.%tld%
     prefix:   /
     
 pa_logic_blog:
     resource: "@PaLogicBlogBundle/Resources/config/routing.yml"
-    host:     palogic.dev
+    host:     palogic.%tld"
     prefix:   /
 
 pa_logic_app:
@@ -22,7 +22,7 @@ boxenmieten_security:
 
 boxenmieten_app:
     resource: "@BoxenmietenAppBundle/Resources/config/routing.yml"
-    host:      boxenmieten.dev
+    host:      boxenmieten.%tld%
     prefix:   /
 
 boxenmieten_admin:
