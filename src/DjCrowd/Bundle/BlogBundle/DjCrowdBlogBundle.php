@@ -39,6 +39,7 @@ class DjCrowdBlogBundle extends Bundle implements RoutingAdditionsInterface
 
     public function getHost()
     {
-        return 'djcrowd.dev'; // Specifying domain restriction for routes. Leave it as empty string for disable host requirement
+        $tld = $this->container->getParameter('tld');
+        return 'djcrowd.' . $tld; // Specifying domain restriction for routes. Leave it as empty string for disable host requirement
     }
 }
