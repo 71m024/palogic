@@ -1,6 +1,6 @@
 {% extends 'PaLogicBlogBundle::layout.html.twig' %}
 
-{% block title %}{{ tag.tag }}{% endblock title %}
+{% block title %}{{ tag.tag }}{{parent()}}{% endblock title %}
 
 {% block body %}
     <section class="content">

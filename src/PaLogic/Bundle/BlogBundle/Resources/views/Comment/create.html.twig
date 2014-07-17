@@ -1,6 +1,6 @@
 {% extends 'PaLogicBlogBundle::layout.html.twig' %}
 
-{% block title %}Add Comment{% endblock%}
+{% block title %}Add Comment{{parent()}}{% endblock%}
 
 {% block body %}
     <h1>Add comment for blog post "{{ comment.blog.title }}"</h1>

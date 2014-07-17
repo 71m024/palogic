@@ -1,1 +1,26 @@
 {% extends '::base.html.twig' %}
+
+{% block title %} - Boxenmieten{% endblock %}
+
+{% block description %}Miete eine Musikanlage für deinen individuellen Anlass (Party, Theater, Hochzeit...). Die Lautsprecher kann direkt in Bern ausgeliehen werden.{% endblock %}
+
+{% block blog_title %}
+    <a href="{{ path('boxenmieten_app_homepage') }}">
+        <span style="font-size: 25px; font-weight: bold;"><span style="color:#00ec11">Boxen</span><span style="color:#e0e0e0">mieten.ch</span></span>
+    </a>
+{% endblock %}
+
+{% block navigation %}
+    {{ knp_menu_render('bmMain', {'depth': 2, 'currentAsLink': true, 'currentClass' : 'active'}) }}
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets
+        filter='cssrewrite'
+        output='generated/style/bmStylesheets.css'
+        'webpaint/style/css/color/bmgreen.css'
+        %}
+        <link rel="stylesheet" media="screen" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}

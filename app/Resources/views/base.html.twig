@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <meta name="description" content="{% block description %}Miete eine Musikanlage für deinen individuellen Anlass (Party, Theater, Hochzeit...). Die Lautsprecher kann direkt in Bern ausgeliehen werden.{% endblock %}">
-        <title>{% block title %}Boxenmieten{% endblock %} - Boxenmieten</title>
+        <meta name="description" content="{% block description %}PaLogic{% endblock %}">
+        <title>{% block title %}PaLogic{% endblock %}</title>
         <link rel="shortcut icon" type="image/x-icon" href="/style/images/favicon.png?v=2" />
         <!--[if IE 8]>
         <link rel="stylesheet" type="text/css" href="/webpaint/style/css/ie8.css" media="all" />
@@ -15,7 +15,6 @@
         {% block stylesheets %}
             {% stylesheets filter='cssrewrite'
                 'webpaint/style.css'
-                'webpaint/style/css/color/bmgreen.css'
                 'webpaint/style/css/media-queries.css'
                 'webpaint/style/js/fancybox/jquery.fancybox.css'
                 'webpaint/style/js/fancybox/helpers/jquery.fancybox-thumbs.css'
@@ -39,16 +38,24 @@
                 <header>
                     <div class="inner">
                         
+                        <div class="logo">
                         {% block blog_title %}
-                            <div class="logo">
-                                <a href="{{ path('boxenmieten_app_homepage') }}">
-                                    <span style="font-size: 25px; font-weight: bold;"><span style="color:#00ec11">Boxen</span><span style="color:#e0e0e0">mieten.ch</span></span>
-                                </a>
-                            </div>
+                            <span style="font-size: 25px; font-weight: bold;"><span style="color:#e0e0e0">PaLogic</span></span>
                         {% endblock %}
+                        </div>
 
                         {% block navigation %}
-                            {{ knp_menu_render('main', {'depth': 2, 'currentAsLink': true, 'currentClass' : 'active'}) }}
+                            <nav id="menu" class="menu">
+                                <ul id="tiny">
+                                    <li class="first last">
+                                        <a href="//boxenmieten.dev/app_dev.php/">Home</a>
+                                    </li>   
+                                </ul>
+                                <select class="selectnav" id="selectnav1">
+                                    <option value="">--- Navigation --- </option>
+                                    <option value="http://boxenmieten.dev/app_dev.php/">HOME</option>
+                                </select>
+                            </nav>
                         {% endblock %}
 
                         <div class="clear"></div>
@@ -95,7 +102,7 @@
             {% block subfooter %}
                 <div class="subfooter-wrapper"> 
                     <div class="inner">
-                        <p>© 2014 Boxenmieten</p>
+                        <p>© 2014 Boxenmieten.ch</p>
                     </div>
                 </div>
             {% endblock subfooter %}

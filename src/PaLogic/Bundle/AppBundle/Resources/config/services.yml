@@ -1,16 +1,2 @@
 parameters:
 #    PaLogic\Bundle_app.example.class: PaLogicAppBundle\Example
-
-services:   
-    PaLogic\Bundle_app.menu_builder:
-        class: PaLogicAppBundle\Menu\Builder
-        arguments: ["@knp_menu.factory", "@doctrine.orm.entity_manager"]
-
-    PaLogic\Bundle_app.menu.main:
-        class: Knp\Menu\MenuItem # the service definition requires setting the class
-        factory_service: PaLogic\Bundle_app.menu_builder
-        factory_method: createMainMenu
-        arguments: ["@request"]
-        scope: request # needed as we have the request as a dependency here
-        tags:
-            - { name: knp_menu.menu, alias: main }

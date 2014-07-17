@@ -1,6 +1,6 @@
 {% extends 'BoxenmietenAppBundle::layout.html.twig' %}
 
-{% block  description %}{{ component.make }}, {{ component.model }}{% endblock %}
+{% block  description %}{{ component.make }}, {{ component.model }}{{parent()}}{% endblock %}
 
 {% block title %}{{ component.model }}{% endblock%}
 

@@ -1,6 +1,6 @@
 {% extends 'BoxenmietenAppBundle::layout.html.twig' %}
 
-{% block description %}{{ set.name }}: {{ set.summary }}{% endblock %}
+{% block description %}{{ set.name }}: {{ set.summary }}{{parent()}}{% endblock %}
 
 {% block title %}{{ set.name }}{% endblock%}
 
