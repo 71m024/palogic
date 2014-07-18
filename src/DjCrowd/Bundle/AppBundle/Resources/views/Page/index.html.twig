@@ -7,10 +7,22 @@
         <div class="banner">
              <ul>
                 <li data-transition="fade"> <img src="{{ asset('webpaint/style/images/art/slider-transparent.png')}}" alt="" style="background-color:#2a2a2a" />
-                    <div class="caption sfl huge" data-x="430" data-y="90" data-speed="300" data-start="100" data-easing="easeOutExpo"><strong><span class="colored">DJ</span></strong></div>
-                    <div class="caption sft huge" data-x="505" data-y="90" data-speed="300" data-start="800" data-easing="easeOutExpo"><strong>Crowd</strong></div>
-                    <div class="caption sfl big" data-x="center" data-y="176" data-speed="250" data-start="1600" data-easing="easeOutExpo">Finde den richtigen DJ</div>
-                    <div class="caption sfr big" data-x="center" data-y="245" data-speed="250" data-start="2800" data-easing="easeOutExpo">...für deine <strong>Party</strong></div>
+                    <div class="caption lfb" data-x="555" data-y="-200" data-speed="900" data-start="100" data-easing="easeOutSine">
+                        {% image '@DjCrowdAppBundle/Resources/public/images/banner/live-dj.jpg' output='generated/images/banner/live-dj.jpg'%}
+                            <img src="{{ asset_url }}" alt="" />
+                        {% endimage %}
+                    </div>
+                    <div class="caption lfb" data-x="-554" data-y="-200" data-speed="900" data-start="100" data-easing="easeOutSine">
+                        {% image '@DjCrowdAppBundle/Resources/public/images/banner/live-dj2.jpg' output='generated/images/banner/live-dj2.jpg'%}
+                            <img src="{{ asset_url }}" alt="" />
+                        {% endimage %}
+                    </div>
+                    <div class="caption sfl huge" data-x="430" data-y="50" data-speed="300" data-start="100" data-easing="easeOutExpo"><strong><span class="colored">DJ</span></strong></div>
+                    <div class="caption sft huge" data-x="505" data-y="50" data-speed="300" data-start="800" data-easing="easeOutExpo"><strong>Crowd</strong></div>
+                    <div class="caption sfl big" data-x="center" data-y="146" data-speed="250" data-start="1600" data-easing="easeOutExpo">Finde den richtigen DJ</div>
+                    <div class="caption sfr big" data-x="center" data-y="205" data-speed="250" data-start="2800" data-easing="easeOutExpo">...für deine <strong>Party</strong></div>
+                    <div class="caption sfr big" data-x="center" data-y="294" data-speed="250" data-start="0" data-easing="easeOutExpo">Die Seite ist <strong>noch im Aufbau</strong>,</a></div>
+                    <div class="caption sfr big" data-x="center" data-y="363" data-speed="250" data-start="0" data-easing="easeOutExpo">bei Fragen: <a href="mailto:info@boxenmieten.ch">info@boxenmieten.ch</a></div>
                 </li>
             </ul>
             <div class="tp-bannertimer tp-bottom"></div>
