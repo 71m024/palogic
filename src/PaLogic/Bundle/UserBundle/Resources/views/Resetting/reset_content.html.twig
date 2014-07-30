@@ -1,0 +1,38 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="form-container">
+    <form action="{{ path('fos_user_resetting_reset', {'token': token}) }}" {{ form_enctype(form) }} method="POST" class="forms">
+        <fieldset>
+            {% if form.vars.errors|length %}
+                <div class="warning-box">
+                {{ form_errors(form) }}
+                </div>
+            {% endif %}
+            <div class="one-fourth">
+                {{ form_widget(form.plainPassword.first, {'attr' : {'class' : 'text-input', 'placeholder' : 'Passwort'}}) }}
+            </div>
+            <div class="one-fourth last">
+                {{ form_widget(form.plainPassword.second, {'attr' : {'class' : 'text-input', 'placeholder' : 'Passwort (Bestätigung)'}}) }}
+            </div>
+            <div class="clear" ></div>
+            <div class="one-half last">
+                {% if form.plainPassword.first.vars.errors|length %}
+                    <div class="warning-box">
+                        {{ form_errors(form.plainPassword.first) }}
+                    </div>
+                {% endif %}
+                {% if form.plainPassword.second.vars.errors|length %}
+                    <div class="warning-box">
+                        {{ form_errors(form.plainPassword.second) }}
+                    </div>
+                {% endif %}
+            </div>
+            <div class="clear" ></div>
+            {{ form_rest(form) }}
+            <hr />
+            <div>
+                <input type="submit" class="btn-submit" value="{{ 'resetting.reset.submit'|trans }}" />
+            </div>
+        </fieldset>
+    </form>
+</div>

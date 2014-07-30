@@ -4,7 +4,7 @@ parameters:
 services:   
     djcrowd_app.menu_builder:
         class: DjCrowd\Bundle\AppBundle\Menu\Builder
-        arguments: ["@knp_menu.factory", "@doctrine.orm.entity_manager"]
+        arguments: ["@knp_menu.factory", "@doctrine.orm.entity_manager", "@security.context"]
 
     djcrowd_app.menu.main:
         class: Knp\Menu\MenuItem # the service definition requires setting the class

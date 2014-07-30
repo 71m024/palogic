@@ -1,1 +1,27 @@
 {% extends '::base.html.twig' %}
+
+{% block title %} - PaLogic{% endblock %}
+
+{% block description %}PaLogic{% endblock %}
+
+{% block blog_title %}
+    <a href="{{ path('boxenmieten_app_homepage') }}">
+        <span style="font-size: 25px; font-weight: bold;">PaLogic</span>
+    </a>
+{% endblock %}
+
+{% block navigation %}
+    
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets
+        filter='cssrewrite'
+        output='generated/style/palogicStylesheets.css'
+        '@PaLogicAppBundle/Resources/public/css/stylesheet.css'
+        'webpaint/style/css/color/yellow.css'
+        %}
+        <link rel="stylesheet" media="screen" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}

@@ -21,11 +21,15 @@
               </div>
           {% endfor %}
           <form class="forms" action="{{ path('boxenmieten_app_contact') }}" method="post" {{ form_enctype(form) }}>
-              {{ form_errors(form) }}
-              {{ form_errors(form.name) }}
-              {{ form_errors(form.email) }}
-              {{ form_errors(form.tel) }}
-              {{ form_errors(form.body) }}
+            {% if not form.vars.valid %}
+                <div class="warning-box">
+                {{ form_errors(form) }}
+                {{ form_errors(form.name) }}
+                {{ form_errors(form.email) }}
+                {{ form_errors(form.tel) }}
+                {{ form_errors(form.body) }}
+                </div>
+            {% endif %}
               <fieldset>
                   <ol>
                       <li class="form-row text-input-row name-field">

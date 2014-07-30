@@ -3,6 +3,7 @@ imports:
     - { resource: security.yml }
     - { resource: @BoxenmietenAppBundle/Resources/config/config.yml }
     - { resource: @PaLogicAppBundle/Resources/config/config.yml}
+    - { resource: @PaLogicUserBundle/Resources/config/config.yml}
 
 framework:
     esi:             ~
@@ -40,7 +41,7 @@ assetic:
     read_from: "%kernel.root_dir%/../web"
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [BoxenmietenAppBundle, PaLogicBlogBundle, DjCrowdAppBundle]
+    bundles:        [BoxenmietenAppBundle, PaLogicBlogBundle, DjCrowdAppBundle, PaLogicAppBundle]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -73,14 +74,6 @@ stof_doctrine_extensions:
         default:
             timestampable: true
             sluggable: true
-
-# Swiftmailer Configuration
-swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }
     
 knp_menu:
     providers:

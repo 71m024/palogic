@@ -1,0 +1,42 @@
+{% extends "PaLogicUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block fos_user_content %}
+{% if error %}
+    <div class="warning-box">{{ error|trans }}</div>
+{% endif %}
+
+<div class="form-container">
+    <form class="forms" action="{{ path("fos_user_security_check") }}" method="post">
+        <fieldset>
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+            <div class="one-fourth">
+                <input class="text-input" placeholder="Benutzername" type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+            </div>
+            <div class="one-fourth last">
+                <input class="text-input" placeholder="Passwort" type="password" id="password" name="_password" required="required" />
+            </div>
+            <div class="clear"></div>
+            <br />
+            <div class="one-sixth">
+                <label class="required" for="remember_me">
+                    An mich erinnern:
+                </label>
+            </div>
+            <div class="one-sixt last">
+                <input type="checkbox" style="width: auto; vertical-align: bottom;" id="remember_me" name="_remember_me" value="on" />
+            </div>
+            <div class="clear"></div>
+            <hr />
+            <div class="one-sixth">
+                <input type="submit" class="btn-submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+            </div>
+            <div class="one-sixth last">
+                <a href="{{ path('fos_user_resetting_request') }}">Passwort vergessen</a>
+            </div>
+            <div class="clear"></div>
+        </fieldset>
+    </form>
+</div>
+{% endblock fos_user_content %}

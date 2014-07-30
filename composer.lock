@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "9e38ea7da838a4e547d839d3c667b9d2",
+    "hash": "75e4daea4705cedd2f94ef7017d5d809",
     "packages": [
         {
             "name": "dflydev/markdown",
@@ -806,43 +806,41 @@
         },
         {
             "name": "egeloen/ckeditor-bundle",
-            "version": "2.3.2",
-            "target-dir": "Ivory/CKEditorBundle",
+            "version": "2.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egeloen/IvoryCKEditorBundle.git",
-                "reference": "5aba72b1b525f9365744898e96cfb15ed3c99a2e"
+                "reference": "de3d2e0170ed4c73035887ef4f1fcea4884aa36b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egeloen/IvoryCKEditorBundle/zipball/5aba72b1b525f9365744898e96cfb15ed3c99a2e",
-                "reference": "5aba72b1b525f9365744898e96cfb15ed3c99a2e",
+                "url": "https://api.github.com/repos/egeloen/IvoryCKEditorBundle/zipball/de3d2e0170ed4c73035887ef4f1fcea4884aa36b",
+                "reference": "de3d2e0170ed4c73035887ef4f1fcea4884aa36b",
                 "shasum": ""
             },
             "require": {
                 "egeloen/json-builder": "~1.0",
-                "php": ">=5.3.0",
+                "php": ">=5.3.3",
                 "symfony/form": "~2.1",
                 "symfony/framework-bundle": "~2.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "~3.7",
+                "phpunit/phpunit": "~4.0",
                 "satooshi/php-coveralls": "~0.6",
-                "twig/twig": "~1.0"
+                "twig/twig": "~1.12"
             },
             "suggest": {
-                "helios-ag/fm-elfinder-bundle": "Allows to use the elfinder as CKEditor file manager",
-                "twig/twig": "Allows to use Ivory CKEditor twig templates"
+                "twig/twig": "Allows to use twig templates"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3-dev"
+                    "dev-master": "2.4-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Ivory\\CKEditorBundle": ""
+                "psr-4": {
+                    "Ivory\\CKEditorBundle\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -859,7 +857,7 @@
             "keywords": [
                 "CKEditor"
             ],
-            "time": "2014-06-17 13:25:40"
+            "time": "2014-07-15 15:45:25"
         },
         {
             "name": "egeloen/json-builder",
@@ -912,6 +910,75 @@
                 "json"
             ],
             "time": "2014-06-17 13:08:16"
+        },
+        {
+            "name": "friendsofsymfony/user-bundle",
+            "version": "dev-master",
+            "target-dir": "FOS/UserBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/FriendsOfSymfony/FOSUserBundle.git",
+                "reference": "ef7ca325929ff102fff521653a2e3b88c7a40361"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/FriendsOfSymfony/FOSUserBundle/zipball/ef7ca325929ff102fff521653a2e3b88c7a40361",
+                "reference": "ef7ca325929ff102fff521653a2e3b88c7a40361",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/form": "~2.1",
+                "symfony/framework-bundle": "~2.1",
+                "symfony/security-bundle": "~2.1"
+            },
+            "require-dev": {
+                "doctrine/doctrine-bundle": "*",
+                "swiftmailer/swiftmailer": ">=4.3, <6.0",
+                "symfony/validator": "~2.1",
+                "symfony/yaml": "~2.1",
+                "twig/twig": "~1.5",
+                "willdurand/propel-typehintable-behavior": "dev-master"
+            },
+            "suggest": {
+                "willdurand/propel-typehintable-behavior": "Needed when using the propel implementation"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "FOS\\UserBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Coevoet",
+                    "email": "stof@notk.org"
+                },
+                {
+                    "name": "Thibault Duplessis",
+                    "email": "thibault.duplessis@gmail.com",
+                    "homepage": "http://ornicar.github.com"
+                },
+                {
+                    "name": "FriendsOfSymfony Community",
+                    "homepage": "https://github.com/friendsofsymfony/FOSUserBundle/contributors"
+                }
+            ],
+            "description": "Symfony FOSUserBundle",
+            "homepage": "http://friendsofsymfony.github.com",
+            "keywords": [
+                "User management"
+            ],
+            "time": "2014-07-09 10:33:42"
         },
         {
             "name": "gedmo/doctrine-extensions",
@@ -1160,12 +1227,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpMenu.git",
-                "reference": "532a4ad323be54da77179022474e873d307e524c"
+                "reference": "ca591b2fd7021c2608c22cfe5ad54eec66c1acee"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/532a4ad323be54da77179022474e873d307e524c",
-                "reference": "532a4ad323be54da77179022474e873d307e524c",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/ca591b2fd7021c2608c22cfe5ad54eec66c1acee",
+                "reference": "ca591b2fd7021c2608c22cfe5ad54eec66c1acee",
                 "shasum": ""
             },
             "require": {
@@ -1216,7 +1283,7 @@
                 "menu",
                 "tree"
             ],
-            "time": "2014-06-20 09:37:12"
+            "time": "2014-07-18 10:01:56"
         },
         {
             "name": "knplabs/knp-menu-bundle",
@@ -1654,12 +1721,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "ffcc98969249ad91f10aa99eb87f58ba3546bcfb"
+                "reference": "3945b5794000e22b25e7c66774d8ea63eb919aa5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/ffcc98969249ad91f10aa99eb87f58ba3546bcfb",
-                "reference": "ffcc98969249ad91f10aa99eb87f58ba3546bcfb",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/3945b5794000e22b25e7c66774d8ea63eb919aa5",
+                "reference": "3945b5794000e22b25e7c66774d8ea63eb919aa5",
                 "shasum": ""
             },
             "require": {
@@ -1725,7 +1792,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2014-07-10 08:47:46"
+            "time": "2014-07-18 14:00:40"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -2563,16 +2630,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.5.1",
+            "version": "v2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "e3d2844abc988bc467bb1593cd340700096b0ac0"
+                "reference": "e66ee967571b89234c90946fe0d50dad195ad29c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/e3d2844abc988bc467bb1593cd340700096b0ac0",
-                "reference": "e3d2844abc988bc467bb1593cd340700096b0ac0",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/e66ee967571b89234c90946fe0d50dad195ad29c",
+                "reference": "e66ee967571b89234c90946fe0d50dad195ad29c",
                 "shasum": ""
             },
             "require": {
@@ -2675,7 +2742,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-07-08 14:42:08"
+            "time": "2014-07-15 15:39:46"
         },
         {
             "name": "twig/extensions",
@@ -2799,7 +2866,8 @@
         "sonata-project/doctrine-orm-admin-bundle": 20,
         "sonata-project/formatter-bundle": 20,
         "stof/doctrine-extensions-bundle": 20,
-        "megogo/multiple-inheritance-bundle": 20
+        "megogo/multiple-inheritance-bundle": 20,
+        "friendsofsymfony/user-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"

@@ -1,0 +1,21 @@
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: PaLogic\Bundle\UserBundle\Entity\PaUser
+    registration:
+        confirmation:
+            enabled:    true
+    from_email:
+        address:        bot@boxenmieten.ch
+        sender_name:    Boxenmieten & DJCrowd CH
+        
+# Swiftmailer Configuration
+swiftmailer:
+    transport:  "%mailer_bm_transport%"
+    host:        "%mailer_bm_host%"
+    username:   "%mailer_bm_user%"
+    password:    "%mailer_bm_password%"
+    port:        "%mailer_bm_port%"
+    encryption: "%mailer_bm_encryption%"
+    auth_mode:  "%mailer_bm_auth_mode%"
+    spool:     { type: memory }

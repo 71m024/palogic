@@ -2,6 +2,11 @@ MultipleInheritanceBundle:
     resource: .
     type: inheritance
 
+dj_crowd_user:
+    resource: "@DjCrowdUserBundle/Resources/config/routing.yml"
+    host:     djcrowd.%tld%
+    prefix:   /
+
 dj_crowd_app:
     resource: "@DjCrowdAppBundle/Resources/config/routing.yml"
     host:     djcrowd.%tld%
@@ -12,17 +17,13 @@ pa_logic_blog:
     host:     palogic.%tld"
     prefix:   /
 
-pa_logic_app:
-    resource: "@PaLogicAppBundle/Resources/config/routing.yml"
-    prefix:   /
-
-boxenmieten_security:
-    resource: "@PaLogicSecurityBundle/Resources/config/routing.yml"
-    prefix:   /
-
 boxenmieten_app:
     resource: "@BoxenmietenAppBundle/Resources/config/routing.yml"
     host:      boxenmieten.%tld%
+    prefix:   /
+
+pa_logic_app:
+    resource: "@PaLogicAppBundle/Resources/config/routing.yml"
     prefix:   /
 
 boxenmieten_admin:
@@ -32,6 +33,10 @@ boxenmieten_admin:
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
     prefix: /admin
+    
+pa_logic_user:
+    resource: "@PaLogicUserBundle/Resources/config/routing.yml"
+    prefix: /
 
 _sonata_admin:
     resource: .

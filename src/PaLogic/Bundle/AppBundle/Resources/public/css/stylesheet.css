@@ -1,0 +1,47 @@
+.flash-warning,
+.flash-success,
+.flash-information,
+.flash-notice {
+    clear: both;
+    margin: 10px 0px;
+    padding: 13px 15px;
+}
+.flash-information {
+    background: #c2ddf9;
+    border: 1px solid #80bbef;
+    color: #4783b7;
+}
+.flash-warning {
+    background: #ffcccc;
+    border: 1px solid #ff9999;
+    color: #c31b00;
+}
+.flash-success {
+    background: #d1f7b6;
+    border: 1px solid #8bca61;
+    color: #5e9537;
+}
+.flash-notice {
+    background: #fdebae;
+    border: 1px solid #e6c555;
+    color: #9e660d;
+}
+
+.flash-warning ul,
+.flash-success ul,
+.flash-information ul,
+.flash-notice ul,
+.warning-box ul,
+.info-box ul,
+.note-box ul,
+.download-box ul
+.flash-warning p,
+.flash-success p,
+.flash-information p,
+.flash-notice p,
+.warning-box p,
+.info-box p,
+.note-box p,
+.download-box p {
+    padding-bottom: 0px;
+}

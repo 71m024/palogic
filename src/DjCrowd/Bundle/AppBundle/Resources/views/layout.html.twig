@@ -1,4 +1,4 @@
-{% extends '::base.html.twig' %}
+{% extends 'PaLogicAppBundle::layout.html.twig' %}
 
 {% block title %} - DJCrowd{% endblock %}
 
@@ -18,7 +18,7 @@
     {{ parent() }}
     {% stylesheets
         filter='cssrewrite'
-        output='generated/style/designCrowdStylesheets.css'
+        output='generated/style/djcrowdStylesheets.css'
         'webpaint/style/css/color/blue.css'
         %}
         <link rel="stylesheet" media="screen" href="{{ asset_url }}" />

@@ -37,6 +37,9 @@ class AppKernel extends BaseKernel
             new DjCrowd\Bundle\AppBundle\DjCrowdAppBundle(),
             new Boxenmieten\Bundle\BlogBundle\BoxenmietenBlogBundle(),
             new DjCrowd\Bundle\BlogBundle\DjCrowdBlogBundle(),
+            new FOS\UserBundle\FOSUserBundle(),
+            new PaLogic\Bundle\UserBundle\PaLogicUserBundle(),
+            new DjCrowd\Bundle\UserBundle\DjCrowdUserBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

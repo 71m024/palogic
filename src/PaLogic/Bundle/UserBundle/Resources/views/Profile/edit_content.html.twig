@@ -1,0 +1,48 @@
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="form-container">
+    <form action="{{ path('fos_user_profile_edit') }}" {{ form_enctype(form) }} method="POST" class="forms">
+        <fieldset>
+            {% if form.vars.errors|length %}
+                <div class="warning-box">
+                {{ form_errors(form) }}
+                </div>
+            {% endif %}
+            <div class="one-fourth last">
+                {{ form_widget(form.username, {'attr' : {'class' : 'text-input', 'placeholder' : 'Benutzername'}}) }}
+            </div>
+            <div class="clear" ></div>
+            {% if form.username.vars.errors|length %}
+                <div class="warning-box">
+                    {{ form_errors(form.username) }}
+                </div>
+            {% endif %}
+            <br />
+            <div class="one-third last">
+                {{ form_widget(form.email, {'attr' : {'class' : 'text-input', 'placeholder' : 'Mail'}}) }}
+            </div>
+            <div class="clear" ></div>
+            {% if form.email.vars.errors|length %}
+                <div class="warning-box">
+                    {{ form_errors(form.email) }}
+                </div>
+            {% endif %}
+            <br />
+            <div class="one-fourth last">
+                {{ form_widget(form.current_password, {'attr' : {'class' : 'text-input', 'placeholder' : 'aktuelles Passwort'}}) }}
+            </div>
+            <div class="clear" ></div>
+            {% if form.current_password.vars.errors|length %}
+                <div class="warning-box">
+                    {{ form_errors(form.current_password) }}
+                </div>
+            {% endif %}
+            {{ form_rest(form) }}
+            <hr />
+            <div class="one-sixth last">
+                <input type="submit" class="btn-submit" value="{{ 'profile.edit.submit'|trans }}" />
+            </div>
+            <div class="clear"></div>
+        </fieldset>
+    </form>
+</div>
