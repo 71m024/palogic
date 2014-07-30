@@ -6,12 +6,15 @@ parameters:
     database_user:     root
     database_password: ~
 
-    mailer_transport:  smtp
-    mailer_host:       127.0.0.1
-    mailer_user:       ~
-    mailer_password:   ~
-
     locale:            de
     secret:            ThisTokenIsNotSoSecretChangeIt
 
     tld: ch
+
+    mailer_bm_transport: smtp
+    mailer_bm_host: this.example.com
+    mailer_bm_user: bot@example.com
+    mailer_bm_password: null
+    mailer_bm_port: 587
+    mailer_bm_encryption: tls
+    mailer_bm_auth_mode: login
