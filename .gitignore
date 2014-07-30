@@ -10,7 +10,6 @@
 /bin/*
 
 # Configuration files
-/app/config/security.yml
 /app/config/parameters.yml
 
 # Composer
