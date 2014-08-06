@@ -1,0 +1,30 @@
+pa_logic_dj:
+    path:     /
+    defaults: { _controller: "PaLogicDjBundle:Dj:index" }
+
+pa_logic_dj_show:
+    path:     /{id}/show
+    defaults: { _controller: "PaLogicDjBundle:Dj:show" }
+
+pa_logic_dj_new:
+    path:     /new
+    defaults: { _controller: "PaLogicDjBundle:Dj:new" }
+
+pa_logic_dj_create:
+    path:     /create
+    defaults: { _controller: "PaLogicDjBundle:Dj:create" }
+    requirements: { _method: post }
+
+pa_logic_dj_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PaLogicDjBundle:Dj:edit" }
+
+pa_logic_dj_update:
+    path:     /{id}/update
+    defaults: { _controller: "PaLogicDjBundle:Dj:update" }
+    requirements: { _method: post|put }
+
+pa_logic_dj_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PaLogicDjBundle:Dj:delete" }
+    requirements: { _method: post|delete }

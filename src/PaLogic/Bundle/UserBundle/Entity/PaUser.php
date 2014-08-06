@@ -18,6 +18,12 @@ class PaUser extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+    
+    /**
+     *
+     * @ORM\OneToMany(targetEntity="PaLogic\Bundle\DjBundle\Entity\Dj", mappedBy="owner")
+     */
+    private $djs;
 
     public function __construct()
     {

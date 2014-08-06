@@ -1,0 +1,30 @@
+{% extends 'PaLogicAppBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    {% stylesheets filter='cssrewrite'
+        'bundles/palogicdj/css/jquery-ui.custom.css'
+        '@PaLogicDjBundle/Resources/public/css/image-picker.css'
+        '@PaLogicDjBundle/Resources/public/css/stylesheet.css'
+        output='generated/style/palogicDjStylesheet.css'
+    %}
+        <link rel="stylesheet" media="screen" href="{{ asset_url }}" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts
+        '@PaLogicDjBundle/Resources/public/js/jquery-ui.custom.js'
+        '@PaLogicDjBundle/Resources/public/js/scripts.js'
+        '@FOSJsRoutingBundle/Resources/public/js/router.js'
+        '@PaLogicDjBundle/Resources/public/js/image-picker.js'
+        '@PaLogicDjBundle/Resources/public/js/masonry.pkgd.min.js'
+        output='generated/scripts/palogicDjScripts.js'
+    %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+    
+    <!-- Can't include this integrate in assetic :/ -->
+    <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+{% endblock javascripts %}

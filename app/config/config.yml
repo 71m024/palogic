@@ -35,13 +35,14 @@ twig:
     form:
         resources:
             - 'SonataFormatterBundle:Form:formatter.html.twig'
+            - 'PaLogicAppBundle:Form:fields.html.twig'
 
 # Assetic Configuration
 assetic:
     read_from: "%kernel.root_dir%/../web"
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [BoxenmietenAppBundle, PaLogicBlogBundle, DjCrowdAppBundle, PaLogicAppBundle]
+    bundles:        [BoxenmietenAppBundle, PaLogicBlogBundle, DjCrowdAppBundle, PaLogicAppBundle, PaLogicDjBundle]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

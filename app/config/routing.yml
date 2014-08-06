@@ -14,7 +14,7 @@ dj_crowd_app:
     
 pa_logic_blog:
     resource: "@PaLogicBlogBundle/Resources/config/routing.yml"
-    host:     palogic.%tld"
+    host:     palogic.%tld%"
     prefix:   /
 
 boxenmieten_app:
@@ -42,3 +42,14 @@ _sonata_admin:
     resource: .
     type: sonata_admin
     prefix: /admin
+    
+pa_logic_dj:
+    resource: "@PaLogicDjBundle/Resources/config/routing/dj.yml"
+    prefix: /dj
+    
+pa_logic_dj_genre:
+    resource: "@PaLogicDjBundle/Resources/config/routing/genre.yml"
+    prefix: /genre
+    
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"

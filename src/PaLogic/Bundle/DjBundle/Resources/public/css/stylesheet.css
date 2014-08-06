@@ -1,0 +1,20 @@
+ul.thumbnails.image_picker_selector .thumbnail {
+    width: 23.5%;
+    margin-bottom: 10px;
+}
+ul.thumbnails.image_picker_selector {
+    max-height: 250px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: #f9f9f9;
+    border: 1px solid #e7e7e7;
+}
+ul.thumbnails.image_picker_selector li:before {
+    content: none;
+}
+ul.thumbnails.image_picker_selector li .thumbnail {
+    border: none;
+}
+form fieldset select.image-picker {
+    margin-bottom: 10px;
+}

@@ -1,0 +1,38 @@
+{% extends 'PaLogicDjBundle::layout.html.twig' %}
+
+{% block body -%}
+    <h1>Dj erstellen</h1>
+    
+    <div class="form-container">
+        {{ form_start(form) }}
+            <fieldset>
+                {% if form.vars.errors|length %}
+                    <div class="warning-box">
+                    {{ form_errors(form) }}
+                    </div>
+                {% endif %}
+                <div class="one-half">
+                    {{ form_row(form.name) }}
+                    {{ form_row(form.phone) }}
+                    {{ form_row(form.email) }}
+                    {{ form_row(form.genres) }}
+                    {{ form_row(form.headshot, {'attr' : {'class' : 'image-picker'}}) }}
+                </div>
+                <div class="one-half last">
+                    {{ form_row(form.description) }}
+                    {{ form_row(form.images, {'attr' : {'class' : 'image-picker'}}) }}
+                </div>
+                <div class="clear"></div>
+                <hr />
+                <div class="one-sixth last">
+                    {{ form_widget(form.submit, {'attr' : {'class' : 'btn-submit'}}) }}
+                </div>
+                <div class="clear"></div>
+                {{ form_rest(form) }}
+            </fieldset>
+        {{ form_end(form) }}
+    </div>
+    <a href="{{ path('pa_logic_dj') }}">
+        Back to the list
+    </a>
+{% endblock %}
