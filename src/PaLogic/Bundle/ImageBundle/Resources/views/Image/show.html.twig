@@ -1,0 +1,27 @@
+{% extends 'PaLogicImageBundle::layout.html.twig' %}
+
+{% block body -%}
+    <h1 class="aligncenter">{{ entity.title }}</h1>
+    <p class="description aligncenter">{{ entity.description }}</p>
+
+    <img src="{{ entity.webPath }}" alt="{{ entity.title }}">
+
+    <hr />
+    <div>
+        <div class="alignleft">
+            <a href="{{ path('palogic_image') }}" class="button">
+                Zurück
+            </a>
+        </div>
+        <div class="alignleft">
+            {{ form(delete_form) }}
+        </div>
+        <div class="alignleft">
+            <a href="{{ path('palogic_image_edit', { 'id': entity.id }) }}" class="button green">
+                Bearbeiten
+            </a>
+        </div>
+        <div class="clear"></div>
+    </div>
+    
+{% endblock %}

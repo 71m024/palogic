@@ -5,9 +5,17 @@ namespace PaLogic\Bundle\DjBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use PaLogic\Bundle\ImageBundle\Entity\Repository\ImageRepository;
 
 class DjType extends AbstractType
 {
+    
+    private $user;
+    
+    public function __construct($user)
+    {
+        $this->user = $user;
+    }
     
     /**
      * @param FormBuilderInterface $builder
@@ -22,26 +30,38 @@ class DjType extends AbstractType
             ->add('description')
             ->add(
                 'headshot',
-                'palogic_appbundle_images',
+                'palogic_imagebundle_images',
                 array(
                     'label' => 'Anzeigebild',
-                    'class' => 'PaLogic\Bundle\AppBundle\Entity\Image',
+                    'class' => 'PaLogic\Bundle\ImageBundle\Entity\Image',
+                    'query_builder' => function(ImageRepository $repository) {
+                        return $repository->createQueryBuilder('i')
+                            ->where('i.owner = :user')
+                            ->setParameter('user', $this->user)
+                        ;
+                    },
                     'required' => true,
                     'option_attributes' => array('data-img-src' => 'webPath'), 
                 )
             )
             ->add(
                 'images',
-                'palogic_appbundle_images',
+                'palogic_imagebundle_images',
                 array(
                     'label' => 'Bilder',
-                    'class' => 'PaLogic\Bundle\AppBundle\Entity\Image',
+                    'class' => 'PaLogic\Bundle\ImageBundle\Entity\Image',
+                    'query_builder' => function(ImageRepository $repository) {
+                        return $repository->createQueryBuilder('i')
+                            ->where('i.owner = :user')
+                            ->setParameter('user', $this->user)
+                        ;
+                    },
                     'required' => true,
                     'multiple' => true,
                     'option_attributes' => array('data-img-src' => 'webPath'), 
                 )
             )
-            ->add('genres', 'genre', array(
+            ->add('genres', 'genres', array(
                 'label' => 'Genres',
                 'required' => false)
             )

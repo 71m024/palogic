@@ -7,7 +7,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Table(name="cset")
- * @ORM\Entity(repositoryClass="PaLogic\Bundle\AppBundle\Entity\Repository\ImageRepository")
+ * @ORM\Entity(repositoryClass="PaLogic\Bundle\ImageBundle\Entity\Repository\ImageRepository")
  * @UniqueEntity(fields="name")
  */
 class Set
@@ -70,12 +70,12 @@ class Set
     private $components;
     
     /**
-     * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\AppBundle\Entity\Image", cascade={"persist", "remove"})
+     * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\ImageBundle\Entity\Image", cascade={"persist", "remove"})
      */
     private $images;
     
     /**
-     * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\AppBundle\Entity\Image")
+     * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\ImageBundle\Entity\Image")
      */
     private $previewImage;
     
@@ -286,10 +286,10 @@ class Set
     /**
      * Add images
      *
-     * @param \PaLogic\Bundle\AppBundle\Entity\Image $images
+     * @param \PaLogic\Bundle\ImageBundle\Entity\Image $images
      * @return Set
      */
-    public function addImage(\PaLogic\Bundle\AppBundle\Entity\Image $images)
+    public function addImage(\PaLogic\Bundle\ImageBundle\Entity\Image $images)
     {
         $this->images[] = $images;
 
@@ -299,9 +299,9 @@ class Set
     /**
      * Remove images
      *
-     * @param \PaLogic\Bundle\AppBundle\Entity\Image $images
+     * @param \PaLogic\Bundle\ImageBundle\Entity\Image $images
      */
-    public function removeImage(\PaLogic\Bundle\AppBundle\Entity\Image $images)
+    public function removeImage(\PaLogic\Bundle\ImageBundle\Entity\Image $images)
     {
         $this->images->removeElement($images);
     }
@@ -319,10 +319,10 @@ class Set
     /**
      * Set previewImage
      *
-     * @param \PaLogic\Bundle\AppBundle\Entity\Image $previewImage
+     * @param \PaLogic\Bundle\ImageBundle\Entity\Image $previewImage
      * @return Set
      */
-    public function setPreviewImage(\PaLogic\Bundle\AppBundle\Entity\Image $previewImage = null)
+    public function setPreviewImage(\PaLogic\Bundle\ImageBundle\Entity\Image $previewImage = null)
     {
         $this->previewImage = $previewImage;
 
@@ -332,7 +332,7 @@ class Set
     /**
      * Get previewImage
      *
-     * @return \PaLogic\Bundle\AppBundle\Entity\Image 
+     * @return \PaLogic\Bundle\ImageBundle\Entity\Image 
      */
     public function getPreviewImage()
     {

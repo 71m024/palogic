@@ -22,9 +22,10 @@ boxenmieten_app:
     host:      boxenmieten.%tld%
     prefix:   /
 
-pa_logic_app:
-    resource: "@PaLogicAppBundle/Resources/config/routing.yml"
+palogic_image:
+    resource: "@PaLogicImageBundle/Controller/"
     prefix:   /
+    type: annotation
 
 boxenmieten_admin:
     resource: "@PaLogicAdminBundle/Resources/config/routing.yml"
@@ -44,12 +45,11 @@ _sonata_admin:
     prefix: /admin
     
 pa_logic_dj:
-    resource: "@PaLogicDjBundle/Resources/config/routing/dj.yml"
-    prefix: /dj
-    
-pa_logic_dj_genre:
-    resource: "@PaLogicDjBundle/Resources/config/routing/genre.yml"
-    prefix: /genre
+    resource: "@PaLogicDjBundle/Resources/config/routing.yml"
+    prefix: /
     
 fos_js_routing:
     resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+    
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"

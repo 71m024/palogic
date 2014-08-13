@@ -49,7 +49,7 @@ services:
             - { name: sonata.admin, manager_type: orm, group: "Allgemein", label: "Image" }
         arguments:
             - ~
-            - PaLogic\Bundle\AppBundle\Entity\Image
+            - PaLogic\Bundle\ImageBundle\Entity\Image
             - ~
         calls:
             - [ setTranslationDomain, [PaLogicAdminBundle]]

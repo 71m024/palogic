@@ -24,33 +24,34 @@ class Dj
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=100)
+     * @ORM\Column(name="name", type="string", length=100, nullable=false)
      */
     private $name;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="phone", type="string", length=30)
+     * @ORM\Column(name="phone", type="string", length=30, nullable=false)
      */
     private $phone;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email", type="string", length=100)
+     * @ORM\Column(name="email", type="string", length=100, nullable=false)
      */
     private $email;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text")
+     * @ORM\Column(name="description", type="text", nullable=false)
      */
     private $description;
     
     /**
      * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\AppBundle\Entity\Image")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $headshot;
     
@@ -264,5 +265,61 @@ class Dj
     public function getGenres()
     {
         return $this->genres;
+    }
+
+    /**
+     * Set headshot
+     *
+     * @param \PaLogic\Bundle\AppBundle\Entity\Image $headshot
+     * @return Dj
+     */
+    public function setHeadshot(\PaLogic\Bundle\AppBundle\Entity\Image $headshot = null)
+    {
+        $this->headshot = $headshot;
+
+        return $this;
+    }
+
+    /**
+     * Get headshot
+     *
+     * @return \PaLogic\Bundle\AppBundle\Entity\Image 
+     */
+    public function getHeadshot()
+    {
+        return $this->headshot;
+    }
+
+    /**
+     * Add images
+     *
+     * @param \PaLogic\Bundle\AppBundle\Entity\Image $images
+     * @return Dj
+     */
+    public function addImage(\PaLogic\Bundle\AppBundle\Entity\Image $images)
+    {
+        $this->images[] = $images;
+
+        return $this;
+    }
+
+    /**
+     * Remove images
+     *
+     * @param \PaLogic\Bundle\AppBundle\Entity\Image $images
+     */
+    public function removeImage(\PaLogic\Bundle\AppBundle\Entity\Image $images)
+    {
+        $this->images->removeElement($images);
+    }
+
+    /**
+     * Get images
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getImages()
+    {
+        return $this->images;
     }
 }

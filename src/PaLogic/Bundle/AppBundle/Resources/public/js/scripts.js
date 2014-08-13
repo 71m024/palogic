@@ -294,7 +294,12 @@ $(document).ready(function() {
 	}).mouseleave(function(e) {
 		$(this).children('a').children('span').fadeOut(200);
 	});
-}); 
+        $('.masonry-container a').mouseenter(function(e) {
+		$(this).children('.overlay').fadeIn(300);
+	}).mouseleave(function(e) {
+		$(this).children('.overlay').fadeOut(200);
+	});
+});
 $(document).ready(function() {
         $('.items li').mouseenter(function(e) {
 
@@ -720,4 +725,19 @@ ddsmoothmenu.init({
     orientation: 'h',
     classname: 'menu',
     contentsource: "markup"
+});
+/*-----------------------------------------------------------------------------------*/
+/*	MASONRY IMAGES
+/*-----------------------------------------------------------------------------------*/
+$(document).ready(function(){
+    $('.masonry-container').masonry({
+            itemSelector: '.masonry-container .img',
+            gutter: 10
+        });
+    $('.masonry-container').imagesLoaded( function() {
+        $(this).masonry({
+            itemSelector: '.masonry-container .img',
+            gutter: 10
+        });
+    });
 });

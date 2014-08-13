@@ -4,45 +4,29 @@ namespace PaLogic\Bundle\DjBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Bridge\Doctrine\RegistryInterface;
-use Symfony\Component\Security\Core\SecurityContextInterface;
-use PaLogic\Bundle\DjBundle\Form\DataTransformer\GenresDataTransformer;
+use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class GenreType extends AbstractType
 {
     
     /**
-     * Ctor.
-     *
-     * @param RegistryInterface        $registry        A RegistryInterface instance
-     * @param SecurityContextInterface $securityContext A SecurityContextInterface instance
-     */
-    public function __construct(RegistryInterface $registry, SecurityContextInterface $securityContext)
-    {
-        $this->registry = $registry;
-        $this->securityContext = $securityContext;
-    }
-
-    /**
-     * {@inheritdoc}
+     * @param FormBuilderInterface $builder
+     * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->addViewTransformer(
-            new GenresDataTransformer(
-                $this->registry,
-                $this->securityContext
-            ),
-            true
-        );
+        $builder
+            ->add('name');
     }
     
     /**
-     * {@inheritdoc}
+     * @param OptionsResolverInterface $resolver
      */
-    public function getParent()
+    public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        return 'text';
+        $resolver->setDefaults(array(
+            'data_class' => 'PaLogic\Bundle\DjBundle\Entity\Genre'
+        ));
     }
 
     /**
@@ -50,6 +34,6 @@ class GenreType extends AbstractType
      */
     public function getName()
     {
-        return 'genre';
+        return 'palogic_bundle_djbundle_genre';
     }
 }

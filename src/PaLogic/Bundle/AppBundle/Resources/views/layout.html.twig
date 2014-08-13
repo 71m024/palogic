@@ -6,12 +6,16 @@
         <meta name="description" content="{% block description %}PaLogic{% endblock %}">
         <title>{% block title %} - PaLogic{% endblock %}</title>
         <link rel="shortcut icon" type="image/x-icon" href="/style/images/favicon.png?v=2" />
-        <!--[if IE 8]>
-        <link rel="stylesheet" type="text/css" href="/webpaint/style/css/ie8.css" media="all" />
-        <![endif]-->
-        <!--[if IE 9]>
-        <link rel="stylesheet" type="text/css" href="/webpaint/style/css/ie9.css" media="all" />
-        <![endif]-->
+        {% stylesheets '@PaLogicAppBundle/Resources/public/css/ie8.css' filter='cssrewrite' output='generated/style/palogicIE8Stylesheet.css' %}
+            <!--[if IE 8]>
+            <link rel="stylesheet" type="text/css" href="{{ asset_url }}" media="all" />
+            <![endif]-->
+        {% endstylesheets %}
+        {% stylesheets '@PaLogicAppBundle/Resources/public/css/ie9.css' filter='cssrewrite' output='generated/style/palogicIE8Stylesheet.css' %}
+            <!--[if IE 9]>
+            <link rel="stylesheet" type="text/css" href="{{ asset_url }}" media="all" />
+            <![endif]-->
+        {% endstylesheets %}
         {% stylesheets filter='cssrewrite'
             'bundles/palogicapp/css/style.css'
             '@PaLogicAppBundle/Resources/public/css/media-queries.css'
@@ -46,9 +50,26 @@
                     <div class="inner">
                         
                         <div class="logo">
-                        {% block blog_title %}
-                            <span style="font-size: 25px; font-weight: bold;"><span style="color:#ffc360">PaLogic</span></span>
-                        {% endblock %}
+                            {% block blog_title %}
+                                <a href="#">
+                                    <span style="font-size: 25px; font-weight: bold;"><span style="color:#ffc360">Pa</span><span style="color:#e0e0e0">Logic</span></span>
+                                </a>
+                            {% endblock %}
+                            <i class="icon-down-open-1"></i>
+                            {% block sidekicks %}
+                                <ul>
+                                    <li>
+                                        <a href="{{ path('boxenmieten_app_homepage') }}">
+                                            <span style="font-size: 25px; font-weight: bold;"><span style="color:#00ec11">Boxen</span><span style="color:#e0e0e0">mieten.ch</span></span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ path('djcrowd_app_homepage') }}">
+                                            <span style="font-size: 25px; font-weight: bold;"><span style="color:#5daed5">DJ</span><span style="color:#e0e0e0">Crowd.ch</span></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            {% endblock %}
                         </div>
 
                         {% block navigation %}
@@ -111,20 +132,21 @@
             <script src="/webpaint/style/js/html5.js" type="text/javascript"></script>
             <![endif]-->
             {% javascripts
-                'webpaint/style/js/jquery.min.js'
-                'webpaint/style/js/ddsmoothmenu.js'
-                'webpaint/style/js/jquery.isotope.min.js'
-                'webpaint/style/js/selectnav.js'
-                'webpaint/style/js/jquery.easytabs.min.js'
-                'webpaint/style/js/jquery.fitvids.js'
-                'webpaint/style/js/jquery.fancybox.pack.js'
-                'webpaint/style/js/fancybox/helpers/jquery.fancybox-thumbs.js'
-                'webpaint/style/js/fancybox/helpers/jquery.fancybox-media.js'
-                'webpaint/style/js/jquery.themepunch.plugins.min.js'
-                'webpaint/style/js/jquery.themepunch.revolution.min.js'
-                'webpaint/style/js/jquery.touchcarousel-1.2.min.js'
-                'webpaint/style/js/boostrapslider.js'
-                'webpaint/style/js/scripts.js'
+                '@PaLogicAppBundle/Resources/public/js/jquery.min.js'
+                '@PaLogicAppBundle/Resources/public/js/ddsmoothmenu.js'
+                '@PaLogicAppBundle/Resources/public/js/jquery.isotope.min.js'
+                '@PaLogicAppBundle/Resources/public/js/selectnav.js'
+                '@PaLogicAppBundle/Resources/public/js/jquery.easytabs.min.js'
+                '@PaLogicAppBundle/Resources/public/js/jquery.fitvids.js'
+                '@PaLogicAppBundle/Resources/public/js/jquery.fancybox.pack.js'
+                '@PaLogicAppBundle/Resources/public/js/fancybox/helpers/jquery.fancybox-thumbs.js'
+                '@PaLogicAppBundle/Resources/public/js/fancybox/helpers/jquery.fancybox-media.js'
+                '@PaLogicAppBundle/Resources/public/js/jquery.themepunch.plugins.min.js'
+                '@PaLogicAppBundle/Resources/public/js/jquery.themepunch.revolution.min.js'
+                '@PaLogicAppBundle/Resources/public/js/jquery.touchcarousel-1.2.min.js'
+                '@PaLogicAppBundle/Resources/public/js/boostrapslider.js'
+                '@PaLogicAppBundle/Resources/public/js/scripts.js'
+                '@PaLogicAppBundle/Resources/public/js/masonry.pkgd.min.js'
                 output='generated/scripts/baseScript.js'
             %}
                 <script type="text/javascript" src="{{ asset_url }}"></script>

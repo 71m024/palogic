@@ -11,9 +11,3 @@ services:
         scope: request # needed as we have the request as a dependency here
         tags:
             - { name: knp_menu.menu, alias: main }
-            
-    palogic_app.images.widget:
-        class: PaLogic\Bundle\AppBundle\Form\ImagesType
-        arguments: [@property_accessor]
-        tags:
-            - { name: form.type, alias: palogic_appbundle_images }

@@ -50,13 +50,13 @@ class Dj
     private $description;
     
     /**
-     * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\AppBundle\Entity\Image")
+     * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\ImageBundle\Entity\Image")
      * @ORM\JoinColumn(nullable=false)
      */
     private $headshot;
     
     /**
-     * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\AppBundle\Entity\Image")
+     * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\ImageBundle\Entity\Image")
      */
     private $images;
     
@@ -270,10 +270,10 @@ class Dj
     /**
      * Set headshot
      *
-     * @param \PaLogic\Bundle\AppBundle\Entity\Image $headshot
+     * @param \PaLogic\Bundle\ImageBundle\Entity\Image $headshot
      * @return Dj
      */
-    public function setHeadshot(\PaLogic\Bundle\AppBundle\Entity\Image $headshot = null)
+    public function setHeadshot(\PaLogic\Bundle\ImageBundle\Entity\Image $headshot = null)
     {
         $this->headshot = $headshot;
 
@@ -283,7 +283,7 @@ class Dj
     /**
      * Get headshot
      *
-     * @return \PaLogic\Bundle\AppBundle\Entity\Image 
+     * @return \PaLogic\Bundle\ImageBundle\Entity\Image 
      */
     public function getHeadshot()
     {
@@ -293,10 +293,10 @@ class Dj
     /**
      * Add images
      *
-     * @param \PaLogic\Bundle\AppBundle\Entity\Image $images
+     * @param \PaLogic\Bundle\ImageBundle\Entity\Image $images
      * @return Dj
      */
-    public function addImage(\PaLogic\Bundle\AppBundle\Entity\Image $images)
+    public function addImage(\PaLogic\Bundle\ImageBundle\Entity\Image $images)
     {
         $this->images[] = $images;
 
@@ -306,9 +306,9 @@ class Dj
     /**
      * Remove images
      *
-     * @param \PaLogic\Bundle\AppBundle\Entity\Image $images
+     * @param \PaLogic\Bundle\ImageBundle\Entity\Image $images
      */
-    public function removeImage(\PaLogic\Bundle\AppBundle\Entity\Image $images)
+    public function removeImage(\PaLogic\Bundle\ImageBundle\Entity\Image $images)
     {
         $this->images->removeElement($images);
     }

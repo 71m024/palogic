@@ -42,6 +42,9 @@ class AppKernel extends BaseKernel
             new DjCrowd\Bundle\UserBundle\DjCrowdUserBundle(),
             new PaLogic\Bundle\DjBundle\PaLogicDjBundle(),
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new Liip\ImagineBundle\LiipImagineBundle(),
+            new DjCrowd\Bundle\DjBundle\DjCrowdDjBundle(),
+            new PaLogic\Bundle\ImageBundle\PaLogicImageBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

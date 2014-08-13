@@ -1,16 +1,40 @@
 {% extends 'PaLogicDjBundle::layout.html.twig' %}
 
 {% block body -%}
-    <h1>Dj edit</h1>
-
-    {{ form(edit_form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('pa_logic_dj') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <h1>Dj bearbeiten</h1>
+    
+    {{ form_start(edit_form) }}
+        {% if form.vars.errors|length %}
+            <div class="warning-box">
+            {{ form_errors(edit_form) }}
+            </div>
+        {% endif %}
+        <div class="one-half">
+            {{ form_row(edit_form.name) }}
+            {{ form_row(edit_form.phone) }}
+            {{ form_row(edit_form.email) }}
+            {{ form_row(edit_form.genres) }}
+            {{ form_row(edit_form.headshot, {'attr' : {'class' : 'image-picker'}}) }}
+        </div>
+        <div class="one-half last">
+            {{ form_row(edit_form.description) }}
+            {{ form_row(edit_form.images, {'attr' : {'class' : 'image-picker'}}) }}
+        </div>
+        <div class="clear"></div>
+        <hr />
+        <div>
+            <div class="alignleft">
+                <a class="button" href="{{ path('fos_user_profile_show') }}">
+                    Zurück
+                </a>
+            </div>
+            <div class="alignleft">
+                {{ form(delete_form) }}
+            </div>
+            <div class="alignleft">
+                {{ form_widget(edit_form.submit, {'attr' : {'class' : 'btn-submit green'}}) }}
+            </div>
+            <div class="clear"></div>
+        </div>
+    {{ form_end(edit_form) }}
 {% endblock %}

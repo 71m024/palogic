@@ -63,7 +63,7 @@ class Post
     private $rawText;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\AppBundle\Entity\Image")
+     * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\ImageBundle\Entity\Image")
      */
     protected $image;
 

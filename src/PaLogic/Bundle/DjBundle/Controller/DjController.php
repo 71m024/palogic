@@ -28,9 +28,11 @@ class DjController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('PaLogicDjBundle:Dj')->findAll();
+        $genres = $em->getRepository('PaLogicDjBundle:Genre')->findAll();
 
         return $this->render('PaLogicDjBundle:Dj:index.html.twig', array(
             'entities' => $entities,
+            'genres' => $genres
         ));
     }
     /**
@@ -69,12 +71,12 @@ class DjController extends Controller
      */
     private function createCreateForm(Dj $entity)
     {
-        $form = $this->createForm(new DjType(), $entity, array(
+        $form = $this->createForm(new DjType($this->getUser()), $entity, array(
             'action' => $this->generateUrl('pa_logic_dj_create'),
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'Beantragen'));
 
         return $form;
     }
@@ -90,7 +92,7 @@ class DjController extends Controller
         $entity = new Dj();
         $form   = $this->createCreateForm($entity);
 
-        $images = $this->getDoctrine()->getRepository('PaLogicAppBundle:Image')->findAll();
+        $images = $this->getDoctrine()->getRepository('PaLogicImageBundle:Image')->findAll();
         
         return $this->render('PaLogicDjBundle:Dj:new.html.twig', array(
             'entity' => $entity,
@@ -162,12 +164,12 @@ class DjController extends Controller
     */
     private function createEditForm(Dj $entity)
     {
-        $form = $this->createForm(new DjType(), $entity, array(
+        $form = $this->createForm(new DjType($this->getUser()), $entity, array(
             'action' => $this->generateUrl('pa_logic_dj_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Speichern'));
 
         return $form;
     }
@@ -245,7 +247,7 @@ class DjController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('pa_logic_dj_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('submit', 'submit', array('label' => 'Löschen', 'attr' => array('class' => 'red')))
             ->getForm()
         ;
     }

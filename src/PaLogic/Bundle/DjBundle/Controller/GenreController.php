@@ -7,10 +7,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use PaLogic\Bundle\DjBundle\Entity\Genre;
 use PaLogic\Bundle\DjBundle\Form\GenreType;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 /**
  * Genre controller.
  *
+ * @Security("is_granted('ROLE_ADMIN')")
  */
 class GenreController extends Controller
 {
@@ -23,7 +25,7 @@ class GenreController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('PaLogicDjBundle:Repository\GenreRepository')->findAll();
+        $entities = $em->getRepository('PaLogicDjBundle:Genre')->findAll();
 
         return $this->render('PaLogicDjBundle:Genre:index.html.twig', array(
             'entities' => $entities,
@@ -217,7 +219,7 @@ class GenreController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('pa_logic_dj_genre_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('submit', 'submit', array('label' => 'Löschen', 'attr' => array('class' => 'red')))
             ->getForm()
         ;
     }

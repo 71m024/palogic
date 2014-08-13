@@ -6,7 +6,10 @@
     <div class="bannercontainer">
         <div class="banner">
              <ul>
-                <li data-transition="fade"> <img src="{{ asset('webpaint/style/images/art/slider-transparent.png')}}" alt="" style="background-color:#2a2a2a" />
+                <li data-transition="fade">
+                    {% image '@PaLogicAppBundle/Resources/public/images/art/slider-transparent.png' output='generated/images/banner/slider-transparent.jpg'%}
+                        <img src="{{ asset_url }}" alt="" style="background-color:#2a2a2a" />
+                    {% endimage %}
                     <div class="caption lfb" data-x="555" data-y="-200" data-speed="900" data-start="100" data-easing="easeOutSine">
                         {% image '@DjCrowdAppBundle/Resources/public/images/banner/live-dj.jpg' output='generated/images/banner/live-dj.jpg'%}
                             <img src="{{ asset_url }}" alt="" />

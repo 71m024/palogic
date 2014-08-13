@@ -1,17 +1,18 @@
 <?php
 
-namespace Boxenmieten\AppBundle\Entity;
+namespace PaLogic\Bundle\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Boxenmieten\AppBundle\Util\SlugUtil;
+use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Image
  *
  * @ORM\Table(name="image")
- * @ORM\Entity(repositoryClass="Boxenmieten\AppBundle\Entity\Repository\ImageRepository")
+ * @ORM\Entity(repositoryClass="PaLogic\Bundle\AppBundle\Entity\Repository\ImageRepository")
  * @ORM\HasLifecycleCallbacks
  * @UniqueEntity(fields="filename")
  * @UniqueEntity(fields="title")
@@ -34,18 +35,20 @@ class Image
      * @ORM\Column(name="filename", type="string", length=255, unique=true)
      */
     private $filename;
-
+    
     /**
      * @var \DateTime
-     *
+     * 
      * @ORM\Column(name="created", type="datetime")
+     * @Gedmo\Timestampable(on="create")
      */
     private $created;
 
     /**
      * @var \DateTime
-     *
+     * 
      * @ORM\Column(name="updated", type="datetime")
+     * @Gedmo\Timestampable(on="update")
      */
     private $updated;
 
@@ -58,6 +61,7 @@ class Image
     
      /**
      * @ORM\Column(type="string")
+     * @Gedmo\Slug(fields={"title"})
      */
     protected $slug;
 
@@ -70,8 +74,14 @@ class Image
 
     /**
      * Unmapped property to handle file uploads
+     * @Assert\File(maxSize="6000000")
      */
     private $file;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\UserBundle\Entity\PaUser")
+     */
+    private $owner;
     
     public function __toString() {
         return $this->title;
@@ -95,21 +105,20 @@ class Image
     {
         // the absolute directory path where uploaded
         // documents should be saved
-        return __DIR__.'/../../../../../httpdocs/'.$this->getUploadDir();
+        return __DIR__.'/../../../../../web/'.$this->getUploadDir();
     }
 
     protected function getUploadDir()
     {
         // get rid of the __DIR__ so it doesn't screw up
         // when displaying uploaded doc/image in the view.
-        return 'images/managed';
+        return 'uploads';
     }
     
     /**
      * @ORM\PrePersist
      */
     public function onPrePersist() {
-        $this->setUpdatedValue();
         $this->upload();
     }
     
@@ -117,7 +126,6 @@ class Image
      * @ORM\PreUpdate
      */
     public function onPreUpdate() {
-        $this->setUpdatedValue();
         $this->upload();
     }
     
@@ -138,15 +146,13 @@ class Image
      * Sets file.
      *
      * @param UploadedFile $file
+     * @return Image
      */
     public function setFile(UploadedFile $file = null)
     {
         $this->file = $file;
-        
-        /*Dirty workaround to change something mapped in this entity*/
-        if ($file instanceof UploadedFile) {
-            $this->setUpdatedValue();
-        }
+
+        return $this;
     }
 
     /**
@@ -163,7 +169,7 @@ class Image
      * Manages the copying of the file to the relevant place on the server
      */
     public function upload()
-    {
+    {   
         // the file property can be empty if the field is not required
         if (null === $this->getFile()) {
             return;
@@ -183,13 +189,6 @@ class Image
 
         // clean up the file property as you won't need it anymore
         $this->setFile(null);
-    }
-    
-    public function setUpdatedValue() {
-        $this->updated = new \DateTime();
-        if ($this->created === null) {
-            $this->created = $this->updated;
-        }
     }
 
 
@@ -258,8 +257,6 @@ class Image
     public function setTitle($title)
     {
         $this->title = $title;
-        
-        $this->setSlug(SlugUtil::slugify($title));
 
         return $this;
     }

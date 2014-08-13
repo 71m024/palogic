@@ -5,10 +5,16 @@ $(document).ready(function(){
         hide_select: false
     });
     
-    /*make a nice grid for headshot picker*/
+    /*make a nice image-grid*/
     $('.image_picker_selector').masonry({
         itemSelector: '.thumbnail',
         gutter: 10
+    });
+    $('.image_picker_selector').imagesLoaded( function() {
+        $(this).masonry({
+            itemSelector: '.thumbnail',
+            gutter: 10
+        });
     });
 
     /*Autocomplete*/

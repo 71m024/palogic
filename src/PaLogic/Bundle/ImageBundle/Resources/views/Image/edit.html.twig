@@ -1,0 +1,40 @@
+{% extends 'PaLogicImageBundle::layout.html.twig' %}
+
+{% block body -%}
+    <h1>Image edit</h1>
+
+    {{ form_start(edit_form) }}
+    
+        {% if edit_form.vars.errors|length %}
+            <div class="warning-box">
+            {{ form_errors(edit_form) }}
+            </div>
+        {% endif %}
+        {{ form_label(edit_form.file) }}
+        <br /><br />
+        {% if edit_form.vars.value.filename is not null %}
+            <img width="200" src="{{ asset(edit_form.vars.value.webPath) }}" />
+        {% endif %}
+        <br />
+        {{ form_widget(edit_form.file) }}
+        {{ form_errors(edit_form.file) }}
+        {{ form_row(edit_form.title) }}
+        {{ form_row(edit_form.description) }}
+
+        <hr />
+        <div>
+            <div class="alignleft">
+                <a class="button" href="{{ path('palogic_image') }}">
+                    Zurück
+                </a>
+            </div>
+            <div class="alignleft">
+                {{ form(delete_form) }}
+            </div>
+            <div class="alignleft">
+                {{ form_widget(edit_form.submit, {'attr' : {'class' : 'btn-submit green'}}) }}
+            </div>
+            <div class="clear"></div>
+        </div>
+    {{ form_end(edit_form) }}
+{% endblock %}

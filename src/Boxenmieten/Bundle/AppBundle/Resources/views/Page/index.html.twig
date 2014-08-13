@@ -6,7 +6,10 @@
     <div class="bannercontainer">
         <div class="banner">
              <ul>
-                <li data-transition="fade"> <img src="{{ asset('webpaint/style/images/art/slider-transparent.png')}}" alt="" style="background-color:#2a2a2a" />
+                <li data-transition="fade">
+                    {% image '@PaLogicAppBundle/Resources/public/images/art/slider-transparent.png' output='generated/images/banner/slider-transparent.jpg'%}
+                        <img src="{{ asset_url }}" alt="" style="background-color:#2a2a2a" />
+                    {% endimage %}
                     <div class="caption lfb" data-x="593" data-y="10" data-speed="900" data-start="100" data-easing="easeOutSine">
                         {% image '@BoxenmietenAppBundle/Resources/public/images/banner/boxe.png' output='generated/images/banner/boxe.png'%}
                             <img src="{{ asset_url }}" alt="" />
@@ -18,7 +21,10 @@
                     <div class="caption sfr big" data-x="center" data-y="245" data-speed="300" data-start="2800" data-easing="easeOutExpo">...zu günstigen Preisen</div>
                     <div class="caption sfb big" data-x="center" data-y="329" data-speed="300" data-start="4000" data-easing="easeOutExpo">in <strong>Bern!</strong></div>
                 </li>
-                <li data-transition="fade"> <img src="{{ asset('webpaint/style/images/art/slider-transparent.png')}}" alt="" style="background-color:#2a2a2a" />
+                <li data-transition="fade">
+                    {% image '@PaLogicAppBundle/Resources/public/images/art/slider-transparent.png' output='generated/images/banner/slider-transparent.jpg'%}
+                        <img src="{{ asset_url }}" alt="" style="background-color:#2a2a2a" />
+                    {% endimage %}
                     <div class="caption lfb" data-x="493" data-y="10" data-speed="900" data-start="100" data-easing="easeOutSine">
                         {% image '@BoxenmietenAppBundle/Resources/public/images/banner/stands.png' output='generated/images/banner/stands.png'%}
                             <img src="{{ asset_url }}" alt="" />

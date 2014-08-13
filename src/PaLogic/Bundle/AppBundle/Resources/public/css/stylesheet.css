@@ -45,3 +45,12 @@
 .download-box p {
     padding-bottom: 0px;
 }
+
+.masonry-container {
+    overflow: hidden;
+}
+
+.masonry-container .img {
+    width: 19%;
+    margin-bottom: 10px;
+}

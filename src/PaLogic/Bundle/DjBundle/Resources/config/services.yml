@@ -7,7 +7,7 @@ services:
            - { name: security.voter }
            
     palogic_dj.form.type.genre:
-        class: PaLogic\Bundle\DjBundle\Form\GenreType
+        class: PaLogic\Bundle\DjBundle\Form\GenresType
         arguments: [@doctrine, @security.context]
         tags:
-            - { name: form.type, alias: genre }
+            - { name: form.type, alias: genres }

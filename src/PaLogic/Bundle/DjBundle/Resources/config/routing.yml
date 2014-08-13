@@ -1,0 +1,7 @@
+pa_logic_dj_dj:
+    resource: "routing/dj.yml"
+    prefix: /dj
+    
+pa_logic_dj_genre:
+    resource: "routing/genre.yml"
+    prefix: /genre

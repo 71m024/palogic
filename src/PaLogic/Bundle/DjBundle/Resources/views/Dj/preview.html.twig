@@ -1,0 +1,31 @@
+<div class="content">
+    <div id="myCarousel" class="carousel slide">
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+            {% for image in dj.images %}
+                <div class="item">
+                    <img alt="{{ image.title }}" width="100%" src="{{ image.webPath | imagine_filter('filter_thumbnail', {'thumbnail' : {'size' : [770, 450] } }) }}">
+                    <a href="{{ image.webPath }}" class="fancybox-media" rel="item-1">
+                        <span class="link"></span>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev"></a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next"></a>
+    </div>
+</div>
+<div class="item-details">
+    <h2>{{ dj.name }}</h2>
+
+    <!--<ul class="item-info">
+        <li><span class="lite1">Date:</span> 02 January 2012</li>
+        <li><span class="lite1">Categories:</span> JavaScript, CSS, HTML</li>
+        <li><span class="lite1">Client:</span> Sit Commodo Sollicitudin</li>
+    </ul>-->
+    <p>{{ dj.description|nl2br|truncate(500) }}</p>
+    
+    <a href="{{ path('pa_logic_dj_show', { 'id': dj.id }) }}" class="button">Hier mehr !</a>
+</div>
+<div class="clear"></div>

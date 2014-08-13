@@ -207,6 +207,12 @@ h2.post-title a:hover {
     color: #ff6760
 }
 a.button,
+button {
+    background-color: #ff6760;
+}
+
+a.button,
+button,
 form fieldset .btn-submit,
 .comment-form .btn-submit,
 .filter li a,
@@ -214,11 +220,12 @@ form fieldset .btn-submit,
     font-weight: 900;
     font-size: 12px;
     text-transform: uppercase;
+    font-family: 'Lato', sans-serif;
     color: #FFF;
     display: inline-block;
-    background-color: #ff6760;
     padding: 6px 20px;
     margin: 0;
+    margin-right: 11px;
     -webkit-transition: all 200ms ease-in;
     -o-transition: all 200ms ease-in;
     -moz-transition: all 200ms ease-in;
@@ -230,29 +237,38 @@ form fieldset .btn-submit,
     border-radius: 3px;
     text-align: center;
     letter-spacing: 1px;
+    height: 35px;
 }
-a.button.red {
+a.button.red,
+button.red {
     background-color: #ff6760
 }
-a.button.pink {
+a.button.pink,
+button.pink {
     background-color: #ff6081
 }
-a.button.blue {
+a.button.blue,
+button.blue {
     background-color: #5daed5
 }
-a.button.aqua {
+a.button.aqua,
+button.aqua {
     background-color: #00ec11
 }
-a.button.yellow {
+a.button.yellow,
+button.yellow {
     background-color: #ffc360
 }
-a.button.green {
+a.button.green,
+button.green {
     background-color: #5fcd90
 }
-a.button.purple {
+a.button.purple,
+button.purple {
     background-color: #9978c6
 }
-a.button.orange {
+a.button.orange,
+button.orange {
     background-color: #ee6325
 }
 .page-navi ul li a {
@@ -264,6 +280,7 @@ a.button.gray,
     background: #595959
 }
 a.button:hover,
+button:hover,
 .filter li a:hover,
 form fieldset .btn-submit:hover,
 .comment-form .btn-submit:hover,
@@ -434,7 +451,58 @@ blockquote p {
     padding: 60px 0;
 }
 header .logo {
-    float: left
+    float: left;
+    height: 29px;
+    position: relative;
+    margin-left: -20px;
+}
+header .logo i {
+    position: absolute;
+    right: 5px;
+    top: 0px;
+}
+header .logo a {
+    display: block;
+}
+header .logo ul {
+    z-index: 21;
+    position: relative;
+    background-color: #262626;
+    padding: 0px;
+    min-width: 100%;
+    overflow: hidden;
+    max-height: 0px;
+}
+header .logo:hover ul {
+    max-height: 1000px;
+}
+header .logo > a {
+    padding: 10px 34px 10px 20px;
+    position: relative;
+    width: 100%;
+    margin-top: -10px;
+}
+header .logo > a:hover {
+    background-color: #3F3F3F;
+}
+header .logo ul li:before {
+    content: none;
+}
+header .logo ul li {
+    padding: 10px 34px 10px 20px;
+}
+header .logo ul li:hover {
+    background-color: #3F3F3F;
+}
+header .logo ul li,
+header .logo ul li:hover,
+header .logo > a,
+header .logo > a:hover {
+    -webkit-transition: background 500ms ease;
+    -moz-transition: background 500ms ease;
+    -ms-transition: background 500ms ease;
+    -o-transition: background 500ms ease;
+    transition: background 500ms ease;
 }
 header .menu {
     float: right
@@ -1128,6 +1196,25 @@ ul.contact-info li i {
     margin-bottom: 60px
 }
 /*-----------------------------------------------------------------------------------*/
+/*	MASONRY IMAGES
+/*-----------------------------------------------------------------------------------*/
+.masonry-container a .overlay {
+    display: none;
+    height: 100%;
+    position: absolute;
+    text-decoration: none;
+    width: 100%;
+    z-index: 100;
+    background-color: rgba(255,103,96, 0.92);
+    padding: 20px;
+}
+.masonry-container a .overlay h3 {
+    color: #FFF;
+    font-weight: 300;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+/*-----------------------------------------------------------------------------------*/
 /*	PORTFOLIO NAVIGATION
 /*-----------------------------------------------------------------------------------*/
 .navigation a.next-post {
@@ -1416,9 +1503,9 @@ form li.error input,
 form li.error textarea {
     border: 1px solid #d18282
 }
-form input.btn-submit {
-    height: 35px;
-    margin-top: -5px;
+form input,
+form button {
+    /*margin-top: -5px;*/
 }
 .comment-form input.btn-submit {
     padding-bottom: 5px
