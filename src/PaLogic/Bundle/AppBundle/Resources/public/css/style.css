@@ -489,13 +489,16 @@ header .logo ul li:before {
     content: none;
 }
 header .logo ul li {
+    padding: 0px;
+}
+header .logo ul li a {
     padding: 10px 34px 10px 20px;
 }
 header .logo ul li:hover {
     background-color: #3F3F3F;
 }
-header .logo ul li,
-header .logo ul li:hover,
+header .logo ul li a,
+header .logo ul li a:hover,
 header .logo > a,
 header .logo > a:hover {
     -webkit-transition: background 500ms ease;
