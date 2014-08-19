@@ -501,11 +501,11 @@ header .logo ul li a,
 header .logo ul li a:hover,
 header .logo > a,
 header .logo > a:hover {
-    -webkit-transition: background 500ms ease;
-    -moz-transition: background 500ms ease;
-    -ms-transition: background 500ms ease;
-    -o-transition: background 500ms ease;
-    transition: background 500ms ease;
+    -webkit-transition: background 0.3s ease;
+    -moz-transition: background 0.3s  ease;
+    -ms-transition: background  0.3s  ease;
+    -o-transition: background  0.3s  ease;
+    transition: background  0.3s  ease;
 }
 header .menu {
     float: right
