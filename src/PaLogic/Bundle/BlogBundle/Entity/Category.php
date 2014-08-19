@@ -35,6 +35,10 @@ class Category
      */
     private $posts;
     
+    /**
+     * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\AppBundle\Entity\DomainRoutePrefix")
+     */
+    protected $domainRoutePrefix;
     
     public function __toString() {
         return $this->getName();
@@ -112,5 +116,28 @@ class Category
     public function getPosts()
     {
         return $this->posts;
+    }
+
+    /**
+     * Set domainRoutePrefix
+     *
+     * @param \PaLogic\Bundle\AppBundle\Entity\DomainRoutePrefix $domainRoutePrefix
+     * @return Category
+     */
+    public function setDomainRoutePrefix(\PaLogic\Bundle\AppBundle\Entity\DomainRoutePrefix $domainRoutePrefix = null)
+    {
+        $this->domainRoutePrefix = $domainRoutePrefix;
+
+        return $this;
+    }
+
+    /**
+     * Get domainRoutePrefix
+     *
+     * @return \PaLogic\Bundle\AppBundle\Entity\DomainRoutePrefix 
+     */
+    public function getDomainRoutePrefix()
+    {
+        return $this->domainRoutePrefix;
     }
 }

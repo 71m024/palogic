@@ -30,14 +30,14 @@ class Builder
         $menu = $this->factory->createItem('root');
 
         $menu->addChild('Home', array('route' => 'djcrowd_app_homepage'));
-            $blogMenu = $this->factory->createItem('Blog', array('route' => 'djcrowd_palogic_blog',
+            $blogMenu = $this->factory->createItem('Blog', array('route' => 'dj_crowd_palogic_blog',
                 'extras' => array(
-                    'routes' => array('djcrowd_palogic_blog_category_page', 'djcrowd_palogic_blog_category'),
+                    'routes' => array('dj_crowd_palogic_blog_category_page', 'dj_crowd_palogic_blog_category'),
                 )));
             $categoryRepository = $this->em->getRepository('PaLogicBlogBundle:Category');
             $categories = $categoryRepository->findAll();
             foreach($categories as $category) {
-                $blogMenu->addChild($category->getName(), array('route' => 'djcrowd_palogic_blog_category',
+                $blogMenu->addChild($category->getName(), array('route' => 'dj_crowd_palogic_blog_category',
                     'routeParameters' => array('categoryId' => $category->getId(), 'categoryName' => strtolower($category->getName()))
                 ));
             }

@@ -1,6 +1,7 @@
-pa_logic_dj_dj:
-    resource: "routing/dj.yml"
+pa_logic_dj:
+    resource: "@PaLogicDjBundle/Controller/DjController.php"
     prefix: /dj
+    type: annotation
     
 pa_logic_dj_genre:
     resource: "routing/genre.yml"

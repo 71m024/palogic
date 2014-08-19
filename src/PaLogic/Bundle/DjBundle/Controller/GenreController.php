@@ -12,7 +12,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 /**
  * Genre controller.
  *
- * @Security("is_granted('ROLE_ADMIN')")
  */
 class GenreController extends Controller
 {
@@ -20,6 +19,7 @@ class GenreController extends Controller
     /**
      * Lists all Genre entities.
      *
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function indexAction()
     {
@@ -34,6 +34,7 @@ class GenreController extends Controller
     /**
      * Creates a new Genre entity.
      *
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function createAction(Request $request)
     {
@@ -77,6 +78,7 @@ class GenreController extends Controller
     /**
      * Displays a form to create a new Genre entity.
      *
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function newAction()
     {
@@ -92,6 +94,7 @@ class GenreController extends Controller
     /**
      * Finds and displays a Genre entity.
      *
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function showAction($id)
     {
@@ -114,6 +117,7 @@ class GenreController extends Controller
     /**
      * Displays a form to edit an existing Genre entity.
      *
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function editAction($id)
     {
@@ -156,6 +160,7 @@ class GenreController extends Controller
     /**
      * Edits an existing Genre entity.
      *
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function updateAction(Request $request, $id)
     {
@@ -186,6 +191,7 @@ class GenreController extends Controller
     /**
      * Deletes a Genre entity.
      *
+     * @Security("is_granted('ROLE_ADMIN')")
      */
     public function deleteAction(Request $request, $id)
     {

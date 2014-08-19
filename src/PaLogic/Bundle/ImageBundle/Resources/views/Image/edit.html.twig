@@ -24,12 +24,9 @@
         <hr />
         <div>
             <div class="alignleft">
-                <a class="button" href="{{ path('palogic_image') }}">
-                    Zurück
+                <a class="button" href="{{ path('pa_logic_image') }}">
+                    Übersicht
                 </a>
-            </div>
-            <div class="alignleft">
-                {{ form(delete_form) }}
             </div>
             <div class="alignleft">
                 {{ form_widget(edit_form.submit, {'attr' : {'class' : 'btn-submit green'}}) }}
@@ -37,4 +34,5 @@
             <div class="clear"></div>
         </div>
     {{ form_end(edit_form) }}
+    {{ form(delete_form) }}
 {% endblock %}

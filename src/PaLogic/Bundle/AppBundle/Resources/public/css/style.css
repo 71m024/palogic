@@ -398,22 +398,22 @@ hr {
 }
 .info-box {
     background: #c2ddf9;
-    border: 1px solid #80bbef;
+    /*border: 1px solid #80bbef;*/
     color: #4783b7;
 }
 .warning-box {
     background: #ffcccc;
-    border: 1px solid #ff9999;
+    /*border: 1px solid #ff9999;*/
     color: #c31b00;
 }
 .download-box {
     background: #d1f7b6;
-    border: 1px solid #8bca61;
+    /*border: 1px solid #8bca61;*/
     color: #5e9537;
 }
 .note-box {
     background: #fdebae;
-    border: 1px solid #e6c555;
+    /*border: 1px solid #e6c555;*/
     color: #9e660d;
 }
 pre {

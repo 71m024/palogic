@@ -24,7 +24,7 @@ class DjCrowdBlogBundle extends Bundle implements RoutingAdditionsInterface
 
     public function getRoutingPrefix()
     {
-        return 'djcrowd';
+        return 'dj_crowd';
     }
 
     public function getDefaults()

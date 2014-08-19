@@ -6,6 +6,7 @@
         <meta name="description" content="{% block description %}PaLogic{% endblock %}">
         <title>{% block title %} - PaLogic{% endblock %}</title>
         <link rel="shortcut icon" type="image/x-icon" href="/style/images/favicon.png?v=2" />
+        {% block canonical %}{% endblock %}
         {% stylesheets '@PaLogicAppBundle/Resources/public/css/ie8.css' filter='cssrewrite' output='generated/style/palogicIE8Stylesheet.css' %}
             <!--[if IE 8]>
             <link rel="stylesheet" type="text/css" href="{{ asset_url }}" media="all" />

@@ -1,5 +1,9 @@
 {% extends 'PaLogicBlogBundle::layout.html.twig' %}
 
+{% block canonical %}
+    <link rel="canonical" href="{{ path('boxenmieten_palogic_blog') }}" />
+{% endblock %}
+
 {% block title %}Blog{{parent()}}{% endblock%}
 
 {% block body %}

@@ -9,7 +9,7 @@
     {% else %}
         <div class="masonry-container">
             {% for image in entities %}
-                <a href="{{ path("palogic_image_show", {"id" : image.id, "slug" : image.slug}) }}" class="img">
+                <a href="{{ path("pa_logic_image_show", {"id" : image.id, "slug" : image.slug}) }}" class="img">
                     <div class="overlay">
                         <h3>{{ image.title }}</h3>
                     </div>
@@ -20,7 +20,10 @@
     {% endif %}
         
     <hr />
-    <a href="{{ path('palogic_image_new') }}" class="button">
+    <a class="button alignleft" href="{{ path('fos_user_profile_show') }}" >
+        Profil
+    </a>
+    <a class="button alignleft green" href="{{ path('pa_logic_image_new') }}" >
         Bild hochladen
     </a>
     

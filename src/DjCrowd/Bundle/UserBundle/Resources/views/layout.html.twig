@@ -1,15 +1,6 @@
 {% extends "DjCrowdAppBundle::layout.html.twig" %}
 
 {# copied from @PaLogicUserBundle::layout.html.twig #}
-{% block stylesheets %}
-    {{ parent() }}
-    {% stylesheets filter='cssrewrite'
-        '@PaLogicUserBundle/Resources/public/css/stylesheet.css'
-        output='generated/style/palogicUserStylesheet.css'
-    %}
-        <link rel="stylesheet" media="screen" href="{{ asset_url }}" />
-    {% endstylesheets %}
-{% endblock %}
 
 {% block body %}
 

@@ -4,7 +4,7 @@
     <h1>Dj bearbeiten</h1>
     
     {{ form_start(edit_form) }}
-        {% if form.vars.errors|length %}
+        {% if edit_form.vars.errors|length %}
             <div class="warning-box">
             {{ form_errors(edit_form) }}
             </div>
@@ -14,22 +14,30 @@
             {{ form_row(edit_form.phone) }}
             {{ form_row(edit_form.email) }}
             {{ form_row(edit_form.genres) }}
-            {{ form_row(edit_form.headshot, {'attr' : {'class' : 'image-picker'}}) }}
+            {{ form_row(edit_form.description) }}
+            {{ form_row(edit_form.facebook) }}
+            {{ form_row(edit_form.twitter) }}
+            {{ form_row(edit_form.googleplus) }}
+            {{ form_row(edit_form.youtube) }}
+            {{ form_row(edit_form.soundcloud) }}
         </div>
         <div class="one-half last">
-            {{ form_row(edit_form.description) }}
+            {{ form_row(edit_form.headshot, {'attr' : {'class' : 'image-picker'}}) }}
             {{ form_row(edit_form.images, {'attr' : {'class' : 'image-picker'}}) }}
         </div>
         <div class="clear"></div>
         <hr />
         <div>
             <div class="alignleft">
-                <a class="button" href="{{ path('fos_user_profile_show') }}">
-                    Zurück
+                <a class="button" 
+                    {% if is_granted('ROLE_ADMIN') %}
+                        href="{{ path('pa_logic_dj_admin') }}"
+                    {% else %}
+                        href="{{ path('fos_user_profile_show') }}"
+                    {% endif %}
+                   >
+                    Profil
                 </a>
-            </div>
-            <div class="alignleft">
-                {{ form(delete_form) }}
             </div>
             <div class="alignleft">
                 {{ form_widget(edit_form.submit, {'attr' : {'class' : 'btn-submit green'}}) }}

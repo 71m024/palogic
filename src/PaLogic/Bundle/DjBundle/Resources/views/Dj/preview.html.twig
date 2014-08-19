@@ -26,6 +26,6 @@
     </ul>-->
     <p>{{ dj.description|nl2br|truncate(500) }}</p>
     
-    <a href="{{ path('pa_logic_dj_show', { 'id': dj.id }) }}" class="button">Hier mehr !</a>
+    <a href="{{ path('pa_logic_dj_show', { 'id': dj.id, 'slug' : dj.slug }) }}" class="button">Hier mehr !</a>
 </div>
 <div class="clear"></div>

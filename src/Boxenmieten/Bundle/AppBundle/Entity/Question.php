@@ -19,22 +19,9 @@ class Question
      * @Email(message="Die E-Mail Adresse ist ungültig.", checkMX=true, checkHost=true)
      */
     protected $email;
-
     
-    /**
-     * @Regex(pattern="/^\+?[0-9]+(\([0-9]+\))?[0-9-]*[0-9]$/", match=true, message="Die Telefon-Nummer ist ungültig.")
-     */
     protected $tel;
-
     
-    /**
-     * @Length(
-     *      min = "10",
-     *      max = "5000",
-     *      minMessage = "Deine Nachricht muss mindestens {{ limit }} Zeichen lang sein.",
-     *      maxMessage = "Deine Nachricht darf höchstens {{ limit }} Zeichen lang sein."
-     * )
-     */
     protected $body;
     
     protected $send;

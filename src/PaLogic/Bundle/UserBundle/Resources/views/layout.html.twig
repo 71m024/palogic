@@ -1,15 +1,5 @@
 {% extends "PaLogicAppBundle::layout.html.twig" %}
 
-{% block stylesheets %}
-    {{ parent() }}
-    {% stylesheets filter='cssrewrite'
-        '@PaLogicUserBundle/Resources/public/css/stylesheet.css'
-        output='generated/style/palogicUserStylesheet.css'
-    %}
-        <link rel="stylesheet" media="screen" href="{{ asset_url }}" />
-    {% endstylesheets %}
-{% endblock %}
-
 {% block body %}
 
     {% for type, messages in app.session.flashbag.all() %}

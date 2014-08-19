@@ -14,10 +14,15 @@
             {{ form_row(form.phone) }}
             {{ form_row(form.email) }}
             {{ form_row(form.genres) }}
-            {{ form_row(form.headshot, {'attr' : {'class' : 'image-picker'}}) }}
+            {{ form_row(form.description) }}
+            {{ form_row(form.facebook) }}
+            {{ form_row(form.twitter) }}
+            {{ form_row(form.googleplus) }}
+            {{ form_row(form.youtube) }}
+            {{ form_row(form.soundcloud) }}
         </div>
         <div class="one-half last">
-            {{ form_row(form.description) }}
+            {{ form_row(form.headshot, {'attr' : {'class' : 'image-picker'}}) }}
             {{ form_row(form.images, {'attr' : {'class' : 'image-picker'}}) }}
         </div>
         <div class="clear"></div>
@@ -25,7 +30,7 @@
         <div>
             <div class="alignleft">
                 <a class="button" href="{{ path('fos_user_profile_show') }}">
-                    Zurück
+                    Profil
                 </a>
             </div>
             <div class="alignleft">

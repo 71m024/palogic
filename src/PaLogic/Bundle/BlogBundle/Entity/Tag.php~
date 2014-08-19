@@ -1,12 +1,12 @@
 <?php
 
-namespace Boxenmieten\BlogBundle\Entity;
+namespace PaLogic\Bundle\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
- * @ORM\Entity(repositoryClass="Boxenmieten\BlogBundle\Entity\Repository\TagRepository")
+ * @ORM\Entity(repositoryClass="PaLogic\Bundle\BlogBundle\Entity\Repository\TagRepository")
  * @ORM\Table(name="tag")
  * @ORM\HasLifecycleCallbacks
  * @UniqueEntity(fields="tag")
@@ -26,9 +26,15 @@ class Tag {
     protected $tag;
     
     /**
-     * @ORM\ManyToMany(targetEntity="Boxenmieten\BlogBundle\Entity\Post", mappedBy="tags")
+     * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\BlogBundle\Entity\Post", mappedBy="tags")
      * */
     protected $posts;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\AppBundle\Entity\DomainRoutePrefix")
+     */
+    protected $domainRoutePrefix;
+    
     
     /**
      * Constructor
@@ -78,10 +84,10 @@ class Tag {
     /**
      * Add posts
      *
-     * @param \Boxenmieten\BlogBundle\Entity\Post $posts
+     * @param \PaLogic\Bundle\BlogBundle\Entity\Post $posts
      * @return Tag
      */
-    public function addPost(\Boxenmieten\BlogBundle\Entity\Post $posts)
+    public function addPost(\PaLogic\Bundle\BlogBundle\Entity\Post $posts)
     {
         $this->posts[] = $posts;
 
@@ -91,9 +97,9 @@ class Tag {
     /**
      * Remove posts
      *
-     * @param \Boxenmieten\BlogBundle\Entity\Post $posts
+     * @param \PaLogic\Bundle\BlogBundle\Entity\Post $posts
      */
-    public function removePost(\Boxenmieten\BlogBundle\Entity\Post $posts)
+    public function removePost(\PaLogic\Bundle\BlogBundle\Entity\Post $posts)
     {
         $this->posts->removeElement($posts);
     }

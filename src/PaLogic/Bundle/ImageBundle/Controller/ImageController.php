@@ -23,7 +23,7 @@ class ImageController extends Controller
      * Lists all Image entities.
      *
      * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
-     * @Route("/", name="palogic_image")
+     * @Route("/", name="pa_logic_image")
      * @Method("GET")
      * @Template()
      */
@@ -41,7 +41,7 @@ class ImageController extends Controller
      * Creates a new Image entity.
      *
      * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
-     * @Route("/", name="palogic_image_create")
+     * @Route("/", name="pa_logic_image_create")
      * @Method("POST")
      * @Template("PaLogicImageBundle:Image:new.html.twig")
      */
@@ -57,7 +57,7 @@ class ImageController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('palogic_image_show', array('id' => $entity->getId(), 'slug' => $entity->getSlug())));
+            return $this->redirect($this->generateUrl('pa_logic_image_show', array('id' => $entity->getId(), 'slug' => $entity->getSlug())));
         }
 
         return array(
@@ -76,7 +76,7 @@ class ImageController extends Controller
     private function createCreateForm(Image $entity)
     {
         $form = $this->createForm(new ImageType(), $entity, array(
-            'action' => $this->generateUrl('palogic_image_create'),
+            'action' => $this->generateUrl('pa_logic_image_create'),
             'method' => 'POST',
         ));
 
@@ -88,7 +88,7 @@ class ImageController extends Controller
     /**
      * Displays a form to create a new Image entity.
      *
-     * @Route("/new", name="palogic_image_new")
+     * @Route("/new", name="pa_logic_image_new")
      * @Method("GET")
      * @Template()
      */
@@ -106,7 +106,7 @@ class ImageController extends Controller
     /**
      * Finds and displays a Image entity.
      *
-     * @Route("/{id}/{slug}/show", name="palogic_image_show")
+     * @Route("/{id}/{slug}/show", name="pa_logic_image_show")
      * @Method("GET")
      * @Template()
      */
@@ -131,7 +131,7 @@ class ImageController extends Controller
     /**
      * Displays a form to edit an existing Image entity.
      *
-     * @Route("/{id}/edit", name="palogic_image_edit")
+     * @Route("/{id}/edit", name="pa_logic_image_edit")
      * @Method("GET")
      * @Template()
      */
@@ -165,7 +165,7 @@ class ImageController extends Controller
     private function createEditForm(Image $entity)
     {
         $form = $this->createForm(new ImageType(), $entity, array(
-            'action' => $this->generateUrl('palogic_image_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('pa_logic_image_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -176,7 +176,7 @@ class ImageController extends Controller
     /**
      * Edits an existing Image entity.
      *
-     * @Route("/{id}", name="palogic_image_update")
+     * @Route("/{id}", name="pa_logic_image_update")
      * @Method("PUT")
      * @Template("PaLogicImageBundle:Image:edit.html.twig")
      */
@@ -200,7 +200,7 @@ class ImageController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('palogic_image_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('pa_logic_image_edit', array('id' => $id)));
         }
 
         return array(
@@ -212,7 +212,7 @@ class ImageController extends Controller
     /**
      * Deletes a Image entity.
      *
-     * @Route("/{id}", name="palogic_image_delete")
+     * @Route("/{id}", name="pa_logic_image_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
@@ -232,7 +232,7 @@ class ImageController extends Controller
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('palogic_image'));
+        return $this->redirect($this->generateUrl('pa_logic_image'));
     }
 
     /**
@@ -245,7 +245,7 @@ class ImageController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('palogic_image_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('pa_logic_image_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Löschen', 'attr' => array('class' => 'red')))
             ->getForm()

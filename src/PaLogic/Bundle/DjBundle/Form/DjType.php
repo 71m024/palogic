@@ -65,6 +65,21 @@ class DjType extends AbstractType
                 'label' => 'Genres',
                 'required' => false)
             )
+            ->add('facebook', 'url', array(
+                'required' => false
+            ))
+            ->add('twitter', 'url', array(
+                'required' => false
+            ))
+            ->add('googleplus', 'url', array(
+                'required' => false
+            ))
+            ->add('youtube', 'url', array(
+                'required' => false
+            ))
+            ->add('soundcloud', 'url', array(
+                'required' => false
+            ))
         ;
     }
     

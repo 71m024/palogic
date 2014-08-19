@@ -3,6 +3,8 @@
 namespace PaLogic\Bundle\DjBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Dj
@@ -20,6 +22,22 @@ class Dj
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    
+    /**
+     * @var \DateTime
+     * 
+     * @ORM\Column(name="created", type="datetime")
+     * @Gedmo\Timestampable(on="create")
+     */
+    private $created;
+
+    /**
+     * @var \DateTime
+     * 
+     * @ORM\Column(name="updated", type="datetime")
+     * @Gedmo\Timestampable(on="update")
+     */
+    private $updated;
 
     /**
      * @var string
@@ -50,13 +68,13 @@ class Dj
     private $description;
     
     /**
-     * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\AppBundle\Entity\Image")
+     * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\ImageBundle\Entity\Image")
      * @ORM\JoinColumn(nullable=false)
      */
     private $headshot;
     
     /**
-     * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\AppBundle\Entity\Image")
+     * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\ImageBundle\Entity\Image")
      */
     private $images;
     
@@ -77,6 +95,42 @@ class Dj
      * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\DjBundle\Entity\Genre")
      */
     private $genres;
+    
+    /**
+     * @ORM\Column(type="string")
+     * @Gedmo\Slug(fields={"name"})
+     */
+    protected $slug;
+    
+    /**
+     * @ORM\Column(type="string")
+     * @Assert\Url()
+     */
+    protected $facebook;
+    
+    /**
+     * @ORM\Column(type="string")
+     * @Assert\Url()
+     */
+    protected $twitter;
+    
+    /**
+     * @ORM\Column(type="string")
+     * @Assert\Url()
+     */
+    protected $googleplus;
+    
+    /**
+     * @ORM\Column(type="string")
+     * @Assert\Url()
+     */
+    protected $youtube;
+    
+    /**
+     * @ORM\Column(type="string")
+     * @Assert\Url()
+     */
+    protected $soundcloud;
 
 
     /**
@@ -270,10 +324,10 @@ class Dj
     /**
      * Set headshot
      *
-     * @param \PaLogic\Bundle\AppBundle\Entity\Image $headshot
+     * @param \PaLogic\Bundle\ImageBundle\Entity\Image $headshot
      * @return Dj
      */
-    public function setHeadshot(\PaLogic\Bundle\AppBundle\Entity\Image $headshot = null)
+    public function setHeadshot(\PaLogic\Bundle\ImageBundle\Entity\Image $headshot = null)
     {
         $this->headshot = $headshot;
 
@@ -283,7 +337,7 @@ class Dj
     /**
      * Get headshot
      *
-     * @return \PaLogic\Bundle\AppBundle\Entity\Image 
+     * @return \PaLogic\Bundle\ImageBundle\Entity\Image 
      */
     public function getHeadshot()
     {
@@ -293,10 +347,10 @@ class Dj
     /**
      * Add images
      *
-     * @param \PaLogic\Bundle\AppBundle\Entity\Image $images
+     * @param \PaLogic\Bundle\ImageBundle\Entity\Image $images
      * @return Dj
      */
-    public function addImage(\PaLogic\Bundle\AppBundle\Entity\Image $images)
+    public function addImage(\PaLogic\Bundle\ImageBundle\Entity\Image $images)
     {
         $this->images[] = $images;
 
@@ -306,9 +360,9 @@ class Dj
     /**
      * Remove images
      *
-     * @param \PaLogic\Bundle\AppBundle\Entity\Image $images
+     * @param \PaLogic\Bundle\ImageBundle\Entity\Image $images
      */
-    public function removeImage(\PaLogic\Bundle\AppBundle\Entity\Image $images)
+    public function removeImage(\PaLogic\Bundle\ImageBundle\Entity\Image $images)
     {
         $this->images->removeElement($images);
     }
@@ -321,5 +375,74 @@ class Dj
     public function getImages()
     {
         return $this->images;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Dj
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Dj
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return Dj
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime 
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
     }
 }

@@ -3,6 +3,8 @@
 namespace PaLogic\Bundle\DjBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Dj
@@ -20,6 +22,22 @@ class Dj
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+    
+    /**
+     * @var \DateTime
+     * 
+     * @ORM\Column(name="created", type="datetime")
+     * @Gedmo\Timestampable(on="create")
+     */
+    private $created;
+
+    /**
+     * @var \DateTime
+     * 
+     * @ORM\Column(name="updated", type="datetime")
+     * @Gedmo\Timestampable(on="update")
+     */
+    private $updated;
 
     /**
      * @var string
@@ -77,6 +95,42 @@ class Dj
      * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\DjBundle\Entity\Genre")
      */
     private $genres;
+    
+    /**
+     * @ORM\Column(type="string")
+     * @Gedmo\Slug(fields={"name"})
+     */
+    protected $slug;
+    
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     * @Assert\Url()
+     */
+    protected $facebook;
+    
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     * @Assert\Url()
+     */
+    protected $twitter;
+    
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     * @Assert\Url()
+     */
+    protected $googleplus;
+    
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     * @Assert\Url()
+     */
+    protected $youtube;
+    
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     * @Assert\Url()
+     */
+    protected $soundcloud;
 
 
     /**
@@ -321,5 +375,189 @@ class Dj
     public function getImages()
     {
         return $this->images;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     * @return Dj
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
+     * @return string 
+     */
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Dj
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return Dj
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime 
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
+     * Set facebook
+     *
+     * @param string $facebook
+     * @return Dj
+     */
+    public function setFacebook($facebook)
+    {
+        $this->facebook = $facebook;
+
+        return $this;
+    }
+
+    /**
+     * Get facebook
+     *
+     * @return string 
+     */
+    public function getFacebook()
+    {
+        return $this->facebook;
+    }
+
+    /**
+     * Set twitter
+     *
+     * @param string $twitter
+     * @return Dj
+     */
+    public function setTwitter($twitter)
+    {
+        $this->twitter = $twitter;
+
+        return $this;
+    }
+
+    /**
+     * Get twitter
+     *
+     * @return string 
+     */
+    public function getTwitter()
+    {
+        return $this->twitter;
+    }
+
+    /**
+     * Set googleplus
+     *
+     * @param string $googleplus
+     * @return Dj
+     */
+    public function setGoogleplus($googleplus)
+    {
+        $this->googleplus = $googleplus;
+
+        return $this;
+    }
+
+    /**
+     * Get googleplus
+     *
+     * @return string 
+     */
+    public function getGoogleplus()
+    {
+        return $this->googleplus;
+    }
+
+    /**
+     * Set youtube
+     *
+     * @param string $youtube
+     * @return Dj
+     */
+    public function setYoutube($youtube)
+    {
+        $this->youtube = $youtube;
+
+        return $this;
+    }
+
+    /**
+     * Get youtube
+     *
+     * @return string 
+     */
+    public function getYoutube()
+    {
+        return $this->youtube;
+    }
+
+    /**
+     * Set soundcloud
+     *
+     * @param string $soundcloud
+     * @return Dj
+     */
+    public function setSoundcloud($soundcloud)
+    {
+        $this->soundcloud = $soundcloud;
+
+        return $this;
+    }
+
+    /**
+     * Get soundcloud
+     *
+     * @return string 
+     */
+    public function getSoundcloud()
+    {
+        return $this->soundcloud;
     }
 }
