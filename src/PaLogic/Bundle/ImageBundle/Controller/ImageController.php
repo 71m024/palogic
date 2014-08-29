@@ -23,8 +23,6 @@ class ImageController extends Controller
      * Lists all Image entities.
      *
      * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
-     * @Route("/", name="pa_logic_image")
-     * @Method("GET")
      * @Template()
      */
     public function indexAction()
@@ -41,8 +39,6 @@ class ImageController extends Controller
      * Creates a new Image entity.
      *
      * @Security("is_granted('IS_AUTHENTICATED_REMEMBERED')")
-     * @Route("/", name="pa_logic_image_create")
-     * @Method("POST")
      * @Template("PaLogicImageBundle:Image:new.html.twig")
      */
     public function createAction(Request $request)
@@ -88,8 +84,6 @@ class ImageController extends Controller
     /**
      * Displays a form to create a new Image entity.
      *
-     * @Route("/new", name="pa_logic_image_new")
-     * @Method("GET")
      * @Template()
      */
     public function newAction()
@@ -106,8 +100,6 @@ class ImageController extends Controller
     /**
      * Finds and displays a Image entity.
      *
-     * @Route("/{id}/{slug}/show", name="pa_logic_image_show")
-     * @Method("GET")
      * @Template()
      */
     public function showAction($id)
@@ -131,8 +123,6 @@ class ImageController extends Controller
     /**
      * Displays a form to edit an existing Image entity.
      *
-     * @Route("/{id}/edit", name="pa_logic_image_edit")
-     * @Method("GET")
      * @Template()
      */
     public function editAction($id)
@@ -176,8 +166,6 @@ class ImageController extends Controller
     /**
      * Edits an existing Image entity.
      *
-     * @Route("/{id}", name="pa_logic_image_update")
-     * @Method("PUT")
      * @Template("PaLogicImageBundle:Image:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
@@ -212,8 +200,6 @@ class ImageController extends Controller
     /**
      * Deletes a Image entity.
      *
-     * @Route("/{id}", name="pa_logic_image_delete")
-     * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
     {

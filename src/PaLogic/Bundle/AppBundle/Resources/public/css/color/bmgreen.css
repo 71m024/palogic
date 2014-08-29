@@ -121,8 +121,8 @@ ul.contact-info li i {
 }
 .items li a .overlay,
 .overlay a .more {
-    background-color: rgba(93,174,213, 0.92);
+    background-color: rgba(0,236,17, 0.92);
 }
 .masonry-container a .overlay {
-    background-color: rgba(93,174,213, 0.92);
+    background-color: rgba(0,236,17, 0.92);
 }

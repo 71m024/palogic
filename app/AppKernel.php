@@ -45,6 +45,7 @@ class AppKernel extends BaseKernel
             new Liip\ImagineBundle\LiipImagineBundle(),
             new DjCrowd\Bundle\DjBundle\DjCrowdDjBundle(),
             new PaLogic\Bundle\ImageBundle\PaLogicImageBundle(),
+            new DjCrowd\Bundle\ImageBundle\DjCrowdImageBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

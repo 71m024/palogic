@@ -23,10 +23,9 @@ boxenmieten_app:
     host:      boxenmieten.%tld%
     prefix:   /
 
-palogic_image:
-    resource: "@PaLogicImageBundle/Controller/"
+pa_logic_image:
+    resource: "@PaLogicImageBundle/Resources/config/routing.yml"
     prefix:   /
-    type: annotation
 
 boxenmieten_admin:
     resource: "@PaLogicAdminBundle/Resources/config/routing.yml"
