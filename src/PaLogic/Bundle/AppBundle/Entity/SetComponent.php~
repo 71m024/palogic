@@ -1,6 +1,6 @@
 <?php
 
-namespace Boxenmieten\AppBundle\Entity;
+namespace PaLogic\Bundle\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -62,10 +62,10 @@ class SetComponent
     /**
      * Set set
      *
-     * @param \Boxenmieten\AppBundle\Entity\Set $set
+     * @param \PaLogic\Bundle\AppBundle\Entity\Set $set
      * @return SetComponent
      */
-    public function setSet(\Boxenmieten\AppBundle\Entity\Set $set)
+    public function setSet(\PaLogic\Bundle\AppBundle\Entity\Set $set)
     {
         $this->set = $set;
 
@@ -75,7 +75,7 @@ class SetComponent
     /**
      * Get set
      *
-     * @return \Boxenmieten\AppBundle\Entity\Set 
+     * @return \PaLogic\Bundle\AppBundle\Entity\Set 
      */
     public function getSet()
     {
@@ -85,10 +85,10 @@ class SetComponent
     /**
      * Set component
      *
-     * @param \Boxenmieten\AppBundle\Entity\Component $component
+     * @param \PaLogic\Bundle\AppBundle\Entity\Component $component
      * @return SetComponent
      */
-    public function setComponent(\Boxenmieten\AppBundle\Entity\Component $component)
+    public function setComponent(\PaLogic\Bundle\AppBundle\Entity\Component $component)
     {
         $this->component = $component;
 
@@ -98,7 +98,7 @@ class SetComponent
     /**
      * Get component
      *
-     * @return \Boxenmieten\AppBundle\Entity\Component 
+     * @return \PaLogic\Bundle\AppBundle\Entity\Component 
      */
     public function getComponent()
     {

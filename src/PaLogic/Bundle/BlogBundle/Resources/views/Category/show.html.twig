@@ -1,5 +1,11 @@
 {% extends 'PaLogicBlogBundle::layout.html.twig' %}
 
+{% block canonical %}
+    {% if not category.domainRoutePrefix is empty %}
+        <link rel="canonical" href="{{ path(category.domainRoutePrefix.prefix|default('boxenmieten_') ~ "palogic_blog_category", {"categoryId" : category.id, 'categoryName' : category.name|lower}) }}" />
+    {% endif %}
+{% endblock %}
+
 {% block title %}{{ category.name }}{{parent()}}{% endblock title %}
 
 {% block body %}

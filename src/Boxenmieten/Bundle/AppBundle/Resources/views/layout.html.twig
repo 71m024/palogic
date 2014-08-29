@@ -9,6 +9,15 @@
         <span style="font-size: 25px; font-weight: bold;"><span style="color:#00ec11">Boxen</span><span style="color:#e0e0e0">mieten.ch</span></span>
     </a>
 {% endblock %}
+{% block sidekicks %}
+    <ul>
+        <li>
+            <a href="{{ path('djcrowd_app_homepage') }}">
+                <span style="font-size: 25px; font-weight: bold;"><span style="color:#5daed5">DJ</span><span style="color:#e0e0e0">Crowd.ch</span></span>
+            </a>
+        </li>
+    </ul>
+{% endblock %}
 
 {% block navigation %}
     {{ knp_menu_render('bmMain', {'depth': 2, 'currentAsLink': true, 'currentClass' : 'active'}) }}
@@ -19,7 +28,7 @@
     {% stylesheets
         filter='cssrewrite'
         output='generated/style/bmStylesheets.css'
-        'webpaint/style/css/color/bmgreen.css'
+        '@PaLogicAppBundle/Resources/public/css/color/bmgreen.css'
         %}
         <link rel="stylesheet" media="screen" href="{{ asset_url }}" />
     {% endstylesheets %}

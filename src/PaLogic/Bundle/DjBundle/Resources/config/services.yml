@@ -1,0 +1,13 @@
+services:
+    security.access.dj_voter:
+        class:      PaLogic\Bundle\DjBundle\Security\Authorization\Voter\DjVoter
+        public:     false
+        arguments: ["@security.access.role_hierarchy_voter"]
+        tags:
+           - { name: security.voter }
+           
+    palogic_dj.form.type.genre:
+        class: PaLogic\Bundle\DjBundle\Form\GenresType
+        arguments: [@doctrine, @security.context]
+        tags:
+            - { name: form.type, alias: genres }

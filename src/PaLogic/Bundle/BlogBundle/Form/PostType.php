@@ -42,6 +42,6 @@ class PostType extends AbstractType
      */
     public function getName()
     {
-        return 'PaLogic\Bundle_blogbundle_post';
+        return 'palogic_blogbundle_post';
     }
 }

@@ -1,0 +1,6 @@
+services:   
+    palogic_image.images.widget:
+        class: PaLogic\Bundle\ImageBundle\Form\ImagesType
+        arguments: [@property_accessor, "@liip_imagine.cache.manager"]
+        tags:
+            - { name: form.type, alias: palogic_imagebundle_images }

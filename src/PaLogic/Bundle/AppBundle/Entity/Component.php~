@@ -1,6 +1,6 @@
 <?php
 
-namespace Boxenmieten\AppBundle\Entity;
+namespace PaLogic\Bundle\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Component
  *
  * @ORM\Table(name="component")
- * @ORM\Entity(repositoryClass="Boxenmieten\AppBundle\Entity\Repository\ComponentRepository")
+ * @ORM\Entity(repositoryClass="PaLogic\Bundle\AppBundle\Entity\Repository\ComponentRepository")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
  * @ORM\DiscriminatorMap({"boxe" = "Boxe", "stand" = "Stand", "cable" = "Cable", "mixer" = "Mixer", "mic" = "Mic"})
@@ -81,12 +81,12 @@ class Component
     private $model;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Boxenmieten\AppBundle\Entity\Image")
+     * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\ImageBundle\Entity\Image")
      */
     private $previewImage;
     
     /**
-     * @ORM\ManyToMany(targetEntity="Boxenmieten\AppBundle\Entity\Image", cascade={"persist", "remove"})
+     * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\ImageBundle\Entity\Image", cascade={"persist", "remove"})
      */
     private $images;
     
@@ -362,10 +362,10 @@ class Component
     /**
      * Set previewImage
      *
-     * @param \Boxenmieten\AppBundle\Entity\Image $previewImage
+     * @param \PaLogic\Bundle\ImageBundle\Entity\Image $previewImage
      * @return Component
      */
-    public function setPreviewImage(\Boxenmieten\AppBundle\Entity\Image $previewImage = null)
+    public function setPreviewImage(\PaLogic\Bundle\ImageBundle\Entity\Image $previewImage = null)
     {
         $this->previewImage = $previewImage;
 
@@ -375,7 +375,7 @@ class Component
     /**
      * Get previewImage
      *
-     * @return \Boxenmieten\AppBundle\Entity\Image 
+     * @return \PaLogic\Bundle\ImageBundle\Entity\Image 
      */
     public function getPreviewImage()
     {
@@ -385,10 +385,10 @@ class Component
     /**
      * Add sets
      *
-     * @param \Boxenmieten\AppBundle\Entity\SetComponent $sets
+     * @param \PaLogic\Bundle\AppBundle\Entity\SetComponent $sets
      * @return Component
      */
-    public function addSet(\Boxenmieten\AppBundle\Entity\SetComponent $sets)
+    public function addSet(\PaLogic\Bundle\AppBundle\Entity\SetComponent $sets)
     {
         $this->sets[] = $sets;
 
@@ -398,9 +398,9 @@ class Component
     /**
      * Remove sets
      *
-     * @param \Boxenmieten\AppBundle\Entity\SetComponent $sets
+     * @param \PaLogic\Bundle\AppBundle\Entity\SetComponent $sets
      */
-    public function removeSet(\Boxenmieten\AppBundle\Entity\SetComponent $sets)
+    public function removeSet(\PaLogic\Bundle\AppBundle\Entity\SetComponent $sets)
     {
         $this->sets->removeElement($sets);
     }
@@ -418,10 +418,10 @@ class Component
     /**
      * Add images
      *
-     * @param \Boxenmieten\AppBundle\Entity\Image $images
+     * @param \PaLogic\Bundle\ImageBundle\Entity\Image $images
      * @return Component
      */
-    public function addImage(\Boxenmieten\AppBundle\Entity\Image $images)
+    public function addImage(\PaLogic\Bundle\ImageBundle\Entity\Image $images)
     {
         $this->images[] = $images;
 
@@ -431,9 +431,9 @@ class Component
     /**
      * Remove images
      *
-     * @param \Boxenmieten\AppBundle\Entity\Image $images
+     * @param \PaLogic\Bundle\ImageBundle\Entity\Image $images
      */
-    public function removeImage(\Boxenmieten\AppBundle\Entity\Image $images)
+    public function removeImage(\PaLogic\Bundle\ImageBundle\Entity\Image $images)
     {
         $this->images->removeElement($images);
     }

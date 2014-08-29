@@ -5,9 +5,18 @@
 {% block description %}Engagiere deinen DJ!{% endblock %}
 
 {% block blog_title %}
-    <a href="{{ path('boxenmieten_app_homepage') }}">
+    <a href="{{ path('djcrowd_app_homepage') }}">
         <span style="font-size: 25px; font-weight: bold;"><span style="color:#5daed5">DJ</span><span style="color:#e0e0e0">Crowd.ch</span></span>
     </a>
+{% endblock %}
+{% block sidekicks %}
+    <ul>
+        <li>
+            <a href="{{ path('boxenmieten_app_homepage') }}">
+                <span style="font-size: 25px; font-weight: bold;"><span style="color:#00ec11">Boxen</span><span style="color:#e0e0e0">mieten.ch</span></span>
+            </a>
+        </li>
+    </ul>
 {% endblock %}
 
 {% block navigation %}
@@ -19,8 +28,31 @@
     {% stylesheets
         filter='cssrewrite'
         output='generated/style/djcrowdStylesheets.css'
-        'webpaint/style/css/color/blue.css'
+        '@PaLogicAppBundle/Resources/public/css/color/blue.css'
         %}
         <link rel="stylesheet" media="screen" href="{{ asset_url }}" />
     {% endstylesheets %}
 {% endblock %}
+
+{% block footer %}
+    <footer class="aligncenter">
+        <div class="inner">
+            <h1>Kontakt</h1>
+            <p class="description">Bei Fragen oder Interesse helfen wir dir gerne weiter.</p>
+            <ul class="contact-info">
+                <li><i class="icon-location"></i>3053 Deisswil b.M</li>
+                <li><i class="icon-phone"></i><a href="tel:+41792660774">+41 79 266 07 74</a></li>
+                <li><i class="icon-mail"></i> <a href="mailto:info@boxenmieten.ch">info@djcrowd.ch</a></li>
+            </ul>
+        </div>
+    </footer>
+{% endblock %}
+
+
+{% block subfooter %}
+    <div class="subfooter-wrapper"> 
+        <div class="inner">
+            <p>© 2014 DjCrowd.ch</p>
+        </div>
+    </div>
+{% endblock subfooter %}

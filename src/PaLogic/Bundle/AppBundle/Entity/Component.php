@@ -81,12 +81,12 @@ class Component
     private $model;
     
     /**
-     * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\AppBundle\Entity\Image")
+     * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\ImageBundle\Entity\Image")
      */
     private $previewImage;
     
     /**
-     * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\AppBundle\Entity\Image", cascade={"persist", "remove"})
+     * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\ImageBundle\Entity\Image", cascade={"persist", "remove"})
      */
     private $images;
     
@@ -362,10 +362,10 @@ class Component
     /**
      * Set previewImage
      *
-     * @param \PaLogic\Bundle\AppBundle\Entity\Image $previewImage
+     * @param \PaLogic\Bundle\ImageBundle\Entity\Image $previewImage
      * @return Component
      */
-    public function setPreviewImage(\PaLogic\Bundle\AppBundle\Entity\Image $previewImage = null)
+    public function setPreviewImage(\PaLogic\Bundle\ImageBundle\Entity\Image $previewImage = null)
     {
         $this->previewImage = $previewImage;
 
@@ -375,7 +375,7 @@ class Component
     /**
      * Get previewImage
      *
-     * @return \PaLogic\Bundle\AppBundle\Entity\Image 
+     * @return \PaLogic\Bundle\ImageBundle\Entity\Image 
      */
     public function getPreviewImage()
     {
@@ -418,10 +418,10 @@ class Component
     /**
      * Add images
      *
-     * @param \PaLogic\Bundle\AppBundle\Entity\Image $images
+     * @param \PaLogic\Bundle\ImageBundle\Entity\Image $images
      * @return Component
      */
-    public function addImage(\PaLogic\Bundle\AppBundle\Entity\Image $images)
+    public function addImage(\PaLogic\Bundle\ImageBundle\Entity\Image $images)
     {
         $this->images[] = $images;
 
@@ -431,9 +431,9 @@ class Component
     /**
      * Remove images
      *
-     * @param \PaLogic\Bundle\AppBundle\Entity\Image $images
+     * @param \PaLogic\Bundle\ImageBundle\Entity\Image $images
      */
-    public function removeImage(\PaLogic\Bundle\AppBundle\Entity\Image $images)
+    public function removeImage(\PaLogic\Bundle\ImageBundle\Entity\Image $images)
     {
         $this->images->removeElement($images);
     }

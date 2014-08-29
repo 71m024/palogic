@@ -1,6 +1,6 @@
 <?php
 
-namespace Boxenmieten\BlogBundle\Entity;
+namespace PaLogic\Bundle\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -9,7 +9,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
  * Category
  *
  * @ORM\Table(name="category")
- * @ORM\Entity(repositoryClass="Boxenmieten\BlogBundle\Entity\Repository\CategoryRepository")
+ * @ORM\Entity(repositoryClass="PaLogic\Bundle\BlogBundle\Entity\Repository\CategoryRepository")
  * @UniqueEntity("name")
  */
 class Category
@@ -35,6 +35,10 @@ class Category
      */
     private $posts;
     
+    /**
+     * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\AppBundle\Entity\DomainRoutePrefix")
+     */
+    protected $domainRoutePrefix;
     
     public function __toString() {
         return $this->getName();
@@ -84,10 +88,10 @@ class Category
     /**
      * Add posts
      *
-     * @param \Boxenmieten\BlogBundle\Entity\Post $posts
+     * @param \PaLogic\Bundle\BlogBundle\Entity\Post $posts
      * @return Category
      */
-    public function addPost(\Boxenmieten\BlogBundle\Entity\Post $posts)
+    public function addPost(\PaLogic\Bundle\BlogBundle\Entity\Post $posts)
     {
         $this->posts[] = $posts;
 
@@ -97,9 +101,9 @@ class Category
     /**
      * Remove posts
      *
-     * @param \Boxenmieten\BlogBundle\Entity\Post $posts
+     * @param \PaLogic\Bundle\BlogBundle\Entity\Post $posts
      */
-    public function removePost(\Boxenmieten\BlogBundle\Entity\Post $posts)
+    public function removePost(\PaLogic\Bundle\BlogBundle\Entity\Post $posts)
     {
         $this->posts->removeElement($posts);
     }

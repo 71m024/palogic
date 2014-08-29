@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('PaLogic\Bundle_security');
+        $rootNode = $treeBuilder->root('pa_logic_security');
 
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for

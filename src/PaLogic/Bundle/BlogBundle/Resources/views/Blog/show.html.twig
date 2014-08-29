@@ -1,5 +1,11 @@
 {% extends 'PaLogicBlogBundle::layout.html.twig' %}
 
+{% block canonical %}
+    {% if not post.domainRoutePrefix is empty %}
+        <link rel="canonical" href="{{ path(post.domainRoutePrefix.prefix|default('boxenmieten_') ~ 'palogic_blog_show', {"id" : post.id, "slug" : post.slug}) }}" />
+    {% endif %}
+{% endblock %}
+
 {% block description %}{{ post.title }}: {{ post.headline }}{{parent()}}{% endblock %}
 
 {% block title %}Blog{% endblock%}
@@ -31,7 +37,7 @@
         </div>
         {% if post.image is not empty %}
             <div class="overlay">
-                <a href="{{ path("palogic_app_image_show", {"id" : post.image.id, "slug" : post.image.slug}) }}">
+                <a href="{{ path("pa_logic_image_show", {"id" : post.image.id, "slug" : post.image.slug}) }}">
                     <img src="{{ post.image.webPath }}" alt="Post Image"/>
                 </a>
             </div>

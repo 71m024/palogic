@@ -1,14 +1,15 @@
 <?php
 
-namespace Boxenmieten\BlogBundle\Entity;
+namespace PaLogic\Bundle\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-use Boxenmieten\AppBundle\Util\SlugUtil;
+use PaLogic\Bundle\AppBundle\Util\SlugUtil;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * @ORM\Entity(repositoryClass="Boxenmieten\BlogBundle\Entity\Repository\PostRepository")
+ * @ORM\Entity(repositoryClass="PaLogic\Bundle\BlogBundle\Entity\Repository\PostRepository")
  * @ORM\Table(name="post")
  * @ORM\HasLifecycleCallbacks
  */
@@ -23,6 +24,7 @@ class Post
     
     /**
      * @ORM\Column(type="string")
+     * @Gedmo\Slug(fields={"title"})
      */
     protected $slug;
 
@@ -63,7 +65,7 @@ class Post
     private $rawText;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Boxenmieten\AppBundle\Entity\Image")
+     * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\ImageBundle\Entity\Image")
      */
     protected $image;
 
@@ -74,16 +76,18 @@ class Post
 
     /**
      * @ORM\Column(type="datetime")
+     * @Gedmo\Timestampable(on="create")
      */
     protected $created;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Gedmo\Timestampable(on="update")
      */
     protected $updated;
     
     /**
-     * @ORM\ManyToMany(targetEntity="Boxenmieten\BlogBundle\Entity\Tag", inversedBy="posts", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\BlogBundle\Entity\Tag", inversedBy="posts", cascade={"persist"})
      */
     protected $tags;
     
@@ -92,24 +96,20 @@ class Post
      */
     private $categories;
     
+    /**
+     * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\AppBundle\Entity\DomainRoutePrefix")
+     */
+    protected $domainRoutePrefix;
+
+    
     public function __construct()
     {
         $this->comments = new ArrayCollection();
-        
-        $this->setCreated(new \DateTime());
-        $this->setUpdated(new \DateTime());
     }
     
     public function __toString()
     {
         return $this->getTitle();
-    }
-    
-    /*
-     * @ORM\PreUpdate
-     */
-    public function setUpdatedValue() {
-        $this->setUpdated(new \DateTime());
     }
     
     public function getRawText() {
@@ -138,8 +138,6 @@ class Post
     public function setTitle($title)
     {
         $this->title = $title;
-        
-        $this->setSlug(SlugUtil::slugify($this->title));
 
         return $this;
     }
@@ -311,10 +309,10 @@ class Post
     /**
      * Add comments
      *
-     * @param \Boxenmieten\BlogBundle\Entity\Comment $comments
+     * @param \PaLogic\Bundle\BlogBundle\Entity\Comment $comments
      * @return Post
      */
-    public function addComment(\Boxenmieten\BlogBundle\Entity\Comment $comments)
+    public function addComment(\PaLogic\Bundle\BlogBundle\Entity\Comment $comments)
     {
         $this->comments[] = $comments;
 
@@ -324,9 +322,9 @@ class Post
     /**
      * Remove comments
      *
-     * @param \Boxenmieten\BlogBundle\Entity\Comment $comments
+     * @param \PaLogic\Bundle\BlogBundle\Entity\Comment $comments
      */
-    public function removeComment(\Boxenmieten\BlogBundle\Entity\Comment $comments)
+    public function removeComment(\PaLogic\Bundle\BlogBundle\Entity\Comment $comments)
     {
         $this->comments->removeElement($comments);
     }
@@ -344,10 +342,10 @@ class Post
     /**
      * Add tags
      *
-     * @param \Boxenmieten\BlogBundle\Entity\Tag $tags
+     * @param \PaLogic\Bundle\BlogBundle\Entity\Tag $tags
      * @return Post
      */
-    public function addTag(\Boxenmieten\BlogBundle\Entity\Tag $tags)
+    public function addTag(\PaLogic\Bundle\BlogBundle\Entity\Tag $tags)
     {
         $this->tags[] = $tags;
 
@@ -357,9 +355,9 @@ class Post
     /**
      * Remove tags
      *
-     * @param \Boxenmieten\BlogBundle\Entity\Tag $tags
+     * @param \PaLogic\Bundle\BlogBundle\Entity\Tag $tags
      */
-    public function removeTag(\Boxenmieten\BlogBundle\Entity\Tag $tags)
+    public function removeTag(\PaLogic\Bundle\BlogBundle\Entity\Tag $tags)
     {
         $this->tags->removeElement($tags);
     }
@@ -377,10 +375,10 @@ class Post
     /**
      * Add categories
      *
-     * @param \Boxenmieten\BlogBundle\Entity\Category $categories
+     * @param \PaLogic\Bundle\BlogBundle\Entity\Category $categories
      * @return Post
      */
-    public function addCategory(\Boxenmieten\BlogBundle\Entity\Category $categories)
+    public function addCategory(\PaLogic\Bundle\BlogBundle\Entity\Category $categories)
     {
         $this->categories[] = $categories;
 
@@ -390,9 +388,9 @@ class Post
     /**
      * Remove categories
      *
-     * @param \Boxenmieten\BlogBundle\Entity\Category $categories
+     * @param \PaLogic\Bundle\BlogBundle\Entity\Category $categories
      */
-    public function removeCategory(\Boxenmieten\BlogBundle\Entity\Category $categories)
+    public function removeCategory(\PaLogic\Bundle\BlogBundle\Entity\Category $categories)
     {
         $this->categories->removeElement($categories);
     }
@@ -428,5 +426,28 @@ class Post
     public function getHeadline()
     {
         return $this->headline;
+    }
+
+    /**
+     * Set domainRoutePrefix
+     *
+     * @param \PaLogic\Bundle\AppBundle\Entity\DomainRoutePrefix $domainRoutePrefix
+     * @return Post
+     */
+    public function setDomainRoutePrefix(\PaLogic\Bundle\AppBundle\Entity\DomainRoutePrefix $domainRoutePrefix = null)
+    {
+        $this->domainRoutePrefix = $domainRoutePrefix;
+
+        return $this;
+    }
+
+    /**
+     * Get domainRoutePrefix
+     *
+     * @return \PaLogic\Bundle\AppBundle\Entity\DomainRoutePrefix 
+     */
+    public function getDomainRoutePrefix()
+    {
+        return $this->domainRoutePrefix;
     }
 }

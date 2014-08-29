@@ -1,0 +1,37 @@
+pa_logic_dj_genre:
+    path:     /
+    defaults: { _controller: "PaLogicDjBundle:Genre:index" }
+
+pa_logic_dj_genre_show:
+    path:     /{id}/show
+    defaults: { _controller: "PaLogicDjBundle:Genre:show" }
+
+pa_logic_dj_genre_new:
+    path:     /new
+    defaults: { _controller: "PaLogicDjBundle:Genre:new" }
+
+pa_logic_dj_genre_create:
+    path:     /create
+    defaults: { _controller: "PaLogicDjBundle:Genre:create" }
+    requirements: { _method: post }
+
+pa_logic_dj_genre_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "PaLogicDjBundle:Genre:edit" }
+
+pa_logic_dj_genre_update:
+    path:     /{id}/update
+    defaults: { _controller: "PaLogicDjBundle:Genre:update" }
+    requirements: { _method: post|put }
+
+pa_logic_dj_genre_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "PaLogicDjBundle:Genre:delete" }
+    requirements: { _method: post|delete }
+    
+pa_logic_dj_genres:
+    path:   /ajax
+    defaults: { _controller: "PaLogicDjBundle:Genre:getGenres" }
+    requirements: { _method: get }
+    options:
+        expose: true

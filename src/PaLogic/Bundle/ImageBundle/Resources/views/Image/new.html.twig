@@ -1,0 +1,30 @@
+{% extends 'PaLogicImageBundle::layout.html.twig' %}
+
+{% block body -%}
+    <h1>Bild hochladen</h1>
+
+    {{ form_start(form) }}
+        {% if form.vars.errors|length %}
+            <div class="warning-box">
+            {{ form_errors(form) }}
+            </div>
+        {% endif %}
+        {{ form_row(form.file) }}
+        {{ form_row(form.title) }}
+        {{ form_row(form.description) }}
+
+        <hr />
+        <div>
+            <div class="alignleft">
+                <a class="button" href="{{ path('pa_logic_image') }}">
+                    Übersicht
+                </a>
+            </div>
+            <div class="alignleft">
+                {{ form_widget(form.submit, {'attr' : {'class' : 'btn-submit green'}}) }}
+            </div>
+            <div class="clear"></div>
+        </div>
+    {{ form_end(form) }}
+</ul>
+{% endblock %}

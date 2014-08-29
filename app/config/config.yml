@@ -35,13 +35,14 @@ twig:
     form:
         resources:
             - 'SonataFormatterBundle:Form:formatter.html.twig'
+            - 'PaLogicAppBundle:Form:fields.html.twig'
 
 # Assetic Configuration
 assetic:
     read_from: "%kernel.root_dir%/../web"
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [BoxenmietenAppBundle, PaLogicBlogBundle, DjCrowdAppBundle, PaLogicAppBundle]
+    bundles:        [BoxenmietenAppBundle, PaLogicBlogBundle, DjCrowdAppBundle, PaLogicAppBundle, PaLogicDjBundle, PaLogicUserBundle, DjCrowdUserBundle, FOSUserBundle]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -130,3 +131,46 @@ sonata_formatter:
         twig:
             service: sonata.formatter.text.twigengine
             extensions: [] # Twig formatter cannot have extensions
+            
+liip_imagine:
+
+    filter_sets:
+        filter_widen:
+            filters:
+                relative_resize: { widen: 210 }
+                
+        filter_thumbnail:
+            filters:
+                thumbnail: { size: [270, 220], mode: outbound, allow_upscale: true }
+                
+        filter_dj_show_banner:
+            filters:
+                upscale: { min: [725, 340] }
+                thumbnail: { size: [725, 340], mode: outbound, allow_upscale: true }
+                
+        filter_dj_show_headshot:
+            filters:
+                upscale: { min: [500, 500] }
+                thumbnail: { size: [500, 500], mode: outbound, allow_upscale: true }
+                
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: PaLogic\Bundle\UserBundle\Entity\PaUser
+    registration:
+        confirmation:
+            enabled:    true
+    from_email:
+        address:        bot@boxenmieten.ch
+        sender_name:    Boxenmieten & DJCrowd CH
+        
+# Swiftmailer Configuration
+swiftmailer:
+    transport:  "%mailer_bm_transport%"
+    host:        "%mailer_bm_host%"
+    username:   "%mailer_bm_user%"
+    password:    "%mailer_bm_password%"
+    port:        "%mailer_bm_port%"
+    encryption: "%mailer_bm_encryption%"
+    auth_mode:  "%mailer_bm_auth_mode%"
+    spool:     { type: memory }

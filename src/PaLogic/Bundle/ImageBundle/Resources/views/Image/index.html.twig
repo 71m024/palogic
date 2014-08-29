@@ -1,0 +1,30 @@
+{% extends 'PaLogicImageBundle::layout.html.twig' %}
+
+{% block body -%}
+    <h1 class="aligncenter">Bilder</h1>
+    <p class="description aligncenter">Hier siehts du alle Fotos, die du bisher hochgeladen hast.</p>
+
+    {% if entities is empty %}
+        <label>Du hast noch keine Bilder hochgeladen.</label>
+    {% else %}
+        <div class="masonry-container">
+            {% for image in entities %}
+                <a href="{{ path("pa_logic_image_show", {"id" : image.id, "slug" : image.slug}) }}" class="img">
+                    <div class="overlay">
+                        <h3>{{ image.title }}</h3>
+                    </div>
+                    <img src="{{ image.webPath | imagine_filter('filter_widen') }}" alt="{{ image.title }}"/>
+                </a>
+            {% endfor %}
+        </div>
+    {% endif %}
+        
+    <hr />
+    <a class="button alignleft" href="{{ path('fos_user_profile_show') }}" >
+        Profil
+    </a>
+    <a class="button alignleft green" href="{{ path('pa_logic_image_new') }}" >
+        Bild hochladen
+    </a>
+    
+{% endblock %}

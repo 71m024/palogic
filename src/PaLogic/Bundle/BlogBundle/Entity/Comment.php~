@@ -1,13 +1,13 @@
 <?php
 
-namespace Boxenmieten\BlogBundle\Entity;
+namespace PaLogic\Bundle\BlogBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
 /**
- * @ORM\Entity(repositoryClass="Boxenmieten\BlogBundle\Entity\Repository\CommentRepository")
+ * @ORM\Entity(repositoryClass="PaLogic\Bundle\BlogBundle\Entity\Repository\CommentRepository")
  * @ORM\Table(name="comment")
  * @ORM\HasLifecycleCallbacks
  */
@@ -162,10 +162,10 @@ class Comment {
     /**
      * Set post
      *
-     * @param \Boxenmieten\BlogBundle\Entity\Post $post
+     * @param \PaLogic\Bundle\BlogBundle\Entity\Post $post
      * @return Comment
      */
-    public function setPost(\Boxenmieten\BlogBundle\Entity\Post $post = null)
+    public function setPost(\PaLogic\Bundle\BlogBundle\Entity\Post $post = null)
     {
         $this->post = $post;
 
@@ -175,7 +175,7 @@ class Comment {
     /**
      * Get post
      *
-     * @return \Boxenmieten\BlogBundle\Entity\Post 
+     * @return \PaLogic\Bundle\BlogBundle\Entity\Post 
      */
     public function getPost()
     {

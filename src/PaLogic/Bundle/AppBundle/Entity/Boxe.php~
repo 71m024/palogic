@@ -1,6 +1,6 @@
 <?php
 
-namespace Boxenmieten\AppBundle\Entity;
+namespace PaLogic\Bundle\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Boxe
  *
  * @ORM\Table(name="boxe")
- * @ORM\Entity(repositoryClass="Boxenmieten\AppBundle\Entity\Repository\BoxeRepository")
+ * @ORM\Entity(repositoryClass="PaLogic\Bundle\AppBundle\Entity\Repository\BoxeRepository")
  */
 class Boxe extends Component
 {

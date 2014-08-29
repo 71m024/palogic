@@ -1,0 +1,37 @@
+{% extends 'PaLogicDjBundle::layout.html.twig' %}
+
+{% block top %}{% endblock %}
+
+{% block body -%}
+    <h1 class="aligncenter">DJ's</h1>
+    <p class="description aligncenter">Sortiere alle DJ's nach Genre</p>
+    <br />
+      
+    <div class="portfolio-wrapper">
+        <ul class="filter">
+            <li><a class="active" href="#" data-filter="*">Alle</a></li>
+            {% for genre in genres %}
+                <li><a href="#" data-filter=".{{ genre.name }}">{{ genre.name }}</a></li>
+            {% endfor %}
+        </ul>
+        <ul class="items col4">
+            {% for entity in entities %}
+                
+                <!-- Begin 1st Portfolio Item -->
+                <li class="item {% for genre in entity.genres %}{{ genre.name }} {% endfor %}" >
+                    <a href="{{ path('pa_logic_dj_show', { 'id': entity.id, 'slug' : entity.slug }) }}" >
+                        <div class="overlay">
+                            <h3>{{ entity.name }}</h3>
+                            <span class="meta">{% for genre in entity.genres %}{% if not loop.first %}, {% endif %}{{ genre.name }} {% endfor %}</span> 
+                        </div>
+                        <img src="{{ entity.headshot.webPath | imagine_filter('filter_thumbnail') }}" alt="{{ entity.headshot.title }}" />
+                    </a>
+                </li>
+                <!-- End 1st Portfolio Item -->
+                
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="clear"></div>
+{% endblock %}

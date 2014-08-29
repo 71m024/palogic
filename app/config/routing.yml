@@ -8,13 +8,14 @@ dj_crowd_user:
     prefix:   /
 
 dj_crowd_app:
-    resource: "@DjCrowdAppBundle/Resources/config/routing.yml"
+    resource: "@DjCrowdAppBundle/Controller/"
     host:     djcrowd.%tld%
     prefix:   /
+    type:   annotation
     
 pa_logic_blog:
     resource: "@PaLogicBlogBundle/Resources/config/routing.yml"
-    host:     palogic.%tld"
+    host:     palogic.%tld%"
     prefix:   /
 
 boxenmieten_app:
@@ -22,9 +23,10 @@ boxenmieten_app:
     host:      boxenmieten.%tld%
     prefix:   /
 
-pa_logic_app:
-    resource: "@PaLogicAppBundle/Resources/config/routing.yml"
+palogic_image:
+    resource: "@PaLogicImageBundle/Controller/"
     prefix:   /
+    type: annotation
 
 boxenmieten_admin:
     resource: "@PaLogicAdminBundle/Resources/config/routing.yml"
@@ -42,3 +44,13 @@ _sonata_admin:
     resource: .
     type: sonata_admin
     prefix: /admin
+    
+pa_logic_dj:
+    resource: "@PaLogicDjBundle/Resources/config/routing.yml"
+    prefix: /
+    
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+    
+_liip_imagine:
+    resource: "@LiipImagineBundle/Resources/config/routing.xml"

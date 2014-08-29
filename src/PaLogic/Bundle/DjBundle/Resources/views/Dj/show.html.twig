@@ -1,0 +1,73 @@
+{% extends 'PaLogicDjBundle::layout.html.twig' %}
+
+{% block body -%}
+    <div>
+        <div class="two-third">
+            <div class="dj-banner">
+                <ul>
+                  {% for image in entity.images %}
+                    <li data-transition="slidehorizontal"><img src="{{ image.webPath | imagine_filter('filter_dj_show_banner') }}" alt="{{ image.title }}" /> </li>
+                  {% endfor %}
+                </ul>
+                <div class="tp-bannertimer tp-bottom"></div>
+              </div>
+        </div>
+        <div class="one-third last">
+            <img alt="{{ entity.headshot.title }}" src="{{ entity.headshot.webPath | imagine_filter('filter_dj_show_headshot') }}" />
+        </div>
+        <div class="clear"></div>
+        <hr />
+        <div class="one-third">
+            <h1>{{ entity.name }}</h1>
+            <i class="icon-phone"></i>&nbsp;<a href="tel:{{ entity.phone }}">{{ entity.phone }}</a><br />
+            <i class="icon-mail"></i>&nbsp;<a href="mailto:{{ entity.email }}">{{ entity.email }}</a>
+            <br />
+            <br />
+            <ul class="social">
+                {% if not entity.facebook is empty %}
+                    <li><a target="_blank" href="{{ entity.facebook }}"><i class="icon-s-facebook"></i></a></li>
+                {% endif %}
+                {% if not entity.twitter is empty %}
+                    <li><a target="_blank" href="{{ entity.twitter }}"><i class="icon-s-twitter"></i></a></li>
+                {% endif %}
+                {% if not entity.googleplus is empty %}
+                    <li><a target="_blank" href="{{ entity.googleplus }}"><i class="icon-s-gplus"></i></a></li>
+                {% endif %}
+                {% if not entity.youtube is empty %}
+                    <li><a target="_blank" href="{{ entity.youtube }}"><i class="icon-s-youtube"></i></a></li>
+                {% endif %}
+                {% if not entity.soundcloud is empty %}
+                    <li><a target="_blank"href="{{ entity.soundcloud }}"><i class="icon-s-soundcloud"></i></a></li>
+                {% endif %}
+            </ul>
+        </div>
+        <div class="two-third last">
+            <p>{{ entity.description }}</p>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <!--<div class="portfolio-content">
+        <div class="portfolio-bannercontainer">
+          <div class="portfolio-banner">
+            <ul>
+              {% for image in entity.images %}
+                <li data-transition="fade"><img src="{{ image.webPath | imagine_filter('filter_thumbnail', {'thumbnail' : {'size' : [1110, 550]} }) }}" alt="{{ image.title }}" /> </li>
+              {% endfor %}
+            </ul>
+            <div class="tp-bannertimer tp-bottom"></div>
+          </div>
+        </div>
+        <section class="content">
+            <p>{{ entity.description }}
+        </section>
+        <div class="item-details">
+            <img alt="{{ entity.headshot.title }}" src="{{ entity.headshot.webPath | imagine_filter('filter_thumbnail', {'thumbnail' : {'size' : [500, 500]} }) }}" />
+            <ul class="item-info">
+              <li><span class="lite1">Date:</span> 02 January 2012</li>
+              <li><span class="lite1">Categories:</span> JavaScript, CSS, HTML</li>
+              <li><span class="lite1">Client:</span> Sit Commodo Sollicitudin</li>
+            </ul>
+            <a href="#" class="button">Launch Site</a> </div>
+        <div class="clear"></div>
+      </div>-->
+{% endblock %}

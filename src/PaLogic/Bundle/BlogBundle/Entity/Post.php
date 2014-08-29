@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use PaLogic\Bundle\AppBundle\Util\SlugUtil;
 use Symfony\Component\Validator\Constraints as Assert;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass="PaLogic\Bundle\BlogBundle\Entity\Repository\PostRepository")
@@ -23,6 +24,7 @@ class Post
     
     /**
      * @ORM\Column(type="string")
+     * @Gedmo\Slug(fields={"title"})
      */
     protected $slug;
 
@@ -63,7 +65,7 @@ class Post
     private $rawText;
 
     /**
-     * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\AppBundle\Entity\Image")
+     * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\ImageBundle\Entity\Image")
      */
     protected $image;
 
@@ -74,11 +76,13 @@ class Post
 
     /**
      * @ORM\Column(type="datetime")
+     * @Gedmo\Timestampable(on="create")
      */
     protected $created;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Gedmo\Timestampable(on="update")
      */
     protected $updated;
     
@@ -92,24 +96,19 @@ class Post
      */
     private $categories;
     
+    /**
+     * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\AppBundle\Entity\DomainRoutePrefix")
+     */
+    protected $domainRoutePrefix;
+    
     public function __construct()
     {
         $this->comments = new ArrayCollection();
-        
-        $this->setCreated(new \DateTime());
-        $this->setUpdated(new \DateTime());
     }
     
     public function __toString()
     {
         return $this->getTitle();
-    }
-    
-    /*
-     * @ORM\PreUpdate
-     */
-    public function setUpdatedValue() {
-        $this->setUpdated(new \DateTime());
     }
     
     public function getRawText() {
@@ -138,8 +137,6 @@ class Post
     public function setTitle($title)
     {
         $this->title = $title;
-        
-        $this->setSlug(SlugUtil::slugify($this->title));
 
         return $this;
     }
@@ -428,5 +425,28 @@ class Post
     public function getHeadline()
     {
         return $this->headline;
+    }
+
+    /**
+     * Set domainRoutePrefix
+     *
+     * @param \PaLogic\Bundle\AppBundle\Entity\DomainRoutePrefix $domainRoutePrefix
+     * @return Post
+     */
+    public function setDomainRoutePrefix(\PaLogic\Bundle\AppBundle\Entity\DomainRoutePrefix $domainRoutePrefix = null)
+    {
+        $this->domainRoutePrefix = $domainRoutePrefix;
+
+        return $this;
+    }
+
+    /**
+     * Get domainRoutePrefix
+     *
+     * @return \PaLogic\Bundle\AppBundle\Entity\DomainRoutePrefix 
+     */
+    public function getDomainRoutePrefix()
+    {
+        return $this->domainRoutePrefix;
     }
 }
