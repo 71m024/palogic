@@ -5,7 +5,7 @@ h2.post-title a:hover {
     color: #00ec11
 }
 a.button,
-.forms fieldset .btn-submit,
+form fieldset .btn-submit,
 .comment-form .btn-submit,
 .filter li a,
 .page-navi ul li a {
@@ -78,7 +78,7 @@ ul.contact-info li i {
 .toggle h4.title.active {
     color: #00ec11
 }
-.tp-caption .colored {
+.colored {
     color: #00ec11
 }
 .tp-bullets.simplebullets.round .bullet.selected,
@@ -121,5 +121,8 @@ ul.contact-info li i {
 }
 .items li a .overlay,
 .overlay a .more {
-    background-color: rgba(0,236,17, 0.75);
+    background-color: rgba(93,174,213, 0.92);
+}
+.masonry-container a .overlay {
+    background-color: rgba(93,174,213, 0.92);
 }

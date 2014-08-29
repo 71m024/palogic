@@ -5,7 +5,8 @@ h2.post-title a:hover {
     color: #ffc360
 }
 a.button,
-button,
+form fieldset .btn-submit,
+.comment-form .btn-submit,
 .filter li a,
 .page-navi ul li a {
     background-color: #ffc360;
@@ -77,7 +78,7 @@ ul.contact-info li i {
 .toggle h4.title.active {
     color: #ffc360
 }
-.tp-caption .colored {
+.colored {
     color: #ffc360
 }
 .tp-bullets.simplebullets.round .bullet.selected,
@@ -120,8 +121,8 @@ ul.contact-info li i {
 }
 .items li a .overlay,
 .overlay a .more {
-    background-color: rgba(255,195,96, 0.92);
+    background-color: rgba(93,174,213, 0.92);
 }
 .masonry-container a .overlay {
-    background-color: rgba(255,195,96, 0.92);
+    background-color: rgba(93,174,213, 0.92);
 }

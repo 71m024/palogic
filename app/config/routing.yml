@@ -8,9 +8,10 @@ dj_crowd_user:
     prefix:   /
 
 dj_crowd_app:
-    resource: "@DjCrowdAppBundle/Resources/config/routing.yml"
+    resource: "@DjCrowdAppBundle/Controller/"
     host:     djcrowd.%tld%
     prefix:   /
+    type:   annotation
     
 pa_logic_blog:
     resource: "@PaLogicBlogBundle/Resources/config/routing.yml"

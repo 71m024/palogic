@@ -30,6 +30,10 @@ class Builder
         $menu = $this->factory->createItem('root');
 
         $menu->addChild('Home', array('route' => 'djcrowd_app_homepage'));
+        $menu->addChild("DJ's", array('route' => 'djcrowd_pa_logic_dj'));
+            $forDjsMenu = $this->factory->createItem("Für DJ's", array('route' => 'djcrowd_app_fordjs'));
+            $forDjsMenu->addChild("Login", array('route' => 'fos_user_security_login'));
+        $menu->addChild($forDjsMenu);
             $blogMenu = $this->factory->createItem('Blog', array('route' => 'dj_crowd_palogic_blog',
                 'extras' => array(
                     'routes' => array('dj_crowd_palogic_blog_category_page', 'dj_crowd_palogic_blog_category'),

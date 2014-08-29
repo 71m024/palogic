@@ -37,7 +37,7 @@
         </div>
         {% if post.image is not empty %}
             <div class="overlay">
-                <a href="{{ path("palogic_image_show", {"id" : post.image.id, "slug" : post.image.slug}) }}">
+                <a href="{{ path("pa_logic_image_show", {"id" : post.image.id, "slug" : post.image.slug}) }}">
                     <img src="{{ post.image.webPath }}" alt="Post Image"/>
                 </a>
             </div>

@@ -1,0 +1,36 @@
+{% extends 'DjCrowdAppBundle::layout.html.twig' %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block title %}Engagiere einen DJ{{ parent() }}{% endblock%}
+    
+{% block body %}
+    <h1 class="aligncenter">Bis du ein DJ?</h1>
+    <p class="description aligncenter">Präsentiere dich Kostenlos auf <strong><span class="colored">DJCrowd.ch</span></strong><br />
+        ...und werde vielleicht schon bald für einen "Gig" gebucht!</p>
+    <hr />
+    <h2 class="aligncenter">So einfach gehts...</h2>
+    <br />
+    <div class="box-wrapper">
+        <div class="one-third box">
+            <i class="icon-pencil-1 special"></i>
+            <h3>Registrieren</h3>
+            <p>Registriere dich <a href="{{ path('fos_user_registration_register') }}">hier</a><p>
+        </div>
+        <div class="one-third box">
+            <i class="icon-paper-plane special"></i>
+            <h3>DJ beantragen</h3>
+            <p>Erstelle einen DJ der dich repräsentiert. Dieser wird dann von uns geprüft.</p>
+        </div>
+        <div class="one-third box last">
+            <i class="icon-sound special"></i>
+            <h3>Auflegen!</h3>
+            <p>Wenn dein DJ genehmigt wurde, erhält er seine eigene Seite auf DJCrowd.ch</p>
+        </div>
+    </div>
+    <hr />
+    <h2 class="aligncenter">Hier kannst du dich registrieren</h2>
+    <p class="description aligncenter">Registriere dich in zwei simplen Schritten.</p>
+    <br />
+    <center><a class="button colored" href="{{ path('fos_user_registration_register') }}">Registrieren</a></center>
+{% endblock %}
