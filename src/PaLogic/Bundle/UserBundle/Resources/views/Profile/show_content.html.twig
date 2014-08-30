@@ -5,6 +5,17 @@
 <hr />
 
 <h2>Meine Bilder</h2>
+{% if user.images is empty %}
+    <p>Du hast noch keine Bilder hochgeladen.</p>
+{% else %}
+    {% for image in user.images %}
+        {% if loop.index0 < 5 %}
+            <img class="alignleft" alt="{{ image.title }}" src="{{ image.webPath | imagine_filter('filter_thumbnail', {'thumbnail' : {'size' : [50, 50]} }) }}" />
+        {% endif %}
+    {% endfor %}
+    <div class="clear"></div>
+    <br />
+{% endif %}
 <a class="button alignleft" href="{{ path('pa_logic_image') }}">Übersicht</a>
 <a class="button alignleft" href="{{ path('pa_logic_image_new') }}">Hochladen</a>
 <div class="clear"></div>
@@ -14,7 +25,11 @@
 <h2>Meine DJ's</h2>
 
 {% if user.djs is empty %}
-    <p>Du hast noch keinen DJ erstellt!</p>
+    {% if user.images is empty %}
+        <p>Lade einige Bilder hoch, damit du deinen ersten DJ erstellen kannst.</p>
+    {% else %}
+        <p>Beantrage jetzt einen DJ, der dich repräsentiert!</p>
+    {% endif %}
 {% else %}
     <table class="datatable">
         {% for dj in user.djs %}
@@ -27,4 +42,6 @@
         {% endfor %}
     </table>
 {% endif %}
-<a class="button" href="{{ path('pa_logic_dj_new') }}">DJ beantragen</a>
+{% if not user.images is empty %}
+    <a class="button" href="{{ path('pa_logic_dj_new') }}">DJ beantragen</a>
+{% endif %}
