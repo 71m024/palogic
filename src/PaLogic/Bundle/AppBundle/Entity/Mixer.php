@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="mixer")
  * @ORM\Entity(repositoryClass="PaLogic\Bundle\AppBundle\Entity\Repository\MixerRepository")
  */
-class Mixer extends Component
+class Mixer extends Article
 {
 
     /**

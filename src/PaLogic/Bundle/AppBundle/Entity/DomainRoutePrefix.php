@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * DomainRoutePrefix
  *
- * @ORM\Table()
+ * @ORM\Table("domainRoutePrefix")
  * @ORM\Entity(repositoryClass="PaLogic\Bundle\AppBundle\Entity\Repository\DomainRoutePrefixRepository")
  */
 class DomainRoutePrefix

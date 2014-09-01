@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="mic")
  * @ORM\Entity(repositoryClass="PaLogic\Bundle\AppBundle\Entity\Repository\MicRepository")
  */
-class Mic extends Component
+class Mic extends Article
 {
 
     /**

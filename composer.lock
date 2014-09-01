@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "79ff132cb59dffe9ec702c6eb4e4eb52",
+    "hash": "1eb703e8e7e655431507617a0a88f74a",
     "packages": [
         {
             "name": "dflydev/markdown",
@@ -1904,12 +1904,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "6c9256592a9d2526b16e8b4578bc597ffea50c2a"
+                "reference": "c7070c3d8ed66ae5f383f14623b18bb50b7c8120"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/6c9256592a9d2526b16e8b4578bc597ffea50c2a",
-                "reference": "6c9256592a9d2526b16e8b4578bc597ffea50c2a",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/c7070c3d8ed66ae5f383f14623b18bb50b7c8120",
+                "reference": "c7070c3d8ed66ae5f383f14623b18bb50b7c8120",
                 "shasum": ""
             },
             "require": {
@@ -1975,7 +1975,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2014-09-01 08:14:11"
+            "time": "2014-09-01 13:20:25"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -2351,6 +2351,120 @@
                 "sonata"
             ],
             "time": "2014-09-01 08:58:10"
+        },
+        {
+            "name": "sonata-project/jquery-bundle",
+            "version": "1.10.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonata-project/SonatajQueryBundle.git",
+                "reference": "a53282159f54bc44379d63727a042254841302d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonata-project/SonatajQueryBundle/zipball/a53282159f54bc44379d63727a042254841302d7",
+                "reference": "a53282159f54bc44379d63727a042254841302d7",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.9.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sonata\\jQueryBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Rabaix",
+                    "email": "thomas.rabaix@sonata-project.org",
+                    "homepage": "http://sonata-project.org"
+                },
+                {
+                    "name": "Sonata Community",
+                    "homepage": "https://github.com/sonata-project/SonatajQueryBundle/contributors"
+                }
+            ],
+            "description": "Symfony SonatajQueryBundle",
+            "homepage": "http://sonata-project.org/bundles/jquery",
+            "keywords": [
+                "jquery",
+                "sonata"
+            ],
+            "time": "2014-04-01 12:48:59"
+        },
+        {
+            "name": "sonata-project/markitup-bundle",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sonata-project/SonataMarkItUpBundle.git",
+                "reference": "e29098d45f2f01242e70bcddd7a48a80868c9cd7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sonata-project/SonataMarkItUpBundle/zipball/e29098d45f2f01242e70bcddd7a48a80868c9cd7",
+                "reference": "e29098d45f2f01242e70bcddd7a48a80868c9cd7",
+                "shasum": ""
+            },
+            "require": {
+                "sonata-project/jquery-bundle": "1.*"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sonata\\MarkItUpBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Thomas Rabaix",
+                    "email": "thomas.rabaix@sonata-project.org",
+                    "homepage": "http://sonata-project.org"
+                },
+                {
+                    "name": "Jay Salvat",
+                    "homepage": "http://jaysalvat.com"
+                },
+                {
+                    "name": "Sonata Community",
+                    "homepage": "https://github.com/sonata-project/SonataMarkItUpBundle/contributors"
+                }
+            ],
+            "description": "Symfony SonataMarkItUpBundle",
+            "homepage": "http://sonata-project.org/bundles/markitup",
+            "keywords": [
+                "bbcode",
+                "editor",
+                "html",
+                "jquery",
+                "markdown",
+                "markitup",
+                "markup",
+                "sonata",
+                "textile",
+                "wiki"
+            ],
+            "time": "2014-09-01 08:04:27"
         },
         {
             "name": "stof/doctrine-extensions-bundle",
@@ -2967,6 +3081,7 @@
         "sonata-project/admin-bundle": 20,
         "knplabs/knp-menu-bundle": 20,
         "sonata-project/doctrine-orm-admin-bundle": 20,
+        "sonata-project/markitup-bundle": 20,
         "sonata-project/formatter-bundle": 20,
         "stof/doctrine-extensions-bundle": 20,
         "megogo/multiple-inheritance-bundle": 20,

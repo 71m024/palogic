@@ -25,6 +25,7 @@
         "sonata-project/admin-bundle": "dev-master",
         "knplabs/knp-menu-bundle": "dev-master",
         "sonata-project/doctrine-orm-admin-bundle": "dev-master",
+        "sonata-project/markitup-bundle": "dev-master",
         "sonata-project/formatter-bundle": "dev-master",
         "stof/doctrine-extensions-bundle": "~1.1@dev",
         "megogo/multiple-inheritance-bundle": "dev-master",

@@ -3,18 +3,16 @@
 namespace PaLogic\Bundle\AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as GEDMO;
 
 /**
  * Component
  *
  * @ORM\Table(name="component")
  * @ORM\Entity(repositoryClass="PaLogic\Bundle\AppBundle\Entity\Repository\ComponentRepository")
- * @ORM\InheritanceType("JOINED")
- * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"boxe" = "Boxe", "stand" = "Stand", "cable" = "Cable", "mixer" = "Mixer", "mic" = "Mic"})
  */
-class Component
-{
+class Component {
+    
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -23,12 +21,9 @@ class Component
     private $id;
     
     /**
-     * @var string
-     * 
-     * @Gedmo\Mapping\Annotation\Slug(fields={"make", "model"})
-     * @ORM\Column(length=64, unique=true)
+     * @ORM\Column(type="text")
      */
-    private $slug;
+    private $name;
     
     /**
      * @ORM\Column(type="text")
@@ -44,72 +39,36 @@ class Component
      * @ORM\Column(type="text")
      */
     private $rawDescription;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="make", type="string", length=100)
-     */
-    private $make;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="manufacturer", type="string", length=100)
-     */
-    private $manufacturer;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="price", type="smallint")
-     */
-    private $price;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="weekprice", type="smallint")
-     */
-    private $weekPrice;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="model", type="string", length=100)
-     */
-    private $model;
-    
-    /**
-     * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\ImageBundle\Entity\Image")
-     */
-    private $previewImage;
-    
-    /**
-     * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\ImageBundle\Entity\Image", cascade={"persist", "remove"})
-     */
-    private $images;
     
     /**
      * @var string
-     *
-     * @ORM\Column(name="website", type="string", length=200)
+     * 
+     * @GEDMO\Slug(fields={"name"})
+     * @ORM\Column(length=64, unique=true)
      */
-    private $website;
+    private $slug;
     
     /**
      * @ORM\OneToMany(targetEntity="SetComponent", mappedBy="component", cascade={"persist", "remove"})
      */
     private $sets;
     
+    /**
+     * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\AppBundle\Entity\Article", cascade={"persist", "remove"})
+     */
+    private $possibleArticles;
     
-    public function __toString() {
-        return $this->make.",".$this->model;
-    }
-    
-    /* Workaround to get Discriminator */
-    public function getDiscr() {
-        return null;
+    /**
+     * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\ImageBundle\Entity\Image")
+     */
+    private $image;
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->sets = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->possibleArticles = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -123,148 +82,26 @@ class Component
     }
 
     /**
-     * Set make
+     * Set name
      *
-     * @param string $make
+     * @param string $name
      * @return Component
      */
-    public function setMake($make)
+    public function setName($name)
     {
-        $this->make = $make;
-        
+        $this->name = $name;
+
         return $this;
     }
 
     /**
-     * Get make
+     * Get name
      *
      * @return string 
      */
-    public function getMake()
+    public function getName()
     {
-        return $this->make;
-    }
-
-    /**
-     * Set manufacturer
-     *
-     * @param string $manufacturer
-     * @return Component
-     */
-    public function setManufacturer($manufacturer)
-    {
-        $this->manufacturer = $manufacturer;
-
-        return $this;
-    }
-
-    /**
-     * Get manufacturer
-     *
-     * @return string 
-     */
-    public function getManufacturer()
-    {
-        return $this->manufacturer;
-    }
-
-    /**
-     * Set price
-     *
-     * @param integer $price
-     * @return Component
-     */
-    public function setPrice($price)
-    {
-        $this->price = $price;
-
-        return $this;
-    }
-
-    /**
-     * Get price
-     *
-     * @return integer 
-     */
-    public function getPrice()
-    {
-        return $this->price;
-    }
-
-    /**
-     * Set model
-     *
-     * @param string $model
-     * @return Component
-     */
-    public function setModel($model)
-    {
-        $this->model = $model;
-        
-        return $this;
-    }
-
-    /**
-     * Get model
-     *
-     * @return string 
-     */
-    public function getModel()
-    {
-        return $this->model;
-    }
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->images = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Set weekPrice
-     *
-     * @param integer $weekPrice
-     * @return Component
-     */
-    public function setWeekPrice($weekPrice)
-    {
-        $this->weekPrice = $weekPrice;
-
-        return $this;
-    }
-
-    /**
-     * Get weekPrice
-     *
-     * @return integer 
-     */
-    public function getWeekPrice()
-    {
-        return $this->weekPrice;
-    }
-
-    /**
-     * Set slug
-     *
-     * @param string $slug
-     * @return Component
-     */
-    public function setSlug($slug)
-    {
-        $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * Get slug
-     *
-     * @return string 
-     */
-    public function getSlug()
-    {
-        return $this->slug;
+        return $this->name;
     }
 
     /**
@@ -288,29 +125,6 @@ class Component
     public function getDescription()
     {
         return $this->description;
-    }
-
-    /**
-     * Set website
-     *
-     * @param string $website
-     * @return Component
-     */
-    public function setWebsite($website)
-    {
-        $this->website = $website;
-
-        return $this;
-    }
-
-    /**
-     * Get website
-     *
-     * @return string 
-     */
-    public function getWebsite()
-    {
-        return $this->website;
     }
 
     /**
@@ -360,26 +174,26 @@ class Component
     }
 
     /**
-     * Set previewImage
+     * Set slug
      *
-     * @param \PaLogic\Bundle\ImageBundle\Entity\Image $previewImage
+     * @param string $slug
      * @return Component
      */
-    public function setPreviewImage(\PaLogic\Bundle\ImageBundle\Entity\Image $previewImage = null)
+    public function setSlug($slug)
     {
-        $this->previewImage = $previewImage;
+        $this->slug = $slug;
 
         return $this;
     }
 
     /**
-     * Get previewImage
+     * Get slug
      *
-     * @return \PaLogic\Bundle\ImageBundle\Entity\Image 
+     * @return string 
      */
-    public function getPreviewImage()
+    public function getSlug()
     {
-        return $this->previewImage;
+        return $this->slug;
     }
 
     /**
@@ -416,35 +230,58 @@ class Component
     }
 
     /**
-     * Add images
+     * Add possibleArticles
      *
-     * @param \PaLogic\Bundle\ImageBundle\Entity\Image $images
+     * @param \PaLogic\Bundle\AppBundle\Entity\Article $possibleArticles
      * @return Component
      */
-    public function addImage(\PaLogic\Bundle\ImageBundle\Entity\Image $images)
+    public function addPossibleArticle(\PaLogic\Bundle\AppBundle\Entity\Article $possibleArticles)
     {
-        $this->images[] = $images;
+        $this->possibleArticles[] = $possibleArticles;
 
         return $this;
     }
 
     /**
-     * Remove images
+     * Remove possibleArticles
      *
-     * @param \PaLogic\Bundle\ImageBundle\Entity\Image $images
+     * @param \PaLogic\Bundle\AppBundle\Entity\Article $possibleArticles
      */
-    public function removeImage(\PaLogic\Bundle\ImageBundle\Entity\Image $images)
+    public function removePossibleArticle(\PaLogic\Bundle\AppBundle\Entity\Article $possibleArticles)
     {
-        $this->images->removeElement($images);
+        $this->possibleArticles->removeElement($possibleArticles);
     }
 
     /**
-     * Get images
+     * Get possibleArticles
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getImages()
+    public function getPossibleArticles()
     {
-        return $this->images;
+        return $this->possibleArticles;
+    }
+
+    /**
+     * Set image
+     *
+     * @param \PaLogic\Bundle\ImageBundle\Entity\Image $image
+     * @return Component
+     */
+    public function setImage(\PaLogic\Bundle\ImageBundle\Entity\Image $image = null)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return \PaLogic\Bundle\ImageBundle\Entity\Image 
+     */
+    public function getImage()
+    {
+        return $this->image;
     }
 }

@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="boxe")
  * @ORM\Entity(repositoryClass="PaLogic\Bundle\AppBundle\Entity\Repository\BoxeRepository")
  */
-class Boxe extends Component
+class Boxe extends Article
 {
 
     /**

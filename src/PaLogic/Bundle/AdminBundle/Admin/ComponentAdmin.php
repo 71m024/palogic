@@ -6,11 +6,6 @@ use Sonata\AdminBundle\Admin\Admin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
-use PaLogic\Bundle\AppBundle\PaLogicAppBundle\Entity\Boxe;
-use PaLogic\Bundle\AppBundle\PaLogicAppBundle\Entity\Stand;
-use PaLogic\Bundle\AppBundle\PaLogicAppBundle\Entity\Cable;
-use PaLogic\Bundle\AppBundle\PaLogicAppBundle\Entity\Mixer;
-use PaLogic\Bundle\AppBundle\PaLogicAppBundle\Entity\Mic;
 
 class ComponentAdmin extends Admin
 {
@@ -21,9 +16,7 @@ class ComponentAdmin extends Admin
         
         $formMapper
             ->with('General')
-            ->add('make', 'text', array('label' => 'Marke'))
-            ->add('manufacturer', 'text', array('label' => 'Hersteller'))
-            ->add('model', 'text', array('label' => 'Modell'))
+            ->add('name', 'text', array('label' => 'Name'))
             ->add(
                 'description',
                 'sonata_formatter_type',
@@ -40,64 +33,16 @@ class ComponentAdmin extends Admin
                     'error_bubbling' => false
                 )
             )
-            ->add('price', 'integer', array('label' => 'Preis'))
-            ->add('weekPrice', 'integer', array('label' => 'Wochen-Preis'))
-            ->add('previewImage', 'sonata_type_model', array('required' => true, 'multiple' => false))
-            ->add('images', 'sonata_type_model', array('required' => false, 'multiple' => true))
-            ->add('website', 'text', array('required' => false))
+            ->add('image', 'sonata_type_model', array('required' => true, 'multiple' => false))
+            ->add('possibleArticles', 'sonata_type_model', array('required' => false, 'multiple' => true))
         ;
-        
-        if ($component instanceof Boxe) {
-            $formMapper
-                ->with('Detail')
-                ->add('assembly', 'text', array('label' => 'Bestückung'))
-                ->add('kgWeight', 'integer', array('label' => 'Gewicht (kg)'))
-                ->add('frequency', 'text', array('label' => 'Frequenzbereich'))
-                ->add('dimensions', 'text', array('label' => 'Masse'));
-        }
-        
-        if ($component instanceof Stand) {
-            $formMapper
-                ->with('Detail')
-                ->add('maxHeight', 'text', array('label' => 'Maximale Höhe'))
-                ->add('minHeight', 'text', array('label' => 'Minimale Höhe'))
-                ->add('maxLoad', 'text', array('label' => 'Maximale Last'));
-        }
-        
-        if ($component instanceof Cable) {
-            $formMapper
-                ->with('Detail')
-                ->add('cmLength', 'integer', array('label' => 'Länge (cm.)'))
-                ->add('type', 'text', array('label' => 'Typ'));
-        }
-        
-        if ($component instanceof Mixer) {
-            $formMapper
-                ->with('Detail')
-                ->add('inputs', 'text', array('label' => 'Eingänge'))
-                ->add('outputs', 'text', array('label' => 'Ausgänge'))
-                ->add('preamps', 'text', array('label' => 'Vorverstärker'));
-        }
-        
-        if ($component instanceof Mic) {
-            $formMapper
-                ->with('Detail')
-                ->add('sensitivity', 'text', array('label' => 'Empfindlichkeit'))
-                ->add('directivity', 'text', array('label' => 'Richtcharakteristik'))
-                ->add('transmissionRange', 'text', array('label' => 'Übertragungsbereich'))
-                ->add('weight', 'text', array('label' => 'Gewicht'));
-        }
     }
 
     // Fields to be shown on filter forms
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('make')
-            ->add('manufacturer')
-            ->add('model')
-            ->add('price')
-            ->add('weekPrice')
+            ->add('name')
         ;
     }
 
@@ -105,11 +50,7 @@ class ComponentAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->addIdentifier('model')
-            ->add('make')
-            ->add('manufacturer')
-            ->add('price')
-            ->add('weekPrice')
+            ->addIdentifier('name')
         ;
     }
 }
