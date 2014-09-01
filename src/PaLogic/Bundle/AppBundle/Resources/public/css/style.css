@@ -237,7 +237,7 @@ form fieldset .btn-submit,
     border-radius: 3px;
     text-align: center;
     letter-spacing: 1px;
-    height: 35px;
+    min-height: 36px;
 }
 a.button.red,
 button.red {
