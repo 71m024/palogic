@@ -28,9 +28,9 @@ boxenmieten_app_sets:
     requirements:
         _method:  GET
         
-boxenmieten_app_components:
-    pattern:  /komponente
-    defaults: { _controller: BoxenmietenAppBundle:Component:index }
+boxenmieten_app_articles:
+    pattern:  /artikel
+    defaults: { _controller: BoxenmietenAppBundle:Article:index }
     requirements:
         _method:  GET
         
@@ -41,6 +41,13 @@ boxenmieten_app_set_show:
         _method:  GET
         id: \d+
         
+boxenmieten_app_article_show:
+    pattern:  /artikel/{id}/{slug}
+    defaults: { _controller: BoxenmietenAppBundle:Article:show }
+    requirements:
+        _method:  GET
+        id: \d+
+
 boxenmieten_app_component_show:
     pattern:  /komponente/{id}/{slug}
     defaults: { _controller: BoxenmietenAppBundle:Component:show }

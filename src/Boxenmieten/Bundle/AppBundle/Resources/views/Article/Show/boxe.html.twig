@@ -1,0 +1,9 @@
+{% extends 'BoxenmietenAppBundle:Article:show.html.twig' %}
+
+{% block details %}
+{{ parent() }}
+<li><span class="lite1">Bestückung </span>{{ article.assembly }}</li>
+<li><span class="lite1">Gewicht </span>{{ article.kgWeight }} kg</li>
+<li><span class="lite1">Frequenzbereich </span>{{ article.frequency }}</li>
+<li><span class="lite1">Masse </span>{{ article.dimensions }}</li>
+{% endblock %}

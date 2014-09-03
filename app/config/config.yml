@@ -143,6 +143,14 @@ liip_imagine:
             filters:
                 thumbnail: { size: [270, 220], mode: outbound, allow_upscale: true }
                 
+        filter_portfolio_picker:
+            filters:
+                thumbnail: { size: [270, 220], mode: outbound, allow_upscale: true }
+                
+        filter_mini_thumbnail:
+            filters:
+                thumbnail: { size: [50, 50], mode: outbound, allow_upscale: true }
+                
         filter_dj_show_banner:
             filters:
                 upscale: { min: [725, 340] }
@@ -152,6 +160,14 @@ liip_imagine:
             filters:
                 upscale: { min: [500, 500] }
                 thumbnail: { size: [500, 500], mode: outbound, allow_upscale: true }
+                
+        filter_possible_article:
+            filters:
+                thumbnail: { size: [400, 250], mode: outbound, allow_upscale: true }
+                
+        filter_component_show:
+            filters:
+                thumbnail: { size: [400, 400], mode: outbound, allow_upscale: true }
                 
 fos_user:
     db_driver: orm

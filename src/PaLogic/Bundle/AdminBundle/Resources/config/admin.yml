@@ -98,3 +98,14 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [PaLogicAdminBundle]]
+            
+    sonata.admin.set_category:
+        class: PaLogic\Bundle\AdminBundle\Admin\SetCategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Inventory", label: "Set-Kategorie" }
+        arguments:
+            - ~
+            - PaLogic\Bundle\AppBundle\Entity\SetCategory
+            - ~
+        calls:
+            - [ setTranslationDomain, [PaLogicAdminBundle]]

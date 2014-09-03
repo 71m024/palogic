@@ -27,7 +27,7 @@ class Builder
 
         $menu->addChild('Home', array('route' => 'boxenmieten_app_homepage'));
             $rentMenu = $this->factory->createItem('Angebote', array('route' => 'boxenmieten_app_sets'));
-            $rentMenu->addChild('Komponenten', array('route' => 'boxenmieten_app_components'));
+            $rentMenu->addChild('Komponenten', array('route' => 'boxenmieten_app_articles'));
         $menu->addChild($rentMenu);
             $categoryRepository = $this->em->getRepository('PaLogicBlogBundle:Category');
             $categories = $categoryRepository->findAll();

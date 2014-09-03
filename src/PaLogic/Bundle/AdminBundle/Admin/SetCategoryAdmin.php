@@ -7,7 +7,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class SetAdmin extends Admin
+class SetCategoryAdmin extends Admin
 {
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
@@ -15,7 +15,7 @@ class SetAdmin extends Admin
         
         $formMapper
             ->add('name', 'text', array('label' => 'Name'))
-            ->add('summary', 'text', array('label' => 'kurze Beschreibung'))
+            ->add('orderNumber', 'integer', array('label' => 'Ordnungszahl'))
             ->add(
                 'description',
                 'sonata_formatter_type',
@@ -32,22 +32,7 @@ class SetAdmin extends Admin
                     'error_bubbling' => false
                 )
             )
-            ->add('weekPrice', 'integer', array('label' => 'Wochen-Preis'))
-            ->add('components', 'sonata_type_collection',
-                array(
-                    'required' => false,
-                    'by_reference' => false,
-                    'label' => 'Komponenten'
-                ),
-                array(
-                    'edit' => 'inline',
-                    'inline' => 'table',
-                    'allow_delete' => true
-                )
-            )
-            ->add('previewImage', 'sonata_type_model', array('required' => true, 'multiple' => false))
-            ->add('images', 'sonata_type_model', array('required' => false, 'multiple' => true))
-            ->add('categories', 'sonata_type_model', array('required' => false, 'multiple' => true))
+            ->add('image', 'sonata_type_model', array('required' => true, 'multiple' => false))
         ;
     }
 
@@ -56,7 +41,6 @@ class SetAdmin extends Admin
     {
         $datagridMapper
             ->add('name')
-            ->add('weekPrice')
         ;
     }
 
@@ -65,22 +49,7 @@ class SetAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('name')
-            ->add('weekPrice')
+            ->add('orderNumber')
         ;
-    }
-    
-    public function prePersist($set)
-    {
-        foreach ($set->getComponents() as $rule) {
-            $rule->setSet($set);
-        }
-    }
-
-    public function preUpdate($set)
-    {
-        foreach ($set->getComponents() as $rule) {
-            $rule->setSet($set);
-        }
-        $set->setComponents($set->getComponents());
     }
 }

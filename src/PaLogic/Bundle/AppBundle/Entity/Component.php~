@@ -62,6 +62,11 @@ class Component {
      * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\ImageBundle\Entity\Image")
      */
     private $image;
+    
+    public function __toString() {
+        return $this->name;
+    }
+    
     /**
      * Constructor
      */

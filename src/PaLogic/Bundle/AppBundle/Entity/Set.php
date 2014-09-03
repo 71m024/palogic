@@ -80,6 +80,11 @@ class Set
     private $previewImage;
     
     /**
+     * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\AppBundle\Entity\SetCategory", cascade={"persist", "remove"})
+     */
+    private $categories;
+    
+    /**
      * Constructor
      */
     public function __construct()
@@ -360,5 +365,38 @@ class Set
     public function getSummary()
     {
         return $this->summary;
+    }
+
+    /**
+     * Add categories
+     *
+     * @param \PaLogic\Bundle\AppBundle\Entity\SetCategory $categories
+     * @return Set
+     */
+    public function addCategory(\PaLogic\Bundle\AppBundle\Entity\SetCategory $categories)
+    {
+        $this->categories[] = $categories;
+
+        return $this;
+    }
+
+    /**
+     * Remove categories
+     *
+     * @param \PaLogic\Bundle\AppBundle\Entity\SetCategory $categories
+     */
+    public function removeCategory(\PaLogic\Bundle\AppBundle\Entity\SetCategory $categories)
+    {
+        $this->categories->removeElement($categories);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 }

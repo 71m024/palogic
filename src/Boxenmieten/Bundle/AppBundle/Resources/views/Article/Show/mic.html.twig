@@ -1,0 +1,9 @@
+{% extends 'BoxenmietenAppBundle:Article:show.html.twig' %}
+
+{% block details %}
+{{ parent() }}
+<li><span class="lite1">Empfindlichkeit </span>{{ article.sensitivity }}</li>
+<li><span class="lite1">Richtcharakteristik </span>{{ article.directivity }}</li>
+<li><span class="lite1">Übertragungsbereich </span>{{ article.transmissionRange }}</li>
+<li><span class="lite1">Gewicht </span>{{ article.weight }}</li>
+{% endblock %}
