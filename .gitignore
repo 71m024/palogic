@@ -7,8 +7,11 @@
 /app/logs/*
 /web/bundles/*
 /web/uploads/*
-/web/media/*
+/app/sessions/*
 /bin/*
+
+# LiipImagineBundle
+/web/media/*
 
 # Configuration files
 /app/config/parameters.yml
@@ -24,3 +27,6 @@ composer.phar
 
 # Capifony
 deploy.rb
+
+# MacOSX
+.DS_Store
