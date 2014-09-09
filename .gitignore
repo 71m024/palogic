@@ -24,3 +24,6 @@ composer.phar
 
 # Capifony
 deploy.rb
+
+# PHPStorm
+.idea/*
