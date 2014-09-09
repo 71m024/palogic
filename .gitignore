@@ -30,3 +30,6 @@ deploy.rb
 
 # MacOSX
 .DS_Store
+
+# PHPStorm
+.idea/*
