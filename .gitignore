@@ -5,6 +5,7 @@
 /vendor/*
 /app/cache/*
 /app/logs/*
+/app/sessions/*
 /web/bundles/*
 /web/uploads/*
 /web/media/*
