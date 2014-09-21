@@ -153,10 +153,6 @@ class DjController extends Controller
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Dj entity.');
         }
-        
-        if (false === $this->get('security.context')->isGranted('view', $entity)) {
-            throw new AccessDeniedException('Unauthorised access!');
-        }
 
         $deleteForm = $this->createDeleteForm($id, $this->container);
 
