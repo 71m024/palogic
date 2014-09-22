@@ -44,6 +44,11 @@ class Genre
      * @ORM\Column(name="name", type="string", length=50)
      */
     private $name;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\DjBundle\Entity\Dj")
+     */
+    private $djs;
     
     public function __toString() {
         return $this->name;
@@ -133,5 +138,38 @@ class Genre
     public function getUpdated()
     {
         return $this->updated;
+    }
+
+    /**
+     * Add djs
+     *
+     * @param \PaLogic\Bundle\DjBundle\Entity\Dj $djs
+     * @return Genre
+     */
+    public function addDj(\PaLogic\Bundle\DjBundle\Entity\Dj $djs)
+    {
+        $this->djs[] = $djs;
+
+        return $this;
+    }
+
+    /**
+     * Remove djs
+     *
+     * @param \PaLogic\Bundle\DjBundle\Entity\Dj $djs
+     */
+    public function removeDj(\PaLogic\Bundle\DjBundle\Entity\Dj $djs)
+    {
+        $this->djs->removeElement($djs);
+    }
+
+    /**
+     * Get djs
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDjs()
+    {
+        return $this->djs;
     }
 }

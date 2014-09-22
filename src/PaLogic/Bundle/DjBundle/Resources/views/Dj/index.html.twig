@@ -22,9 +22,14 @@
                     <a href="{{ path('pa_logic_dj_show', { 'id': entity.id, 'slug' : entity.slug }) }}" >
                         <div class="overlay">
                             <h3>{{ entity.name }}</h3>
-                            <span class="meta">{% for genre in entity.genres %}{% if not loop.first %}, {% endif %}{{ genre.name }} {% endfor %}</span> 
+                            <span class="meta">
+                                {% for genre in entity.genres %}
+                                    {% if not loop.first %}, {% endif %}{{ genre.name }}
+                                {% endfor %}
+                            </span>
                         </div>
-                        <img src="{{ entity.headshot.webPath | imagine_filter('filter_thumbnail') }}" alt="{{ entity.headshot.title }}" />
+                        <img src="{{ entity.headshot.webPath | imagine_filter('filter_thumbnail') }}"
+                             alt="{{ entity.headshot.title }}" />
                     </a>
                 </li>
                 <!-- End 1st Portfolio Item -->
