@@ -2,9 +2,9 @@
 
 namespace PaLogic\Bundle\DjBundle\Controller;
 
+use PaLogic\Bundle\DjBundle\Entity\Repository\DjRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
 use PaLogic\Bundle\DjBundle\Entity\Dj;
 use PaLogic\Bundle\DjBundle\Form\DjType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
@@ -34,27 +34,9 @@ class DjController extends Controller
         $entities = $em->getRepository('PaLogicDjBundle:Dj')->findBy(array('approved' => true));
         $genres = $em->getRepository('PaLogicDjBundle:Genre')->findAll();
 
-        /*
-         * filter out genres without approved dj's
-         */
-        $filteredGenres = array();
-        /* @var \PaLogic\Bundle\DjBundle\Entity\Genre $genre  */
-        foreach ($genres as $genre) {
-            $containsEnabledDj = false;
-            /* @var \PaLogic\Bundle\DjBundle\Entity\Dj $dj */
-            foreach ($genre->getDjs() as $dj) {
-                if ($dj->getApproved()) {
-                    $containsEnabledDj = true;
-                }
-            }
-            if ($containsEnabledDj) {
-                $filteredGenres[] = $genre;
-            }
-        }
-
         return $this->render('PaLogicDjBundle:Dj:index.html.twig', array(
             'entities' => $entities,
-            'genres' => $filteredGenres
+            'genres' => DjRepository::filterOutEmptyGenres($genres)
         ));
     }
     

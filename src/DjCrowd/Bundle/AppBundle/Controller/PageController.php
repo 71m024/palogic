@@ -2,6 +2,7 @@
 
 namespace DjCrowd\Bundle\AppBundle\Controller;
 
+use PaLogic\Bundle\DjBundle\Entity\Repository\DjRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -28,7 +29,7 @@ class PageController extends Controller
 
         return array(
             'djs' => $entities,
-            'genres' => $genres
+            'genres' => DjRepository::filterOutEmptyGenres($genres)
         );
         /* endcopied */
     }

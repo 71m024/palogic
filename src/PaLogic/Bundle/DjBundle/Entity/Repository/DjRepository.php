@@ -12,4 +12,24 @@ use Doctrine\ORM\EntityRepository;
  */
 class DjRepository extends EntityRepository
 {
+    public static function filterOutEmptyGenres(array $genres) {
+        /*
+         * filter out genres without approved dj's
+         */
+        $filteredGenres = array();
+        /* @var \PaLogic\Bundle\DjBundle\Entity\Genre $genre  */
+        foreach ($genres as $genre) {
+            $containsEnabledDj = false;
+            /* @var \PaLogic\Bundle\DjBundle\Entity\Dj $dj */
+            foreach ($genre->getDjs() as $dj) {
+                if ($dj->getApproved()) {
+                    $containsEnabledDj = true;
+                }
+            }
+            if ($containsEnabledDj) {
+                $filteredGenres[] = $genre;
+            }
+        }
+        return $filteredGenres;
+    }
 }
