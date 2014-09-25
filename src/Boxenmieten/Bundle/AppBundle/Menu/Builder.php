@@ -26,8 +26,15 @@ class Builder
         $menu = $this->factory->createItem('root');
 
         $menu->addChild('Home', array('route' => 'boxenmieten_app_homepage'));
-            $rentMenu = $this->factory->createItem('Angebote', array('route' => 'boxenmieten_app_sets'));
-            $rentMenu->addChild('Komponenten', array('route' => 'boxenmieten_app_articles'));
+            $rentMenu = $this->factory->createItem('Angebote', array('route' => 'boxenmieten_app_set_categories'));
+            $setCategoryRepository = $this->em->getRepository('PaLogicAppBundle:SetCategory');
+            $setCategories = $setCategoryRepository->findAll();
+            foreach($setCategories as $setCategory) {
+                $rentMenu->addChild($setCategory->getName(), array('route' => 'boxenmieten_app_set_category_show',
+                    'routeParameters' => array('id' => $setCategory->getId(), 'slug' => strtolower($setCategory->getSlug()))
+                ));
+            }
+            $rentMenu->addChild('Einzelne Artikel', array('route' => 'boxenmieten_app_articles'));
         $menu->addChild($rentMenu);
             $categoryRepository = $this->em->getRepository('PaLogicBlogBundle:Category');
             $categories = $categoryRepository->findAll();

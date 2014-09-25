@@ -63,6 +63,11 @@ class SetCategory
      * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\ImageBundle\Entity\Image")
      */
     private $image;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Set", mappedBy="categories")
+     */
+    private $sets;
     
     public function __toString() {
         return $this->name;
@@ -237,5 +242,45 @@ class SetCategory
     public function getOrderNumber()
     {
         return $this->orderNumber;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->sets = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add sets
+     *
+     * @param \PaLogic\Bundle\AppBundle\Entity\Set $sets
+     * @return SetCategory
+     */
+    public function addSet(\PaLogic\Bundle\AppBundle\Entity\Set $sets)
+    {
+        $this->sets[] = $sets;
+
+        return $this;
+    }
+
+    /**
+     * Remove sets
+     *
+     * @param \PaLogic\Bundle\AppBundle\Entity\Set $sets
+     */
+    public function removeSet(\PaLogic\Bundle\AppBundle\Entity\Set $sets)
+    {
+        $this->sets->removeElement($sets);
+    }
+
+    /**
+     * Get sets
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSets()
+    {
+        return $this->sets;
     }
 }

@@ -10,7 +10,9 @@
         <div class="portfolio-banner">
             <ul>
                 {% for image in set.images %}
-                <li data-transition="slidehorizontal"><img src="{{ image.webPath }}" alt="{{ image.title }}" /></li>
+                <li data-transition="slidehorizontal">
+                    <img src="{{ image.webPath  | imagine_filter('filter_show') }}" alt="{{ image.title }}" />
+                </li>
                 {% endfor %}
             </ul>
             <div class="tp-bannertimer tp-bottom"></div>
@@ -25,7 +27,12 @@
         <p>Sieh dir die Komponenten hier an:</p>
         <ul>
             {% for setComponent in set.components %}
-            <li>{{ setComponent.num }} x <a href="{{ path("boxenmieten_app_component_show", {"id" : setComponent.component.id, "slug" : setComponent.component.slug}) }}" >{{ setComponent.component.make }}, {{ setComponent.component.model }}</a></li>
+            <li>{{ setComponent.num }} x
+                <a href="{{ path("boxenmieten_app_component_show",
+                    {"id" : setComponent.component.id, "slug" : setComponent.component.slug}) }}" >
+                    {{ setComponent.component.name }}
+                </a>
+            </li>
             {% endfor %}
         </ul>
         <div class="clear"></div>

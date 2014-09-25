@@ -41,6 +41,13 @@ class Set
      * @ORM\Column(type="text")
      */
     private $description;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="orderNumber", type="integer")
+     */
+    private $orderNumber;
     
     /**
      * @ORM\Column(type="text")
@@ -80,9 +87,14 @@ class Set
     private $previewImage;
     
     /**
-     * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\AppBundle\Entity\SetCategory", cascade={"persist", "remove"})
+     * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\AppBundle\Entity\SetCategory", inversedBy="sets", cascade={"persist", "remove"})
      */
     private $categories;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $previewOnStart;
     
     /**
      * Constructor
@@ -398,5 +410,51 @@ class Set
     public function getCategories()
     {
         return $this->categories;
+    }
+
+    /**
+     * Set orderNumber
+     *
+     * @param integer $orderNumber
+     * @return Set
+     */
+    public function setOrderNumber($orderNumber)
+    {
+        $this->orderNumber = $orderNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get orderNumber
+     *
+     * @return integer 
+     */
+    public function getOrderNumber()
+    {
+        return $this->orderNumber;
+    }
+
+    /**
+     * Set previewOnStart
+     *
+     * @param boolean $previewOnStart
+     * @return Set
+     */
+    public function setPreviewOnStart($previewOnStart)
+    {
+        $this->previewOnStart = $previewOnStart;
+
+        return $this;
+    }
+
+    /**
+     * Get previewOnStart
+     *
+     * @return boolean 
+     */
+    public function getPreviewOnStart()
+    {
+        return $this->previewOnStart;
     }
 }

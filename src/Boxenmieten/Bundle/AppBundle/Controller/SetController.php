@@ -4,21 +4,10 @@ namespace Boxenmieten\Bundle\AppBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use \PaLogic\Bundle\AppBundle\Entity\SetCategory;
 
 class SetController extends Controller
 {
-    /**
-    * @Template
-    */
-    public function indexAction() {
-        
-        $em = $this->getDoctrine()->getManager();
-        
-        $sets = $em->getRepository('PaLogicAppBundle:Set')->findBy(array(), array("weekPrice" => "ASC"));
-        
-        return array('sets' => $sets);
-    }
-    
     /**
      * @Template
      */

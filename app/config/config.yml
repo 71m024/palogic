@@ -168,7 +168,23 @@ liip_imagine:
         filter_component_show:
             filters:
                 thumbnail: { size: [400, 400], mode: outbound, allow_upscale: true }
-                
+
+        filter_set_category_show_banner:
+            filters:
+                thumbnail: { size: [1110, 200], mode: outbound, allow_upscale: true }
+
+        filter_preview_medium:
+            filters:
+                thumbnail: { size: [270, 220], mode: outbound, allow_upscale: true }
+
+        filter_preview_big:
+            filters:
+                thumbnail: { size: [440, 270], mode: outbound, allow_upscale: true }
+
+        filter_show:
+            filters:
+                thumbnail: { size: [1110, 550], mode: outbound, allow_upscale: true }
+
 fos_user:
     db_driver: orm
     firewall_name: main

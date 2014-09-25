@@ -10,12 +10,12 @@
         <img src="{{ component.image.webPath | imagine_filter('filter_component_show') }}" alt="{{ component.image.title }}" />
     </div>
     <div class="three-fourth last">
-        <h2>{{ component.name }}</h2>
+        <h1>{{ component.name }}</h1>
         {{ component.description|raw }}
     </div>
     <div class="clear"></div>
     <hr />
-    <h3 class="aligncenter">Details</h3>
+    <h2 class="aligncenter">Details</h2>
     <p class="description aligncenter">Folgende Artikel können eingesetzt werden:</p>
     <br />
     {% for article in component.possibleArticles %}

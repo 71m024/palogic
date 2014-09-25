@@ -10,7 +10,7 @@
         <div class="portfolio-banner">
             <ul>
                 {% for image in article.images %}
-                <li data-transition="slidehorizontal"><img src="{{ image.webPath }}" alt="{{ image.title }}" /></li>
+                <li data-transition="slidehorizontal"><img src="{{ image.webPath | imagine_filter('filter_show') }}" alt="{{ image.title }}" /></li>
                 {% endfor %}
             </ul>
             <div class="tp-bannertimer tp-bottom"></div>
