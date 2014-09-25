@@ -15,22 +15,6 @@
                 {{ setCategory.name }}
             </a>
         </h1>
-        <!--{% for set in setCategory.sets %}
-            {% if loop.index0 < 3 %}
-                <div class="one-third {% if loop.index0 > 1 or loop.index0 > (setCategory.sets|length -2) %}last{% endif %}">
-                    <h2>
-                        <a href="{{ path("boxenmieten_app_set_show", {"id" : set.id, "slug" : set.slug}) }}" >
-                            {{ set.name }}
-                        </a> ({{ set.weekprice }} CHF/Woche)
-                        <br />
-                    </h2>
-                    <a href="{{ path("boxenmieten_app_set_show", {"id" : set.id, "slug" : set.slug}) }}" >
-                        <img src="{{ set.previewImage.webPath | imagine_filter('filter_preview_medium') }}" alt="{{ set.previewImage.title }}" />
-                    </a>
-                    {{ set.summary }}
-                </div>
-            {% endif %}
-        {% endfor %}-->
         <div class="grid-wrapper">
             <div class="blog-grid">
                 {% for set in setCategory.sets %}

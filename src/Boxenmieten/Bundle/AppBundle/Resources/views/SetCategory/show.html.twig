@@ -35,7 +35,7 @@
         </div>
         <a href="{{ path('boxenmieten_app_set_show', { id : set.id, slug : set.slug }) }}">
             <div class="one-fourth last">
-                <img src="{{ set.previewImage.webPath | imagine_filter('filter_preview_medium') }}" alt="{{ set.previewImage.title }}" />
+                <img src="{{ set.previewImage.webPath | imagine_filter('filter_preview_big') }}" alt="{{ set.previewImage.title }}" />
             </div>
         </a>
         <div class="clear"></div>

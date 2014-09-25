@@ -161,10 +161,6 @@ liip_imagine:
                 upscale: { min: [500, 500] }
                 thumbnail: { size: [500, 500], mode: outbound, allow_upscale: true }
                 
-        filter_possible_article:
-            filters:
-                thumbnail: { size: [400, 250], mode: outbound, allow_upscale: true }
-                
         filter_component_show:
             filters:
                 thumbnail: { size: [400, 400], mode: outbound, allow_upscale: true }
