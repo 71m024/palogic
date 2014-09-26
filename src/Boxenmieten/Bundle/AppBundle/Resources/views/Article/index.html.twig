@@ -3,8 +3,9 @@
 {% block title %}Komponenten{{parent()}}{% endblock%}
 
 {% block body %}
-    <h1 class="aligncenter">Komponenten</h1>
-    <p class="description aligncenter">Miete einzelne Komponenten!</p>
+    <h1 class="aligncenter">Artikel</h1>
+    <p class="description aligncenter">Alle unsere Artikel in einer Übersicht.<br />
+    Auf Anfrage können diese einzeln gemietet werden.</p>
 <br />
 
 <!-- Begin Portfolio -->
@@ -16,19 +17,16 @@
         <li><a href="#" data-filter=".cable">Kabel</a></li>
         <li><a href="#" data-filter=".mixer">Mixer</a></li>
         <li><a href="#" data-filter=".mic">Mikrofon</a></li>
-        {% for set in sets %}
-        <li><a href="#" data-filter=".{{ set.slug }}">{{ set.name }}</a></li>
-        {% endfor %}
     </ul>
     <ul class="items col4">
-        {% for component in components %}
-        <li class="item {{ component.discr }} {% for componentSet in component.sets %}{{ componentSet.set.slug }} {% endfor %}">
-            <a href="{{ path("boxenmieten_app_component_show", {"id" : component.id, "slug" : component.slug}) }}">
+        {% for article in articles %}
+        <li class="item {{ article.discr }} ">
+            <a href="{{ path("boxenmieten_app_article_show", {"id" : article.id, "slug" : article.slug}) }}">
                 <div class="overlay">
-                    <h3>{{ component.model }}</h3>
-                    <span class="meta">{{ component.make }}</span>
+                    <h3>{{ article.model }}</h3>
+                    <span class="meta">{{ article.make }}</span>
                 </div>
-                <img src="{{ component.previewImage.webPath }}" alt="" />
+                <img src="{{ article.image.webPath | imagine_filter('filter_portfolio_picker') }}" alt="{{ article.image.title }}" />
             </a>
         </li>
         {% endfor %}

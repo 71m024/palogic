@@ -7,16 +7,15 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 
-class ComponentAdmin extends Admin
+class SetCategoryAdmin extends Admin
 {
     // Fields to be shown on create/edit forms
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $component = $this->getSubject();
         
         $formMapper
-            ->with('General')
             ->add('name', 'text', array('label' => 'Name'))
+            ->add('orderNumber', 'integer', array('label' => 'Ordnungszahl'))
             ->add(
                 'description',
                 'sonata_formatter_type',
@@ -34,7 +33,6 @@ class ComponentAdmin extends Admin
                 )
             )
             ->add('image', 'sonata_type_model', array('required' => true, 'multiple' => false))
-            ->add('possibleArticles', 'sonata_type_model', array('required' => false, 'multiple' => true))
         ;
     }
 
@@ -51,6 +49,7 @@ class ComponentAdmin extends Admin
     {
         $listMapper
             ->addIdentifier('name')
+            ->add('orderNumber')
         ;
     }
 }

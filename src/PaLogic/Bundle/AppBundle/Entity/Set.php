@@ -41,6 +41,13 @@ class Set
      * @ORM\Column(type="text")
      */
     private $description;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="orderNumber", type="integer")
+     */
+    private $orderNumber;
     
     /**
      * @ORM\Column(type="text")
@@ -78,6 +85,16 @@ class Set
      * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\ImageBundle\Entity\Image")
      */
     private $previewImage;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\AppBundle\Entity\SetCategory", inversedBy="sets", cascade={"persist", "remove"})
+     */
+    private $categories;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $previewOnStart;
     
     /**
      * Constructor
@@ -360,5 +377,84 @@ class Set
     public function getSummary()
     {
         return $this->summary;
+    }
+
+    /**
+     * Add categories
+     *
+     * @param \PaLogic\Bundle\AppBundle\Entity\SetCategory $categories
+     * @return Set
+     */
+    public function addCategory(\PaLogic\Bundle\AppBundle\Entity\SetCategory $categories)
+    {
+        $this->categories[] = $categories;
+
+        return $this;
+    }
+
+    /**
+     * Remove categories
+     *
+     * @param \PaLogic\Bundle\AppBundle\Entity\SetCategory $categories
+     */
+    public function removeCategory(\PaLogic\Bundle\AppBundle\Entity\SetCategory $categories)
+    {
+        $this->categories->removeElement($categories);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+    /**
+     * Set orderNumber
+     *
+     * @param integer $orderNumber
+     * @return Set
+     */
+    public function setOrderNumber($orderNumber)
+    {
+        $this->orderNumber = $orderNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get orderNumber
+     *
+     * @return integer 
+     */
+    public function getOrderNumber()
+    {
+        return $this->orderNumber;
+    }
+
+    /**
+     * Set previewOnStart
+     *
+     * @param boolean $previewOnStart
+     * @return Set
+     */
+    public function setPreviewOnStart($previewOnStart)
+    {
+        $this->previewOnStart = $previewOnStart;
+
+        return $this;
+    }
+
+    /**
+     * Get previewOnStart
+     *
+     * @return boolean 
+     */
+    public function getPreviewOnStart()
+    {
+        return $this->previewOnStart;
     }
 }

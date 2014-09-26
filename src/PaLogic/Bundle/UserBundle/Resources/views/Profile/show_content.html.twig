@@ -10,7 +10,7 @@
 {% else %}
     {% for image in user.images %}
         {% if loop.index0 < 5 %}
-            <img class="alignleft" alt="{{ image.title }}" src="{{ image.webPath | imagine_filter('filter_thumbnail', {'thumbnail' : {'size' : [50, 50]} }) }}" />
+            <img class="alignleft" alt="{{ image.title }}" src="{{ image.webPath | imagine_filter('filter_mini_thumbnail') }}" />
         {% endif %}
     {% endfor %}
     <div class="clear"></div>
@@ -34,7 +34,7 @@
     <table class="datatable">
         {% for dj in user.djs %}
             <tr>
-                <td><img alt="{{ dj.headshot.title }}" src="{{ dj.headshot.webPath | imagine_filter('filter_thumbnail', {'thumbnail' : {'size' : [50, 50]} }) }}"</td>
+                <td><img alt="{{ dj.headshot.title }}" src="{{ dj.headshot.webPath | imagine_filter('filter_mini_thumbnail') }}"</td>
                 <td><a href="{{ path('pa_logic_dj_show', {'id' : dj.id, 'slug' : dj.slug}) }}">{{ dj.name }}</a></td>
                 <td><a class="button" href="{{ path('pa_logic_dj_edit', {'id' : dj.id}) }}">Bearbeiten</a></td>
                 <td>{{ form(delete_forms[loop.index0]) }}</td>

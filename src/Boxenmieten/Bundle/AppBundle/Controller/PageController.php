@@ -14,7 +14,10 @@ class PageController extends Controller
     */
     public function indexAction()
     {
-        return array();
+        $setRepository = $this->getDoctrine()->getRepository('PaLogicAppBundle:Set');
+        $sets = $setRepository->findBy(array('previewOnStart' => true));
+
+        return array('sets' => $sets);
     }
     
     /**

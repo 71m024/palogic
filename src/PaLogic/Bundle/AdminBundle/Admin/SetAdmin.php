@@ -47,6 +47,8 @@ class SetAdmin extends Admin
             )
             ->add('previewImage', 'sonata_type_model', array('required' => true, 'multiple' => false))
             ->add('images', 'sonata_type_model', array('required' => false, 'multiple' => true))
+            ->add('categories', 'sonata_type_model', array('required' => false, 'multiple' => true))
+            ->add('previewOnStart')
         ;
     }
 

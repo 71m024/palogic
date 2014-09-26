@@ -76,14 +76,36 @@ services:
         calls:
             - [ setTranslationDomain, [PaLogicAdminBundle]]
             
+    sonata.admin.article:
+        class: PaLogic\Bundle\AdminBundle\Admin\ArticleAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Inventory", label: "Artikel" }
+        arguments:
+            - ~
+            - PaLogic\Bundle\AppBundle\Entity\Article
+            - ~
+        calls:
+            - [ setTranslationDomain, [PaLogicAdminBundle]]
+            - [ setSubClasses, [{Boxe : "PaLogic\Bundle\AppBundle\Entity\Boxe", Stand : "PaLogic\Bundle\AppBundle\Entity\Stand", Cable : "PaLogic\Bundle\AppBundle\Entity\Cable", Mixer : "PaLogic\Bundle\AppBundle\Entity\Mixer", Mic : "PaLogic\Bundle\AppBundle\Entity\Mic"}]]
+
     sonata.admin.component:
         class: PaLogic\Bundle\AdminBundle\Admin\ComponentAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Inventory", label: "Component" }
+            - { name: sonata.admin, manager_type: orm, group: "Inventory", label: "Komponente" }
         arguments:
             - ~
             - PaLogic\Bundle\AppBundle\Entity\Component
             - ~
         calls:
             - [ setTranslationDomain, [PaLogicAdminBundle]]
-            - [ setSubClasses, [{Boxe : "PaLogic\Bundle\AppBundle\Entity\Boxe",Stand : "PaLogic\Bundle\AppBundle\Entity\Stand", Cable : "PaLogic\Bundle\AppBundle\Entity\Cable", Mixer : "PaLogic\Bundle\AppBundle\Entity\Mixer", Mic : "PaLogic\Bundle\AppBundle\Entity\Mic"}]]
+            
+    sonata.admin.set_category:
+        class: PaLogic\Bundle\AdminBundle\Admin\SetCategoryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Inventory", label: "Set-Kategorie" }
+        arguments:
+            - ~
+            - PaLogic\Bundle\AppBundle\Entity\SetCategory
+            - ~
+        calls:
+            - [ setTranslationDomain, [PaLogicAdminBundle]]

@@ -8,8 +8,11 @@
 /app/sessions/*
 /web/bundles/*
 /web/uploads/*
-/web/media/*
+/app/sessions/*
 /bin/*
+
+# LiipImagineBundle
+/web/media/*
 
 # Configuration files
 /app/config/parameters.yml
@@ -28,3 +31,6 @@ deploy.rb
 
 # PHPStorm
 .idea/*
+=======
+# MacOSX
+.DS_Store

@@ -22,25 +22,39 @@ boxenmieten_app_contact:
     requirements:
         _method:  GET|POST
         
-boxenmieten_app_sets:
+boxenmieten_app_set_categories:
     pattern:  /angebote
-    defaults: { _controller: BoxenmietenAppBundle:Set:index }
+    defaults: { _controller: BoxenmietenAppBundle:SetCategory:index }
     requirements:
         _method:  GET
         
-boxenmieten_app_components:
-    pattern:  /komponente
-    defaults: { _controller: BoxenmietenAppBundle:Component:index }
+boxenmieten_app_articles:
+    pattern:  /artikel
+    defaults: { _controller: BoxenmietenAppBundle:Article:index }
     requirements:
         _method:  GET
         
 boxenmieten_app_set_show:
-    pattern:  /angebote/{id}/{slug}
+    pattern:  /set/{id}/{slug}
     defaults: { _controller: BoxenmietenAppBundle:Set:show }
     requirements:
         _method:  GET
         id: \d+
-        
+
+boxenmieten_app_set_category_show:
+    pattern:  /angebote/{id}/{slug}
+    defaults: { _controller: BoxenmietenAppBundle:SetCategory:show }
+    requirements:
+        _method:  GET
+        id: \d+
+
+boxenmieten_app_article_show:
+    pattern:  /artikel/{id}/{slug}
+    defaults: { _controller: BoxenmietenAppBundle:Article:show }
+    requirements:
+        _method:  GET
+        id: \d+
+
 boxenmieten_app_component_show:
     pattern:  /komponente/{id}/{slug}
     defaults: { _controller: BoxenmietenAppBundle:Component:show }

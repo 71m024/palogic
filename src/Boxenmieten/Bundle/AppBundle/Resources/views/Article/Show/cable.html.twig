@@ -1,0 +1,7 @@
+{% extends 'BoxenmietenAppBundle:Article:show.html.twig' %}
+
+{% block details %}
+{{ parent() }}
+<li><span class="lite1">Länge </span>{{ article.cmLength }} cm</li>
+<li><span class="lite1">Typ </span>{{ article.type }}</li>
+{% endblock %}

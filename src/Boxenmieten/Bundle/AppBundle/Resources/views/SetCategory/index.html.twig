@@ -1,0 +1,81 @@
+{% extends "BoxenmietenAppBundle::layout.html.twig" %}
+
+{% block title %}Angebote{{parent()}}{% endblock%}
+
+{% block body %}
+    <h1 class="aligncenter">Angebote</h1>
+    <p class="description aligncenter">Alle Sets sind komplett und einsatzbereit.<br />
+    Bei Fragen beraten wir dich gerne: <a href="{{ path('boxenmieten_app_contact') }}">Kontakt</a></p>
+    <br />
+    <br />
+
+    {% for setCategory in setCategories %}
+        <h1 class="aligncenter">
+            <a href="{{ path("boxenmieten_app_set_category_show", {"id" : setCategory.id, "slug" : setCategory.slug}) }}">
+                {{ setCategory.name }}
+            </a>
+        </h1>
+        <div class="grid-wrapper">
+            <div class="blog-grid">
+                {% for set in setCategory.sets %}
+                    {% if loop.index0 < 3 %}
+                        <div class="post">
+                            <div class="overlay">
+                                <a href="{{ path("boxenmieten_app_set_show", {"id" : set.id, "slug" : set.slug}) }}"
+                                   alt="{{ set.name }}">
+                                    <img src="{{ set.previewImage.webPath | imagine_filter('filter_preview_medium') }}"
+                                         alt="{{ set.previewImage.title }}" />
+                                </a>
+                            </div>
+                            <div class="info">
+                                <h2 class="post-title">
+                                    <a href="{{ path("boxenmieten_app_set_show", {"id" : set.id, "slug" : set.slug}) }}"
+                                       alt="{{ set.name }}">
+                                        {{ set.name }}
+                                    </a>
+                                </h2>
+                                <div class="meta">
+                                    <span>{{ set.weekprice }} CHF/Woche</span>
+                                </div>
+                            </div>
+                            <p>{{ set.summary }}</p>
+                            <a href="{{ path("boxenmieten_app_set_show", {"id" : set.id, "slug" : set.slug}) }}" alt="{{ set.name }}">
+                                Details →
+                            </a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+        <div class="clear"></div>
+        <a href="{{ path("boxenmieten_app_set_category_show", {"id" : setCategory.id, "slug" : setCategory.slug}) }}">
+            mehr Sets dieser Kategorie...
+        </a>
+        <hr />
+    {% endfor %}
+
+    {#{% for set in sets %}
+        <h2>
+            <a href="{{ path("boxenmieten_app_set_show", {"id" : set.id, "slug" : set.slug}) }}" >
+                {{ set.name }}
+            </a> ({{ set.weekprice }} CHF/Woche)
+        </h2>
+
+        <div class="three-fourth">
+            <p>{{ set.summary }}</p>
+            <ul>
+                {% for setComponent in set.components %}
+                <li>{{ setComponent.num }} x <a href="{{ path("boxenmieten_app_component_show", {"id" : setComponent.component.id, "slug" : setComponent.component.slug}) }}" >{{ setComponent.component.make }}, {{ setComponent.component.model }}</a></li>
+                {% endfor %}
+            </ul>
+            <a href="{{ path("boxenmieten_app_set_show", {"id" : set.id, "slug" : set.slug}) }}" >Details</a>
+        </div>
+        <a href="{{ path('boxenmieten_app_set_show', { id : set.id, slug : set.slug }) }}">
+            <div class="one-fourth last">
+                <img src="{{ set.previewImage.webPath }}" alt="{{ set.previewImage.title }}" />
+            </div>
+        </a>
+        <div class="clear"></div>
+        <hr />
+    {% endfor %}#}
+{% endblock %}

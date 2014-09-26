@@ -1,35 +1,49 @@
 {% extends 'BoxenmietenAppBundle::layout.html.twig' %}
 
-{% block  description %}{{ component.make }}, {{ component.model }}{{parent()}}{% endblock %}
+{% block  description %}{{ component.name }}{{parent()}}{% endblock %}
 
-{% block title %}{{ component.model }}{% endblock%}
+{% block title %}{{ component.name }}{% endblock%}
 
 {% block body %}
 <div class="portfolio-content">
-    <div class="portfolio-bannercontainer">
-        <div class="portfolio-banner">
-            <ul>
-                {% for image in component.images %}
-                <li data-transition="slidehorizontal"><img src="{{ image.webPath }}" alt="{{ image.title }}" /></li>
-                {% endfor %}
-            </ul>
-            <div class="tp-bannertimer tp-bottom"></div>
-        </div>
+    <div class="one-fourth">
+        <img src="{{ component.image.webPath | imagine_filter('filter_component_show') }}" alt="{{ component.image.title }}" />
     </div>
-    <section class="content">
-        <h2>{{ component.make }}, {{ component.model }}</h2>
-        <!--<h3>{{ component.weekPrice }} CHF/Woche</h3>-->
+    <div class="three-fourth last">
+        <h1>{{ component.name }}</h1>
         {{ component.description|raw }}
-    </section>
-    <div class="item-details">
-        <ul class="item-info">
-            {% block details %}
-            <li><span class="lite1">Hersteller </span>{{ component.manufacturer }}</li>
-            <li><span class="lite1">Neupreis </span>{{ component.price }} CHF</li>
-            {% endblock %}
-        </ul>
-        <a target="_blank" href="{{ component.website }}">Herstellerseite</a>
-        <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+    <hr />
+    <h2 class="aligncenter">Details</h2>
+    <p class="description aligncenter">Folgende Artikel können eingesetzt werden:</p>
+    <br />
+    <div class="grid-wrapper">
+        <div class="blog-grid">
+            {% for article in component.possibleArticles %}
+                <div class="post">
+                    <div class="overlay">
+                        <a href="{{ path("boxenmieten_app_article_show", {"id" : article.id, "slug" : article.slug}) }}"
+                           alt="{{ article.make }}, {{ article.model }}">
+                            <img src="{{ article.image.webPath | imagine_filter('filter_preview_big') }}"
+                                 alt="{{ article.image.title }}" />
+                        </a>
+                    </div>
+                    <div class="info">
+                        <h2 class="post-title">
+                            <a href="{{ path("boxenmieten_app_article_show", {"id" : article.id, "slug" : article.slug}) }}"
+                               alt="{{ article.make }}, {{ article.model }}">
+                                {{ article.make }}, {{ article.model }}
+                            </a>
+                        </h2>
+                    </div>
+                    <a href="{{ path("boxenmieten_app_article_show", {"id" : article.id, "slug" : article.slug}) }}"
+                       alt="{{ article.make }}, {{ article.model }}">
+                       Details →
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock body %}
