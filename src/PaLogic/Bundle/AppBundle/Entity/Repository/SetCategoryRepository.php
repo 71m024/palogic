@@ -12,4 +12,21 @@ use Doctrine\ORM\EntityRepository;
  */
 class SetCategoryRepository extends EntityRepository
 {
+    public function getSetCategories() {
+        return $this->createQueryBuilder('c')
+            ->leftJoin('c.sets','s')
+            ->orderBy('s.orderNumber', 'asc')
+            ->getQuery()
+            ->getResult();
+    }
+
+    public function findSetCategoryById($id) {
+        return $this->createQueryBuilder('c')
+            ->where('c.id = ?1')
+            ->leftJoin('c.sets','s')
+            ->orderBy('s.orderNumber', 'asc')
+            ->setParameter(1, $id)
+            ->getQuery()
+            ->getOneOrNullResult();
+    }
 }

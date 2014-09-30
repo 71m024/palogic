@@ -15,7 +15,7 @@ class SetCategoryController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $setCategories = $em->getRepository('PaLogicAppBundle:SetCategory')->findBy(array(), array("orderNumber" => "ASC"));
+        $setCategories = $em->getRepository('PaLogicAppBundle:SetCategory')->getSetCategories();
 
         return array('setCategories' => $setCategories);
     }
@@ -26,12 +26,12 @@ class SetCategoryController extends Controller
     public function showAction($id, $slug) {
         $em = $this->getDoctrine()->getManager();
 
-        $set = $em->getRepository('PaLogicAppBundle:SetCategory')->find($id);
+        $setCategory = $em->getRepository('PaLogicAppBundle:SetCategory')->findSetCategoryById($id);
 
-        if (!$set) {
+        if (!$setCategory) {
             throw $this->createNotFoundException('Unable to find SetCategory.');
         }
 
-        return array('setCategory' => $set);
+        return array('setCategory' => $setCategory);
     }
 }
