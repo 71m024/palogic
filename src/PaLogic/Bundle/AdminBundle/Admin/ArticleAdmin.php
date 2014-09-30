@@ -45,15 +45,16 @@ class ArticleAdmin extends Admin
             ->add('image', 'sonata_type_model', array('required' => true, 'multiple' => false))
             ->add('images', 'sonata_type_model', array('required' => false, 'multiple' => true))
             ->add('website', 'text', array('required' => false))
-        ;
-        
+            ->end();
+
         if ($article instanceof Boxe) {
             $formMapper
                 ->with('Detail')
                 ->add('assembly', 'text', array('label' => 'Bestückung'))
                 ->add('kgWeight', 'integer', array('label' => 'Gewicht (kg)'))
                 ->add('frequency', 'text', array('label' => 'Frequenzbereich'))
-                ->add('dimensions', 'text', array('label' => 'Masse'));
+                ->add('dimensions', 'text', array('label' => 'Masse'))
+                ->end();
         }
         
         if ($article instanceof Stand) {
@@ -61,14 +62,16 @@ class ArticleAdmin extends Admin
                 ->with('Detail')
                 ->add('maxHeight', 'text', array('label' => 'Maximale Höhe'))
                 ->add('minHeight', 'text', array('label' => 'Minimale Höhe'))
-                ->add('maxLoad', 'text', array('label' => 'Maximale Last'));
+                ->add('maxLoad', 'text', array('label' => 'Maximale Last'))
+                ->end();
         }
         
         if ($article instanceof Cable) {
             $formMapper
                 ->with('Detail')
                 ->add('cmLength', 'integer', array('label' => 'Länge (cm.)'))
-                ->add('type', 'text', array('label' => 'Typ'));
+                ->add('type', 'text', array('label' => 'Typ'))
+                ->end();
         }
         
         if ($article instanceof Mixer) {
@@ -76,7 +79,8 @@ class ArticleAdmin extends Admin
                 ->with('Detail')
                 ->add('inputs', 'text', array('label' => 'Eingänge'))
                 ->add('outputs', 'text', array('label' => 'Ausgänge'))
-                ->add('preamps', 'text', array('label' => 'Vorverstärker'));
+                ->add('preamps', 'text', array('label' => 'Vorverstärker'))
+                ->end();
         }
         
         if ($article instanceof Mic) {
@@ -85,7 +89,8 @@ class ArticleAdmin extends Admin
                 ->add('sensitivity', 'text', array('label' => 'Empfindlichkeit'))
                 ->add('directivity', 'text', array('label' => 'Richtcharakteristik'))
                 ->add('transmissionRange', 'text', array('label' => 'Übertragungsbereich'))
-                ->add('weight', 'text', array('label' => 'Gewicht'));
+                ->add('weight', 'text', array('label' => 'Gewicht'))
+                ->end();
         }
     }
 
