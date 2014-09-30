@@ -14,6 +14,7 @@ class SetCategoryRepository extends EntityRepository
 {
     public function getSetCategories() {
         return $this->createQueryBuilder('c')
+            ->addSelect('s')
             ->leftJoin('c.sets','s')
             ->orderBy('s.orderNumber', 'asc')
             ->getQuery()
@@ -22,6 +23,7 @@ class SetCategoryRepository extends EntityRepository
 
     public function findSetCategoryById($id) {
         return $this->createQueryBuilder('c')
+            ->addSelect('s')
             ->where('c.id = ?1')
             ->leftJoin('c.sets','s')
             ->orderBy('s.orderNumber', 'asc')
