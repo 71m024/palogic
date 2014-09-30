@@ -16,6 +16,7 @@ class SetAdmin extends Admin
         $formMapper
             ->add('name', 'text', array('label' => 'Name'))
             ->add('summary', 'text', array('label' => 'kurze Beschreibung'))
+            ->add('orderNumber')
             ->add(
                 'description',
                 'sonata_formatter_type',
