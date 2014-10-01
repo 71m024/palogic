@@ -1,6 +1,6 @@
 services:
-    security.access.dj_voter:
-        class:      PaLogic\Bundle\DjBundle\Security\Authorization\Voter\DjVoter
+    security.access.image_voter:
+        class:      PaLogic\Bundle\ImageBundle\Security\Authorization\Voter\ImageVoter
         public:     false
         arguments: ["@security.access.role_hierarchy_voter"]
         tags:

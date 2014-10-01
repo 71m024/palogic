@@ -1,4 +1,11 @@
-services:   
+services:
+    security.access.dj_voter:
+        class:      PaLogic\Bundle\DjBundle\Security\Authorization\Voter\DjVoter
+        public:     false
+        arguments: ["@security.access.role_hierarchy_voter"]
+        tags:
+            - { name: security.voter }
+
     palogic_image.images.widget:
         class: PaLogic\Bundle\ImageBundle\Form\ImagesType
         arguments: [@property_accessor, "@liip_imagine.cache.manager"]

@@ -135,6 +135,10 @@ class ImageController extends Controller
             throw $this->createNotFoundException('Unable to find Image entity.');
         }
 
+        if (false === $this->get('security.context')->isGranted('edit', $entity)) {
+            throw new AccessDeniedException('Unauthorised access!');
+        }
+
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
@@ -178,6 +182,10 @@ class ImageController extends Controller
             throw $this->createNotFoundException('Unable to find Image entity.');
         }
 
+        if (false === $this->get('security.context')->isGranted('edit', $entity)) {
+            throw new AccessDeniedException('Unauthorised access!');
+        }
+
         $deleteForm = $this->createDeleteForm($id);
         $editForm = $this->createEditForm($entity);
         $editForm->handleRequest($request);
@@ -212,6 +220,10 @@ class ImageController extends Controller
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Image entity.');
+            }
+
+            if (false === $this->get('security.context')->isGranted('edit', $entity)) {
+                throw new AccessDeniedException('Unauthorised access!');
             }
 
             $em->remove($entity);
