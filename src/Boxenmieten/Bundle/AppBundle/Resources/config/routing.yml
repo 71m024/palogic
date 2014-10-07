@@ -23,7 +23,7 @@ boxenmieten_app_contact:
         _method:  GET|POST
         
 boxenmieten_app_set_categories:
-    pattern:  /angebote
+    pattern:  /musikanlagen
     defaults: { _controller: BoxenmietenAppBundle:SetCategory:index }
     requirements:
         _method:  GET
@@ -42,7 +42,7 @@ boxenmieten_app_set_show:
         id: \d+
 
 boxenmieten_app_set_category_show:
-    pattern:  /angebote/{id}/{slug}
+    pattern:  /musikanlagen/{id}/{slug}
     defaults: { _controller: BoxenmietenAppBundle:SetCategory:show }
     requirements:
         _method:  GET
