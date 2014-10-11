@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="PaLogic\Bundle\AppBundle\Entity\Repository\ArticleRepository")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="discr", type="string")
- * @ORM\DiscriminatorMap({"boxe" = "Boxe", "stand" = "Stand", "cable" = "Cable", "mixer" = "Mixer", "mic" = "Mic"})
+ * @ORM\DiscriminatorMap({"boxe" = "Boxe", "stand" = "Stand", "cable" = "Cable", "mixer" = "Mixer", "player" = "Player", "mic" = "Mic"})
  */
 class Article
 {

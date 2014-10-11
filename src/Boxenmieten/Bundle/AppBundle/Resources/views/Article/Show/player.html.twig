@@ -1,0 +1,7 @@
+{% extends 'BoxenmietenAppBundle:Article:show.html.twig' %}
+
+{% block details %}
+{{ parent() }}
+<li><span class="lite1">Formate </span>{{ article.supportedFormats }}</li>
+<li><span class="lite1">Ausgänge </span>{{ article.outputs }}</li>
+{% endblock %}

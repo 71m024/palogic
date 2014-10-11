@@ -2,6 +2,7 @@
 
 namespace Boxenmieten\Bundle\AppBundle\Controller;
 
+use PaLogic\Bundle\AppBundle\Entity\Player;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use PaLogic\Bundle\AppBundle\Entity\Boxe;
@@ -55,6 +56,11 @@ class ArticleController extends Controller
         if ($article instanceof Mic) {
             return $this->render('BoxenmietenAppBundle:Article/Show:mic.html.twig',
                     array('article' => $article));
+        }
+
+        if ($article instanceof Player) {
+            return $this->render('BoxenmietenAppBundle:Article/Show:player.html.twig',
+                array('article' => $article));
         }
     }
 }

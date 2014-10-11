@@ -11,6 +11,7 @@ use PaLogic\Bundle\AppBundle\Entity\Stand;
 use PaLogic\Bundle\AppBundle\Entity\Cable;
 use PaLogic\Bundle\AppBundle\Entity\Mixer;
 use PaLogic\Bundle\AppBundle\Entity\Mic;
+use PaLogic\Bundle\AppBundle\Entity\Player;
 
 class ArticleAdmin extends Admin
 {
@@ -90,6 +91,14 @@ class ArticleAdmin extends Admin
                 ->add('directivity', 'text', array('label' => 'Richtcharakteristik'))
                 ->add('transmissionRange', 'text', array('label' => 'Übertragungsbereich'))
                 ->add('weight', 'text', array('label' => 'Gewicht'))
+                ->end();
+        }
+
+        if ($article instanceof Player) {
+            $formMapper
+                ->with('Detail')
+                ->add('supportedFormats', 'text', array('label' => 'Formate'))
+                ->add('outputs', 'text', array('label' => 'Ausgänge'))
                 ->end();
         }
     }

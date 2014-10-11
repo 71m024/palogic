@@ -86,7 +86,7 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [PaLogicAdminBundle]]
-            - [ setSubClasses, [{Boxe : "PaLogic\Bundle\AppBundle\Entity\Boxe", Stand : "PaLogic\Bundle\AppBundle\Entity\Stand", Cable : "PaLogic\Bundle\AppBundle\Entity\Cable", Mixer : "PaLogic\Bundle\AppBundle\Entity\Mixer", Mic : "PaLogic\Bundle\AppBundle\Entity\Mic"}]]
+            - [ setSubClasses, [{Boxe : "PaLogic\Bundle\AppBundle\Entity\Boxe", Stand : "PaLogic\Bundle\AppBundle\Entity\Stand", Cable : "PaLogic\Bundle\AppBundle\Entity\Cable", Mixer : "PaLogic\Bundle\AppBundle\Entity\Mixer", Mic : "PaLogic\Bundle\AppBundle\Entity\Mic", Player : "PaLogic\Bundle\AppBundle\Entity\\Player"}]]
 
     sonata.admin.component:
         class: PaLogic\Bundle\AdminBundle\Admin\ComponentAdmin
