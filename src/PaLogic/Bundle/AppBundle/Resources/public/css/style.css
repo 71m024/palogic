@@ -450,21 +450,26 @@ blockquote p {
     margin: 0 auto;
     padding: 60px 0;
 }
+
 header .logo {
+    float: left;
+}
+
+header .logo.siteswitch {
     float: left;
     height: 29px;
     position: relative;
     margin-left: -20px;
 }
-header .logo i {
+header .logo.siteswitch i {
     position: absolute;
     right: 5px;
     top: 0px;
 }
-header .logo a {
+header .logo.siteswitch a {
     display: block;
 }
-header .logo ul {
+header .logo.siteswitch ul {
     z-index: 21;
     position: relative;
     background-color: #262626;
@@ -473,34 +478,34 @@ header .logo ul {
     overflow: hidden;
     max-height: 0px;
 }
-header .logo:hover ul {
+header .logo.siteswitch:hover ul {
     max-height: 1000px;
 }
-header .logo > a {
+header .logo.siteswitch > a {
     padding: 10px 34px 10px 20px;
     position: relative;
     width: 100%;
     margin-top: -10px;
 }
-header .logo > a:hover {
+header .logo.siteswitch > a:hover {
     background-color: #3F3F3F;
 }
-header .logo ul li:before {
+header .logo.siteswitch ul li:before {
     content: none;
 }
-header .logo ul li {
+header .logo.siteswitch ul li {
     padding: 0px;
 }
-header .logo ul li a {
+header .logo.siteswitch ul li a {
     padding: 10px 34px 10px 20px;
 }
-header .logo ul li:hover {
+header .logo.siteswitch ul li:hover {
     background-color: #3F3F3F;
 }
-header .logo ul li a,
-header .logo ul li a:hover,
-header .logo > a,
-header .logo > a:hover {
+header .logo.siteswitch ul li a,
+header .logo.siteswitch ul li a:hover,
+header .logo.siteswitch > a,
+header .logo.siteswitch > a:hover {
     -webkit-transition: background 0.3s ease;
     -moz-transition: background 0.3s  ease;
     -ms-transition: background  0.3s  ease;

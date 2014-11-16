@@ -6,43 +6,64 @@
     <div class="bannercontainer">
         <div class="banner">
              <ul>
-                <li data-transition="fade">
-                    {% image '@PaLogicAppBundle/Resources/public/images/art/slider-transparent.png' output='generated/images/banner/slider-transparent.jpg'%}
-                        <img src="{{ asset_url }}" alt="" style="background-color:#2a2a2a" />
-                    {% endimage %}
-                    <div class="caption lfb" data-x="593" data-y="10" data-speed="900" data-start="100" data-easing="easeOutSine">
-                        {% image '@BoxenmietenAppBundle/Resources/public/images/banner/boxe.png' output='generated/images/banner/boxe.png'%}
-                            <img src="{{ asset_url }}" alt="" />
-                        {% endimage %}
-                    </div>
-                    <div class="caption sfl huge" data-x="356" data-y="90" data-speed="300" data-start="100" data-easing="easeOutExpo"><strong><span class="colored">Boxen</span></strong></div>
-                    <div class="caption sft huge" data-x="537" data-y="90" data-speed="300" data-start="800" data-easing="easeOutExpo"><strong>mieten</strong></div>
-                    <div class="caption sfl big" data-x="center" data-y="176" data-speed="300" data-start="1600" data-easing="easeOutExpo">Hochwertige Musikanlagen</div>
-                    <div class="caption sfr big" data-x="center" data-y="245" data-speed="300" data-start="2800" data-easing="easeOutExpo">...zu günstigen Preisen</div>
-                    <div class="caption sfb big" data-x="center" data-y="329" data-speed="300" data-start="4000" data-easing="easeOutExpo">in <strong>Bern!</strong></div>
+                 <li data-transition="fade">
+                     {% image '@PaLogicAppBundle/Resources/public/images/art/slider-transparent.png' output='generated/images/banner/slider-transparent.jpg'%}
+                     <img src="{{ asset_url }}" alt="" style="background-color:#2a2a2a" />
+                     {% endimage %}
+                     <div class="caption lfb" data-x="0" data-y="-50" data-speed="900" data-start="100" data-easing="easeOutSine">
+                         {% image '@BoxenmietenAppBundle/Resources/public/images/banner/iconMedium.png' output='generated/images/banner/iconMedium.png'%}
+                         <img src="{{ asset_url }}" alt="" />
+                         {% endimage %}
+                     </div>
+                     <div class="caption lfb" data-x="510" data-y="180" data-speed="900" data-start="100" data-easing="easeOutSine">
+                         {% image '@BoxenmietenAppBundle/Resources/public/images/banner/SRM450.png' output='generated/images/banner/SRM450.png'%}
+                         <img src="{{ asset_url }}" alt="" />
+                         {% endimage %}
+                     </div>
+                     <div class="caption lfb" data-x="730" data-y="180" data-speed="900" data-start="100" data-easing="easeOutSine">
+                         {% image '@BoxenmietenAppBundle/Resources/public/images/banner/SRM1801.png' output='generated/images/banner/SRM1801.png'%}
+                         <img src="{{ asset_url }}" alt="" />
+                         {% endimage %}
+                     </div>
+                     <div class="caption sfl huge" data-x="526" data-y="60" data-speed="300" data-start="100" data-easing="easeOutExpo"><strong><span class="colored">Musik</span></strong></div>
+                     <div class="caption sft huge" data-x="697" data-y="60" data-speed="300" data-start="800" data-easing="easeOutExpo"><strong>anlagen</strong></div>
+                     <div class="caption sfl big" data-x="600" data-y="120" data-speed="300" data-start="1200" data-easing="easeOutExpo">für jedermann</div>
                 </li>
                 <li data-transition="fade">
                     {% image '@PaLogicAppBundle/Resources/public/images/art/slider-transparent.png' output='generated/images/banner/slider-transparent.jpg'%}
                         <img src="{{ asset_url }}" alt="" style="background-color:#2a2a2a" />
                     {% endimage %}
-                    <div class="caption lfb" data-x="493" data-y="10" data-speed="900" data-start="100" data-easing="easeOutSine">
-                        {% image '@BoxenmietenAppBundle/Resources/public/images/banner/stands.png' output='generated/images/banner/stands.png'%}
+                    <div class="caption lfb" data-x="300" data-y="150" data-speed="900" data-start="100" data-easing="easeOutSine">
+                        {% image '@BoxenmietenAppBundle/Resources/public/images/banner/ProFX12.png' output='generated/images/banner/ProFX12.png'%}
                             <img src="{{ asset_url }}" alt="" />
                         {% endimage %}
                     </div>
-                    <div class="caption lft" data-x="298" data-y="240" data-speed="900" data-start="900" data-easing="easeOutSine">
-                        {% image '@BoxenmietenAppBundle/Resources/public/images/banner/pult.png' output='generated/images/banner/mixer.png'%}
+                    <div class="caption lft" data-x="20" data-y="150" data-speed="900" data-start="900" data-easing="easeOutSine">
+                        {% image '@BoxenmietenAppBundle/Resources/public/images/banner/MG06.png' output='generated/images/banner/MG06.png'%}
                             <img src="{{ asset_url }}" alt="" />
                         {% endimage %}
                     </div>
-                    <div class="caption lfr" data-x="843" data-y="0" data-speed="900" data-start="1200" data-easing="easeOutSine">
-                        {% image '@BoxenmietenAppBundle/Resources/public/images/banner/boxen.png' output='generated/images/banner/boxen.png'%}
+                    <div class="caption lfr" data-x="600" data-y="145" data-speed="900" data-start="1200" data-easing="easeOutSine">
+                        {% image '@BoxenmietenAppBundle/Resources/public/images/banner/DJSet350.png' output='generated/images/banner/DJSet350.png'%}
                             <img src="{{ asset_url }}" alt="" />
                         {% endimage %}
                     </div>
-                    <div class="caption sfl big" data-x="82" data-y="100" data-speed="900" data-start="1500" data-easing="easeOutExpo"><strong>komplete <span class="colored">Sets</span></strong></div>
-                    <div class="caption sfr big" data-x="82" data-y="150" data-speed="900" data-start="1800" data-easing="easeOutExpo"><strong>...oder einzelne <span class="colored">Komponenten</span></strong></div>
-                    <div class="caption sfb" data-x="82" data-y="230" data-speed="900" data-start="2100" data-easing="easeOutExpo"><a href="{{ path('boxenmieten_app_set_categories') }}" class="button">zu den Angeboten</a></div>
+                    <div class="caption lfr" data-x="660" data-y="20" data-speed="900" data-start="1200" data-easing="easeOutSine">
+                        {% image '@BoxenmietenAppBundle/Resources/public/images/banner/565SD.png' output='generated/images/banner/565SD.png'%}
+                        <img src="{{ asset_url }}" alt="" />
+                        {% endimage %}
+                    </div>
+                    <div class="caption lfr" data-x="760" data-y="20" data-speed="900" data-start="1200" data-easing="easeOutSine">
+                        {% image '@BoxenmietenAppBundle/Resources/public/images/banner/SM58.png' output='generated/images/banner/SM58.png'%}
+                        <img src="{{ asset_url }}" alt="" />
+                        {% endimage %}
+                    </div>
+                    <div class="caption lfr" data-x="860" data-y="20" data-speed="900" data-start="1200" data-easing="easeOutSine">
+                        {% image '@BoxenmietenAppBundle/Resources/public/images/banner/BLX4.png' output='generated/images/banner/BLX4.png'%}
+                        <img src="{{ asset_url }}" alt="" />
+                        {% endimage %}
+                    </div>
+                    <div class="caption sfl big" data-x="50" data-y="50" data-speed="900" data-start="1500" data-easing="easeOutExpo">nicht nur <span class="colored">Boxen</span> ...</div>
                 </li>
             </ul>
             <div class="tp-bannertimer tp-bottom"></div>

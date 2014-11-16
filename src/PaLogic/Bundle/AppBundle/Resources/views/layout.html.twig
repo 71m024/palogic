@@ -50,14 +50,14 @@
                 <header>
                     <div class="inner">
                         
-                        <div class="logo">
+                        <div class="logo {% block siteswitch %}siteswitch{% endblock %}">
                             {% block blog_title %}
                                 <a href="#">
                                     <span style="font-size: 25px; font-weight: bold;"><span style="color:#ffc360">Pa</span><span style="color:#e0e0e0">Logic</span></span>
                                 </a>
                             {% endblock %}
-                            <i class="icon-down-open-1"></i>
                             {% block sidekicks %}
+                                <i class="icon-down-open-1"></i>
                                 <ul>
                                     <li>
                                         <a href="{{ path('boxenmieten_app_homepage') }}">
