@@ -2,12 +2,15 @@
 /*	RETINA.JS
 /*-----------------------------------------------------------------------------------*/
 /*(function () {
+
+    var regex = /(media\/cache\/filter_[A-Z]+)/i
     function t(e) {
         this.path = e;
         var t = this.path.split("."),
             n = t.slice(0, t.length - 1).join("."),
             r = t[t.length - 1];
-        this.at_2x_path = n + "@2x." + r
+        console.log((n + '.' + r));
+        this.at_2x_path = (n + '.' + r).replace(regex, '$1_retina')
     }
     function n(e) {
         this.el = e, this.path = new t(this.el.getAttribute("src"));

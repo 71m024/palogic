@@ -181,6 +181,54 @@ liip_imagine:
             filters:
                 thumbnail: { size: [1110, 550], mode: outbound, allow_upscale: true }
 
+        #Retina-Filters
+
+#        filter_widen_retina:
+#            filters:
+#                relative_resize: { widen: 210 }
+#
+#        filter_thumbnail_retina:
+#            filters:
+#                thumbnail: { size: [540, 440], mode: outbound, allow_upscale: true }
+#
+#        filter_portfolio_picker_retina:
+#            filters:
+#                thumbnail: { size: [540, 440], mode: outbound, allow_upscale: true }
+#
+#        filter_mini_thumbnail_retina:
+#            filters:
+#                thumbnail: { size: [100, 100], mode: outbound, allow_upscale: true }
+#
+#        filter_dj_show_banner_retina:
+#            filters:
+#                upscale: { min: [1450, 680] }
+#                thumbnail: { size: [1450, 680], mode: outbound, allow_upscale: true }
+#
+#        filter_dj_show_headshot_retina:
+#            filters:
+#                upscale: { min: [1000, 1000] }
+#                thumbnail: { size: [1000, 1000], mode: outbound, allow_upscale: true }
+#
+#        filter_component_show_retina:
+#            filters:
+#                thumbnail: { size: [800, 800], mode: outbound, allow_upscale: true }
+#
+#        filter_set_category_show_banner_retina:
+#            filters:
+#                thumbnail: { size: [2220, 400], mode: outbound, allow_upscale: true }
+#
+#        filter_preview_medium_retina:
+#            filters:
+#                thumbnail: { size: [540, 440], mode: outbound, allow_upscale: true }
+#
+#        filter_preview_big_retina:
+#            filters:
+#                thumbnail: { size: [880, 540], mode: outbound, allow_upscale: true }
+#
+#        filter_show_retina:
+#            filters:
+#                thumbnail: { size: [2220, 1100], mode: outbound, allow_upscale: true }
+
 fos_user:
     db_driver: orm
     firewall_name: main
