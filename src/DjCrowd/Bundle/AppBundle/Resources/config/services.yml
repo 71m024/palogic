@@ -1,5 +1,5 @@
 parameters:
-#    dj_crowd_app.example.class: DjCrowd\Bundle\AppBundle\Example
+#    djcrowd_app.example.class: DjCrowd\Bundle\AppBundle\Example
 
 services:   
     djcrowd_app.menu_builder:

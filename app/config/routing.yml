@@ -2,12 +2,12 @@ MultipleInheritanceBundle:
     resource: .
     type: inheritance
 
-dj_crowd_user:
+djcrowd_user:
     resource: "@DjCrowdUserBundle/Resources/config/routing.yml"
     host:     djcrowd.%tld%
     prefix:   /
 
-dj_crowd_app:
+djcrowd_app:
     resource: "@DjCrowdAppBundle/Controller/"
     host:     djcrowd.%tld%
     prefix:   /
