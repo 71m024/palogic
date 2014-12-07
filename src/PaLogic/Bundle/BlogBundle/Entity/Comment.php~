@@ -5,6 +5,7 @@ namespace PaLogic\Bundle\BlogBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity(repositoryClass="PaLogic\Bundle\BlogBundle\Entity\Repository\CommentRepository")
@@ -37,18 +38,15 @@ class Comment {
 
     /**
      * @ORM\Column(type="datetime")
+     * @Gedmo\Timestampable(on="create")
      */
     protected $created;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Gedmo\Timestampable(on="update")
      */
     protected $updated;
-
-    public function __construct() {
-        $this->setCreated(new \DateTime());
-        $this->setUpdated(new \DateTime());
-    }
 
     public static function loadValidatorMetadata(ClassMetadata $metadata) {
         $metadata->addPropertyConstraint('user', new NotBlank(array(
@@ -57,13 +55,6 @@ class Comment {
         $metadata->addPropertyConstraint('comment', new NotBlank(array(
             'message' => 'You must enter a comment'
         )));
-    }
-
-    /**
-     * @ORM\preUpdate
-     */
-    public function setUpdatedValue() {
-        $this->setUpdated(new \DateTime());
     }
 
     /**

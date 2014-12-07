@@ -33,7 +33,11 @@
                                     </a>
                                 </h2>
                                 <div class="meta">
-                                    <span>{{ set.weekprice }} CHF/Woche</span>
+                                    <span>{{ set.weekprice }} CHF/Woche &#124; </span>
+                                    <a href="{{ path('boxenmieten_app_locales') }}">
+                                        Verfügbar in
+                                        {% for locale in set.locales %}{% if not loop.first %}, {% endif %}{{ locale.name }}{% endfor %}
+                                    </a>
                                 </div>
                             </div>
                             <p>{{ set.summary }}</p>

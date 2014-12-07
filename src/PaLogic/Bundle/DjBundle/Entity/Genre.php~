@@ -46,7 +46,7 @@ class Genre
     private $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\DjBundle\Entity\Dj")
+     * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\DjBundle\Entity\Dj", mappedBy="genres")
      */
     private $djs;
     

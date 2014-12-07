@@ -16,10 +16,16 @@
         <h2>
             <a href="{{ path("boxenmieten_app_set_show", {"id" : set.id, "slug" : set.slug}) }}" >
                 {{ set.name }}
-            </a> ({{ set.weekprice }} CHF/Woche)
+            </a>
         </h2>
 
         <div class="three-fourth">
+            <span>{{ set.weekprice }} CHF/Woche &#124; </span>
+            <a href="{{ path('boxenmieten_app_locales') }}">
+                Verfügbar in
+                {% for locale in set.locales %}{% if not loop.first %}, {% endif %}{{ locale.name }}{% endfor %}
+            </a>
+            <br /><br />
             <p>{{ set.summary }}</p>
             <ul>
                 {% for setComponent in set.components %}

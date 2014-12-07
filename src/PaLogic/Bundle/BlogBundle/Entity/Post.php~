@@ -100,7 +100,6 @@ class Post
      * @ORM\ManyToOne(targetEntity="PaLogic\Bundle\AppBundle\Entity\DomainRoutePrefix")
      */
     protected $domainRoutePrefix;
-
     
     public function __construct()
     {

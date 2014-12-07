@@ -92,7 +92,7 @@ class Set
     private $categories;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="boolean")
      */
     private $previewOnStart;
 
@@ -461,38 +461,5 @@ class Set
     public function getPreviewOnStart()
     {
         return $this->previewOnStart;
-    }
-
-    /**
-     * Add locales
-     *
-     * @param \PaLogic\Bundle\AppBundle\Entity\Locale $locales
-     * @return Set
-     */
-    public function addLocale(\PaLogic\Bundle\AppBundle\Entity\Locale $locales)
-    {
-        $this->locales[] = $locales;
-
-        return $this;
-    }
-
-    /**
-     * Remove locales
-     *
-     * @param \PaLogic\Bundle\AppBundle\Entity\Locale $locales
-     */
-    public function removeLocale(\PaLogic\Bundle\AppBundle\Entity\Locale $locales)
-    {
-        $this->locales->removeElement($locales);
-    }
-
-    /**
-     * Get locales
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getLocales()
-    {
-        return $this->locales;
     }
 }

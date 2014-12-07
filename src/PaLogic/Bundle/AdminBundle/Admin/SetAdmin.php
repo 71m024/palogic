@@ -50,6 +50,7 @@ class SetAdmin extends Admin
             ->add('images', 'sonata_type_model', array('required' => false, 'multiple' => true))
             ->add('categories', 'sonata_type_model', array('required' => false, 'multiple' => true))
             ->add('previewOnStart')
+            ->add('locales')
         ;
     }
 

@@ -117,4 +117,27 @@ class Category
     {
         return $this->posts;
     }
+
+    /**
+     * Set domainRoutePrefix
+     *
+     * @param \PaLogic\Bundle\AppBundle\Entity\DomainRoutePrefix $domainRoutePrefix
+     * @return Category
+     */
+    public function setDomainRoutePrefix(\PaLogic\Bundle\AppBundle\Entity\DomainRoutePrefix $domainRoutePrefix = null)
+    {
+        $this->domainRoutePrefix = $domainRoutePrefix;
+
+        return $this;
+    }
+
+    /**
+     * Get domainRoutePrefix
+     *
+     * @return \PaLogic\Bundle\AppBundle\Entity\DomainRoutePrefix 
+     */
+    public function getDomainRoutePrefix()
+    {
+        return $this->domainRoutePrefix;
+    }
 }

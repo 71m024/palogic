@@ -109,3 +109,14 @@ services:
             - ~
         calls:
             - [ setTranslationDomain, [PaLogicAdminBundle]]
+
+    sonata.admin.locale:
+            class: PaLogic\Bundle\AdminBundle\Admin\LocaleAdmin
+            tags:
+                - { name: sonata.admin, manager_type: orm, group: "Inventory", label: "Standort" }
+            arguments:
+                - ~
+                - PaLogic\Bundle\AppBundle\Entity\Locale
+                - ~
+            calls:
+                - [ setTranslationDomain, [PaLogicAdminBundle]]

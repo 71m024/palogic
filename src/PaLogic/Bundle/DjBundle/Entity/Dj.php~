@@ -92,7 +92,7 @@ class Dj
     private $approved = false;
     
     /**
-     * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\DjBundle\Entity\Genre")
+     * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\DjBundle\Entity\Genre", inversedBy="djs")
      */
     private $genres;
     
