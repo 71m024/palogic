@@ -1941,6 +1941,15 @@ ul.retina-icons li span {
     font-size: 40px;
     white-space: nowrap;
 }
+.tp-caption.medium {
+    position: absolute;
+    color: #d9d9d9;
+    text-shadow: none;
+    font-weight: 300;
+    font-size: 30px;
+    white-space: nowrap;
+    font-weight: bold;
+}
 .tp-caption strong {
     font-weight: 900
 }
