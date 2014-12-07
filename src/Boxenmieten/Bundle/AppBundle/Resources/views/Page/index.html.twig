@@ -10,7 +10,7 @@
                      {% image '@PaLogicAppBundle/Resources/public/images/art/slider-transparent.png' output='generated/images/banner/slider-transparent.jpg'%}
                      <img src="{{ asset_url }}" alt="" style="background-color:#2a2a2a" />
                      {% endimage %}
-                     <div class="caption lfb" data-x="500" data-y="165" data-speed="900" data-start="100" data-easing="easeOutSine">
+                     <div class="caption lfb" data-x="500" data-y="150" data-speed="900" data-start="100" data-easing="easeOutSine">
                          {% image '@BoxenmietenAppBundle/Resources/public/images/banner/homePartySet.jpg' output='generated/images/banner/homePartySet.jpg'%}
                          <img src="{{ asset_url }}" alt="" />
                          {% endimage %}
@@ -30,10 +30,13 @@
                          <img src="{{ asset_url }}" alt="" />
                          {% endimage %}
                      </div>-->
-                     <div class="caption sfl huge" data-x="526" data-y="60" data-speed="300" data-start="100" data-easing="easeOutExpo"><strong><span class="colored">Musik</span></strong></div>
-                     <div class="caption sft huge" data-x="697" data-y="60" data-speed="300" data-start="800" data-easing="easeOutExpo"><strong>anlagen</strong></div>
-                     <div class="caption sfl big" data-x="610" data-y="120" data-speed="300" data-start="1200" data-easing="easeOutExpo">für jedermann</div>
-                     <div class="caption sfl medium" data-x="440" data-y="396" data-speed="300" data-start="1200" data-easing="easeOutExpo">Home Party Set <span class="colored">jetzt in Zürich</span> verfügbar!</div>
+                     <div class="caption sfl huge" data-x="526" data-y="40" data-speed="300" data-start="100" data-easing="easeOutExpo"><strong><span class="colored">Musik</span></strong></div>
+                     <div class="caption sft huge" data-x="697" data-y="40" data-speed="300" data-start="800" data-easing="easeOutExpo"><strong>anlagen</strong></div>
+                     <div class="caption sfl big" data-x="610" data-y="100" data-speed="300" data-start="1200" data-easing="easeOutExpo">für jedermann</div>
+                     <div class="caption sfl medium" data-x="630" data-y="386" data-speed="300" data-start="1200" data-easing="easeOutExpo">jetzt auch in Zürich verfügbar!</div>
+                     <div class="caption sfl medium" data-x="405" data-y="386" data-speed="300" data-start="1200" data-easing="easeOutExpo">
+                        <a href="{{ path("boxenmieten_app_set_show", {"id" : 16, "slug" : "home-party-set"}) }}" >Home Party Set</a>
+                     </div>
                 </li>
                 <li data-transition="fade">
                     {% image '@PaLogicAppBundle/Resources/public/images/art/slider-transparent.png' output='generated/images/banner/slider-transparent.jpg'%}
