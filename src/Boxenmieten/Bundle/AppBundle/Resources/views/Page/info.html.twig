@@ -3,43 +3,49 @@
 {% block title %}Infos{{parent()}}{% endblock%}
 
 {% block body %}
-    <h1 class="aligncenter">Infos</h1>
-    <p class="description aligncenter" >Wenn du Fragen bezüglich der Angebote hast, kontaktiere uns doch.</p>
+    <h1 class="aligncenter">So funktionierts</h1>
+    <p class="description aligncenter" >Wenn du weitere Fragen hast, <a href="{{ path('boxenmieten_palogic_blog_show', { id : 7, slug : 'so-kannst-du-gnstiger-mieten'}) }}">kontaktiere</a> uns doch.</p>
     <br />
     <div class="one-half">
-        <h2>Lieferung/Abholung</h2>
-        <p>Die Anlagen können vor Ort in Deisswil bei Münchenbuchsee abgeholt werden. Auf Anfrage werden sie geliefert/abgeholt.</p>
+        <h2>Abholmiete</h2>
+        <p>Die Anlagen können zu den <a href="{{ path('boxenmieten_app_locales') }}">hier</a> angegebenen Zeiten an unseren <a href="{{ path('boxenmieten_app_locales') }}">Standorten</a> abgeholt/zurückgebracht werden.</p>
+        <p>Individuelle Zeiten können vereinbahrt werden.</p>
     </div>
     <div class="one-half last">
-        <h2>Mietvertrag</h2>
-        <p>Den Mietvertrag können sie <a title="Mietvertrag" href="https://drive.google.com/file/d/0B0eSgTWVrNZTMEEzaUQ0R2ZBTWs/edit?usp=sharing" target="_blank">hier</a> einsehen.
-            Am Tag der Übergabe wird dieser von beiden Parteien unterzeichnet.<br />
-            Es ist möglich, dass der zu unterzeichnende Vertrag Differenzen zum oben verlinkten Vertrag aufweist.</p>
+        <h2>Lieferung/Abholung</h2>
+        <p>Auf Anfrage werden sämtliche Systeme geliefert oder abgeholt.</p>
+        <p>Angebote für Lieferungen/Abholungen werden kostenlos, schnell und unverbindlich erstellt.</p>
     </div>
     <div class="clear"></div>
     <hr>
     <div class="one-half">
-        <h2>Instruktion/Aufbau</h2>
-        <p>Bei der Übergabe gibt es eine ca. viertelstündige Instruktion.<br />
-            Gegen einen Aufpreis von 25.- wird die Anlage vor Ort eingerichtet.</p>
+        <h2>Instruktion</h2>
+        <p>Bei der Übergabe erfolgt eine Instruktion, damit du deinen Anlass ohne Zwischenfälle meistern kannst.</p>
     </div>
     <div class="one-half last">
+        <h2>Mietvertrag</h2>
+        <p>Den Mietvertrag kannst du <a title="Mietvertrag" href="https://drive.google.com/file/d/0B0eSgTWVrNZTMEEzaUQ0R2ZBTWs/edit?usp=sharing" target="_blank">hier</a> einsehen.
+            Am Tag der Übergabe wird dieser von beiden Parteien unterzeichnet.<br />
+            Es ist möglich, dass der zu unterzeichnende Vertrag kleine Differenzen zum verlinkten Vertrag aufweist.</p>
+    </div>
+    <div class="clear"></div>
+    <hr />
+    <div class="one-half">
         <h2>Bitcoins</h2>
         <p>Auf Anfrage kann mit Bitcoins bezahlt werden.
             Die Preise werden anhand des aktuellen Kurses berechnet.</p>
     </div>
+    <div class="one-half last"></div>
     <div class="clear"></div>
-    <hr>
-    <div class="clear"></div>
-    <div class="one-third"> 
+    <!--<div class="one-third">
         <h2>Vergünstigung mit Werbebanner</h2>
         <p>Beim mieten eines kompletten Sets, kann zusätzlich noch ein Werbebanner mitgemietet werden.<br />
             Wenn dieser während der Veranstaltung gut sichtbar aufgehängt wird, gibt es einen Rabatt von 10.- CHF.</p>
-        <p>Weitere Infos dazu findest du <a href="{{ path('palogic_blog_show', { id : 7, slug : 'so-kannst-du-gnstiger-mieten'}) }}">hier</a>.</p>
+        <p>Weitere Infos dazu findest du <a href="{{ path('boxenmieten_palogic_blog_show', { id : 7, slug : 'so-kannst-du-gnstiger-mieten'}) }}">hier</a>.</p>
     </div>
     <div class="two-third last">
         {% image '@BoxenmietenAppBundle/Resources/public/images/info/Plane_BM_small.png' output='generated/images/banner.jpg'%}
             <img src="{{ asset_url }}" width="550" class="margin aligncenter" alt="" />
         {% endimage %}
-    </div>
+    </div>-->
 {% endblock body %}

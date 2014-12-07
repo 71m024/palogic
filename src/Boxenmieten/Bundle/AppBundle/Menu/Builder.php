@@ -51,8 +51,12 @@ class Builder
                     'routeParameters' => array('categoryId' => $category->getId(), 'categoryName' => strtolower($category->getName()))
                 ));
             }
+            $infoMenu = $this->factory->createItem('Mieten', array('route' => 'boxenmieten_app_info'));
+            $infoMenu->addChild("So funktionierts", array('route' => 'boxenmieten_app_info'));
+            $infoMenu->addChild('Standorte', array('route' => 'boxenmieten_app_locales'));
+            $infoMenu->addChild('Kontakt', array('route' => 'boxenmieten_app_contact'));
+        $menu->addChild($infoMenu);
         $menu->addChild($blogMenu);
-        $menu->addChild('Infos', array('route' => 'boxenmieten_app_info'));
         $menu->addChild('Über mich', array('route' => 'boxenmieten_app_me'));
         $menu->addChild('Kontakt', array('route' => 'boxenmieten_app_contact'));
 

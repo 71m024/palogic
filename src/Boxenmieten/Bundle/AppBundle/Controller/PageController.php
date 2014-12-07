@@ -43,6 +43,14 @@ class PageController extends Controller
     {
         return array();
     }
+
+    /**
+     * @Template
+     */
+    public function localesAction()
+    {
+        return array();
+    }
     
     /**
     * @Template

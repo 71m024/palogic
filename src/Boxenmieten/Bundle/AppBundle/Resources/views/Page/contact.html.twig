@@ -4,15 +4,10 @@
 
 {% block body %}
     <h2 class="aligncenter">Kontakt</h2>
-    <p class="description aligncenter">Gerne geben wir dir Auskunft bezüglich unserer Musikanlagen.</p>
-    <br />
-    <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10876.672718435018!2d7.456237251081002!3d47.03693058711507!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478e3adaf8ce9a2b%3A0xc5add463a6993ac!2sDeisswil+bei+M%C3%BCnchenbuchsee!5e0!3m2!1sde!2sch!4v1393955087331" height="400" style="border:none; width: 100%;"></iframe>
-    </div>
+    <p class="description aligncenter">Gerne beraten wir dich! Bei Fragen schreib uns doch...</p>
     <br />
     <!-- Begin Content -->
     <section class="content">
-      <h2 id="frageGestellt">Bei Fragen schreib uns doch..</h2>
       <!-- Begin Form -->
       <div class="form-container">
           {% for flashMessage in app.session.flashbag.get('question-notice') %}

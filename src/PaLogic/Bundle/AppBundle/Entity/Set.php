@@ -95,6 +95,11 @@ class Set
      * @ORM\Column(type="boolean")
      */
     private $previewOnStart;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="PaLogic\Bundle\AppBundle\Entity\Locale", cascade={"persist", "remove"})
+     */
+    private $locales;
     
     /**
      * Constructor

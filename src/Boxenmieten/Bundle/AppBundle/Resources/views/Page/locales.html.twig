@@ -1,0 +1,33 @@
+{% extends 'BoxenmietenAppBundle::layout.html.twig' %}
+
+{% block title %}Standorte{{parent()}}{% endblock%}
+
+{% block body %}
+    <h2 class="aligncenter">Standorte</h2>
+    <p class="description aligncenter">Die Anlagen können an folgenden Standorten abgeholt werden:</p>
+    <p class="description aligncenter">(Vor der Abholung muss eine <a href="{{ path('boxenmieten_app_contact') }}">Reservation</a> erfolgen)</p>
+    <br />
+    <div class="one-half">
+        <h3>Bern (Hauptlager)</h3>
+        <p>
+            <b>Abholung:</b> Donnerstag, 18:00 - 18:30<br />
+            <b>Rückgabe:</b> Donnerstag, 19:00 - 20:00
+        </p>
+        <p>
+            3053 Deisswil bei Münchenbuchsee
+        </p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d347983.2058760525!2d7.4225456181572955!3d47.04771059070843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478e3adaf8ce9a2b%3A0xc5add463a6993ac!2sDeisswil+bei+M%C3%BCnchenbuchsee!5e0!3m2!1sde!2sch!4v1417881572486" height="400" style="border:none; width: 100%;"></iframe>
+    </div>
+    <div class="one-half last">
+        <h3>Zürich (Home Party Set)</h3>
+        <p>
+            <b>Abholung:</b> Dienstag, 19:00 - 19:30<br />
+            <b>Rückgabe:</b> Dienstag, 19:30 - 20:00
+        </p>
+        <p>
+            8046 Zürich, Bachmannweg 9
+        </p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d172854.20575177664!2d8.464525961150427!3d47.395418726058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47900b1da424e89d%3A0xcc8c64198a037cf2!2sBachmannweg+9%2C+8046+Z%C3%BCrich!5e0!3m2!1sde!2sch!4v1417881094508" height="400" style="border:none; width: 100%;"></iframe>
+    </div>
+    <div class="clear"></div>
+{% endblock %}
