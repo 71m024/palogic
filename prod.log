@@ -1,0 +1,7 @@
+[2014-12-07 19:54:46] request.INFO: Matched route "admin_palogic_app_set_edit" (parameters: "_controller": "Sonata\AdminBundle\Controller\CRUDController::editAction", "_sonata_admin": "sonata.admin.set", "_sonata_name": "admin_palogic_app_set_edit", "id": "5", "_route": "admin_palogic_app_set_edit") [] []
+[2014-12-07 19:54:46] security.DEBUG: Read SecurityContext from the session [] []
+[2014-12-07 19:54:46] security.DEBUG: Reloading user from user provider. [] []
+[2014-12-07 19:54:46] security.DEBUG: Username "71m024" was reloaded from user provider. [] []
+[2014-12-07 19:54:46] app.DEBUG: Injecting active bundle "SonataAdminBundle" [] []
+[2014-12-07 19:54:46] request.CRITICAL: Uncaught PHP Exception Exception: "Serialization of 'Closure' is not allowed" at /var/www/vhosts/boxenmieten.ch/palogic/releases/20141207183152/vendor/symfony/symfony/src/Symfony/Component/Form/Extension/Core/Type/ChoiceType.php line 173 {"exception":"[object] (Exception: Serialization of 'Closure' is not allowed at /var/www/vhosts/boxenmieten.ch/palogic/releases/20141207183152/vendor/symfony/symfony/src/Symfony/Component/Form/Extension/Core/Type/ChoiceType.php:173)"} []
+[2014-12-07 19:54:46] security.DEBUG: Write SecurityContext in the session [] []
