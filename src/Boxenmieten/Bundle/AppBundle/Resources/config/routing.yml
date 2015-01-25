@@ -21,6 +21,12 @@ boxenmieten_app_locales:
     defaults: { _controller: BoxenmietenAppBundle:Page:locales }
     requirements:
         _method:  GET
+
+boxenmieten_app_references:
+    pattern:  /referenzen
+    defaults: { _controller: BoxenmietenAppBundle:Page:references }
+    requirements:
+        _method:  GET
         
 boxenmieten_app_contact:
     pattern:  /kontakt

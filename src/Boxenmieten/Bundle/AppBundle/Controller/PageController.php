@@ -63,6 +63,14 @@ class PageController extends Controller
         
         return array('sets' => $sets);
     }
+
+    /**
+     * @Template
+     */
+    public function referencesAction()
+    {
+        return array();
+    }
     
     /**
     * @Template

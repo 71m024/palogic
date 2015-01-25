@@ -181,6 +181,11 @@ liip_imagine:
             filters:
                 thumbnail: { size: [1110, 550], mode: outbound, allow_upscale: true }
 
+        filter_reference_logo:
+            filters:
+                upscale: { min: [360, 220] }
+                thumbnail: { size: [360, 220], mode: inset, allow_upscale: true }
+
         #Retina-Filters
 
 #        filter_widen_retina:
