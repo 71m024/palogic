@@ -4,12 +4,12 @@
 
 {% block body %}
     <h2 class="aligncenter">Kontakt</h2>
-    <p class="description aligncenter">Gerne beraten wir dich! Bei Fragen schreib uns doch...</p>
+    <p class="description aligncenter">Gerne beraten wir dich! Bei Fragen nim doch Kontakt mit uns auf...</p>
     <br />
     <!-- Begin Content -->
-    <section class="content">
+    <!--<section >-->
       <!-- Begin Form -->
-      <div class="form-container">
+      <!--<div class="form-container">
           {% for flashMessage in app.session.flashbag.get('question-notice') %}
               <div class="response">
                   {{ flashMessage }}
@@ -44,15 +44,25 @@
                   {{ form_rest(form) }}
               </fieldset>
           </form>
-      </div>
-      <!-- End Form --> 
-    </section>
-    <aside class="sidebar">
+      </div>-->
+      <!-- End Form -->
+        <div class="one-half">
+            <i class="icon-phone contact-icon aligncenter"></i>
+            <hr />
+            <a class="big-contact-link aligncenter" href="tel:+41 79 266 07 74">+41 79 266 07 74</a>
+        </div>
+        <div class="one-half last">
+            <i class="icon-mail contact-icon aligncenter"></i>
+            <hr />
+            <a class="big-contact-link aligncenter" href="mailto:info@boxenmieten.ch">info@boxenmieten.ch</a>
+        </div>
+    <!--</section>-->
+    <!--<aside class="sidebar">
       <div class="sidebox">
         <h3>Addresse</h3>
         <i class="icon-location contact"></i>3053 Deisswil b.M.<br />
         <i class="icon-phone contact"></i>+41 79 266 07 74 <br />
         <i class="icon-mail contact"></i> <a href="mailto:info@boxenmieten.ch">info@boxenmieten.ch</a> </div>
-    </aside>
+    </aside>-->
     <div class="clear"></div>
 {% endblock %}

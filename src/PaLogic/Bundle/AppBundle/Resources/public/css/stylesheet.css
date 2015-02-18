@@ -65,3 +65,11 @@ table.datatable tr button,
 table.datatable tr .button {
     margin-bottom: 0px;
 }
+
+i.contact-icon {
+    font-size: 60px;
+}
+
+a.big-contact-link {
+    font-size: 30px;
+}
