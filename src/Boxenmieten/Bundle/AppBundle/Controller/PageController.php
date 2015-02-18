@@ -88,7 +88,7 @@ class PageController extends Controller
 
                 $message = \Swift_Message::newInstance()
                     ->setSubject('Frage von: ' . $question->getName())
-                    ->setFrom('info@boxenmieten.ch')
+                    ->setFrom('bot@boxenmieten.ch')
                     ->setTo($this->container->getParameter('boxenmieten_app.emails.contact_email'))
                     ->setBody($this->renderView('BoxenmietenAppBundle:Page:contactEmail.txt.twig', array('question' => $question)));
                 $this->get('mailer')->send($message);
