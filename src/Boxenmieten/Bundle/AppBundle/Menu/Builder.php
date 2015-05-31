@@ -58,7 +58,7 @@ class Builder
             $infoMenu->addChild('Kontakt', array('route' => 'boxenmieten_app_contact'));
         $menu->addChild($infoMenu);
         $menu->addChild($blogMenu);
-        $menu->addChild('Über mich', array('route' => 'boxenmieten_app_me'));
+        $menu->addChild('Team', array('route' => 'boxenmieten_app_team'));
         $menu->addChild('Kontakt', array('route' => 'boxenmieten_app_contact'));
 
         return $menu;

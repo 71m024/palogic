@@ -22,15 +22,40 @@
 {% block body %}
     <div class="two-third">
         <h1 >Timo Bühlmann</h1>
+        <h3>Gründer</h3>
         <p>Ich absolviere momentan die Informatiker-Ausbildung bei der Post in Bern, wo ich auch die Berufsmaturität besuche.</p>
         <p>Die Beschallung von Events fasziniert mich schon seit meiner frühen Kindheit.
         Zusätzlich bin ich sehr motiviert, mich beim Aufbau von grösseren Musikanlagen zu betätigen und genieße es, diese anderen zur Verfügung zu stellen.</p>
         <p>Ich freue mich, wenn du dich für uns entscheidest!</p>
     </div>
     <div class="one-third last">
-        {% image '@BoxenmietenAppBundle/Resources/public/images/me/Portrait_modified_small.jpg' output='generated/images/me.jpg' %}
+        {% image '@BoxenmietenAppBundle/Resources/public/images/team/timo.jpg' output='generated/images/team/timo.jpg' %}
             <img src="{{ asset_url }}" width="250" class="margin" alt="" />
         {% endimage %}
+    </div>
+    <div class="clear"></div>
+    <hr>
+    <div class="one-half">
+        <div class="one-half">
+            {% image '@BoxenmietenAppBundle/Resources/public/images/team/philipp.jpg' output='generated/images/team/philipp.jpg' %}
+                <img src="{{ asset_url }}" width="250" class="margin" alt="" />
+            {% endimage %}
+        </div>
+        <div class="one-half last">
+            <h1>Philipp Mollet</h1>
+            <h3>Terminvereinbahrung, Kundenberatung</h3>
+        </div>
+    </div>
+    <div class="one-half last">
+        <div class="one-half">
+            {% image '@BoxenmietenAppBundle/Resources/public/images/team/joel.jpg' output='generated/images/team/joel.jpg' %}
+                <img src="{{ asset_url }}" width="250" class="margin" alt="" />
+            {% endimage %}
+        </div>
+        <div class="one-half last">
+            <h1 >Philipp Mollet</h1>
+            <h3>Lagerverwaltung</h3>
+        </div>
     </div>
     <div class="clear"></div>
 {% endblock body %}
@@ -41,7 +66,6 @@
             <div class="one-half">
                 <h3>Weitere Projekte</h3>
                 <ul>
-                    <li><a target="_blank" href="http://www.gvbwiki.ch">GVBWiki.ch</a></li>
                     <li><a target="_blank" href="http://www.pilatesmoossee.ch">Pilatesmoossee.ch</a></li>
                 </ul>
             </div>

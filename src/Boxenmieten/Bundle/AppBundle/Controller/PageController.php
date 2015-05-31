@@ -31,7 +31,7 @@ class PageController extends Controller
     /**
     * @Template
     */
-    public function meAction()
+    public function teamAction()
     {
         return array();
     }

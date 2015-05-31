@@ -4,9 +4,9 @@ boxenmieten_app_homepage:
     requirements:
         _method:  GET
         
-boxenmieten_app_me:
-    pattern:  /me
-    defaults: { _controller: BoxenmietenAppBundle:Page:me }
+boxenmieten_app_team:
+    pattern:  /team
+    defaults: { _controller: BoxenmietenAppBundle:Page:team }
     requirements:
         _method:  GET
         
