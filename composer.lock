@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "cc3af0388041e9220e3b18fc9df83b68",
+    "hash": "bfcc51610a9a29762971ffafb6dd00db",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -1093,6 +1093,48 @@
             "time": "2014-11-08 10:51:34"
         },
         {
+            "name": "excelwebzone/recaptcha-bundle",
+            "version": "2.3.x-dev",
+            "target-dir": "EWZ/Bundle/RecaptchaBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/excelwebzone/EWZRecaptchaBundle.git",
+                "reference": "6bb253a48f7d601d4b1191dbf43091e294f2436e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/excelwebzone/EWZRecaptchaBundle/zipball/6bb253a48f7d601d4b1191dbf43091e294f2436e",
+                "reference": "6bb253a48f7d601d4b1191dbf43091e294f2436e",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/framework-bundle": "2.*"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "EWZ\\Bundle\\RecaptchaBundle\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael H. Arieli",
+                    "email": "excelwebzone@gmail.com",
+                    "homepage": "http://excelwebzone.com/"
+                }
+            ],
+            "description": "This bundle provides easy reCAPTCHA form field integration",
+            "homepage": "https://github.com/excelwebzone/EWZRecaptchaBundle",
+            "keywords": [
+                "recaptcha"
+            ],
+            "time": "2015-01-21 15:08:30"
+        },
+        {
             "name": "friendsofsymfony/jsrouting-bundle",
             "version": "1.5.4",
             "source": {
@@ -1991,17 +2033,17 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v2.3.17",
+            "version": "v2.3.20",
             "target-dir": "Sensio/Bundle/DistributionBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "49334e66844f89898d21646b4fda4cfcfe116200"
+                "reference": "e28abfc11f5dcb05dfd864346e2dd03776a62ba8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/49334e66844f89898d21646b4fda4cfcfe116200",
-                "reference": "49334e66844f89898d21646b4fda4cfcfe116200",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/e28abfc11f5dcb05dfd864346e2dd03776a62ba8",
+                "reference": "e28abfc11f5dcb05dfd864346e2dd03776a62ba8",
                 "shasum": ""
             },
             "require": {
@@ -2033,7 +2075,7 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2015-05-29 22:34:59"
+            "time": "2015-06-01 15:02:50"
         },
         {
             "name": "sensio/framework-extra-bundle",
@@ -3304,7 +3346,8 @@
         "megogo/multiple-inheritance-bundle": 20,
         "friendsofsymfony/user-bundle": 20,
         "friendsofsymfony/jsrouting-bundle": 0,
-        "liip/imagine-bundle": 20
+        "liip/imagine-bundle": 20,
+        "excelwebzone/recaptcha-bundle": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

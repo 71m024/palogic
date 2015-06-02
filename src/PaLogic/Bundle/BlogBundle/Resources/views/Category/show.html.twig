@@ -33,7 +33,7 @@
                             keiner Kagetorie
                             {% endfor %}
                         </span>
-                        <span class="sep"> | </span><span>Gepostet von <a href="{{ path('boxenmieten_app_me') }}">{{ post.author }}</a></span>
+                        <span class="sep"> | </span><span>Gepostet von <a href="{{ path('boxenmieten_app_team') }}">{{ post.author }}</a></span>
                         <span class="sep"> | </span><span><a href="{{ path("palogic_blog_show", {"id" : post.id, "slug" : post.slug}) }}">{{ post.comments|length }} Kommentare</a></span>
                     </div>
                 </div>

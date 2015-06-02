@@ -255,3 +255,9 @@ swiftmailer:
     encryption: "%mailer_bm_encryption%"
     auth_mode:  "%mailer_bm_auth_mode%"
     spool:     { type: memory }
+
+ewz_recaptcha:
+    public_key:  6LcrugcTAAAAACk1Be_ACbE7glptV7IrvoViHx2B
+    private_key: 6LcrugcTAAAAACmVdGJ5QtJ6E8VODZJEWLvgyoLs
+    locale_key:  %kernel.default_locale%
+    ajax: true

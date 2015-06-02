@@ -31,7 +31,8 @@
         "megogo/multiple-inheritance-bundle": "dev-master",
         "friendsofsymfony/user-bundle": "~2.0@dev",
         "friendsofsymfony/jsrouting-bundle": "@stable",
-        "liip/imagine-bundle": "dev-master"
+        "liip/imagine-bundle": "dev-master",
+        "excelwebzone/recaptcha-bundle": "~2.3@dev"
     },
     "scripts": {
         "post-install-cmd": [
