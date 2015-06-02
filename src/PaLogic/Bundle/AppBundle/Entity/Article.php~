@@ -13,7 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\DiscriminatorColumn(name="discr", type="string")
  * @ORM\DiscriminatorMap({"boxe" = "Boxe", "stand" = "Stand", "cable" = "Cable", "mixer" = "Mixer", "player" = "Player", "mic" = "Mic"})
  */
-class Article
+abstract class Article
 {
     /**
      * @ORM\Id

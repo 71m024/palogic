@@ -45,6 +45,7 @@ class AppKernel extends BaseKernel
             new DjCrowd\Bundle\DjBundle\DjCrowdDjBundle(),
             new PaLogic\Bundle\ImageBundle\PaLogicImageBundle(),
             new DjCrowd\Bundle\ImageBundle\DjCrowdImageBundle(),
+            new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

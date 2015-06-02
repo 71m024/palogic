@@ -9,6 +9,8 @@
         <div class="message-field">
             {{ form_widget(form.comment, {'attr' : {'class' : 'text-area'}}) }}
         </div>
+        {{ form_widget(form.recaptcha) }}
+        <br />
         {{ form_widget(form.send, {'label' : 'senden', 'attr' : {'class' : 'btn-submit'}}) }}
         {{ form_rest(form) }}
     </form>

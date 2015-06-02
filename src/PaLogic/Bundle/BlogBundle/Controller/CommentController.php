@@ -25,7 +25,7 @@ class CommentController extends Controller {
         
         return array('posts' => $posts);
     }
-    
+
     public function newAction($post_id)
     {
         $post = $this->getPost($post_id);

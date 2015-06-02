@@ -48,6 +48,8 @@ class Comment {
      */
     protected $updated;
 
+    protected $recaptcha;
+
     public static function loadValidatorMetadata(ClassMetadata $metadata) {
         $metadata->addPropertyConstraint('user', new NotBlank(array(
             'message' => 'You must enter your name'

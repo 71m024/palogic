@@ -5,6 +5,7 @@ namespace PaLogic\Bundle\BlogBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
+use EWZ\Bundle\RecaptchaBundle\Validator\Constraints\True;
 
 class CommentType extends AbstractType
 {
@@ -16,6 +17,12 @@ class CommentType extends AbstractType
     {
         $builder->add('user');
         $builder->add('comment');
+        $builder->add('recaptcha', 'ewz_recaptcha', array(
+            'mapped'      => false,
+            'constraints' => array(
+                new True()
+            )
+        ));
         $builder->add('send', 'submit');
     }
     

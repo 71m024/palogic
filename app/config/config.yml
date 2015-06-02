@@ -257,7 +257,6 @@ swiftmailer:
     spool:     { type: memory }
 
 ewz_recaptcha:
-    public_key:  6LcrugcTAAAAACk1Be_ACbE7glptV7IrvoViHx2B
-    private_key: 6LcrugcTAAAAACmVdGJ5QtJ6E8VODZJEWLvgyoLs
+    public_key:  6Ld_bN4SAAAAADiKwBToK7SM2a4Jx4MydmIlp3MQ
+    private_key: 6Ld_bN4SAAAAAIDyDaSEP6liw1alvhPpqI-Ke5-q
     locale_key:  %kernel.default_locale%
-    ajax: true
