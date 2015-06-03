@@ -1,12 +1,16 @@
 <!DOCTYPE HTML>
 <html lang="en-US">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <meta name="description" content="{% block description %}PaLogic{% endblock %}">
-        <meta http-equiv="language" content="DE">
+        {% block meta %}
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <meta name="description" content="{% block description %}PaLogic{% endblock %}">
+            <meta http-equiv="language" content="DE">
+        {% endblock meta %}
         <title>{% block title %} - PaLogic{% endblock %}</title>
-        <link rel="shortcut icon" type="image/x-icon" href="/style/images/favicon.png?v=2" />
+        {% block links %}
+            <link rel="shortcut icon" type="image/x-icon" href="/style/images/favicon.png?v=2" />
+        {% endblock links %}
         {% block canonical %}{% endblock %}
         {% stylesheets '@PaLogicAppBundle/Resources/public/css/ie8.css' filter='cssrewrite' output='generated/style/palogicIE8Stylesheet.css' %}
             <!--[if IE 8]>
